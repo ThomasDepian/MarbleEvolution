@@ -14,4 +14,14 @@ export class Configuration {
      * Specifies the default start point of a marble.
      */
     static readonly START_POSITION = new Phaser.Geom.Point(500 / 2, 500 - 2 * Configuration.MARBLE_DIAMETER);
+
+    /**
+     * Specifies the diameter of the goal.
+     */
+    static readonly GOAL_DIAMETER = 20;
+
+    /**
+     * Specifies the default point of the goal.
+     */
+    static readonly GOAL_POSITION = new Phaser.Geom.Point(500 / 2, 2 * Configuration.GOAL_DIAMETER);
 }

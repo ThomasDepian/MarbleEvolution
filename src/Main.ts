@@ -1,3 +1,4 @@
+import { Goal } from './Goal';
 import { Marble } from './Marble';
 import { Configuration } from './Configuration';
 import * as Phaser from 'phaser';
@@ -44,6 +45,7 @@ export class Main extends Phaser.Scene {
      */
     public preload(): void {
         this.load.image("marble", "assets/dot.png");
+        this.load.image("goal", "assets/goal.png");
     }
 
     /**
@@ -64,6 +66,8 @@ export class Main extends Phaser.Scene {
         
     
         this.marble = new Marble(this.matter.world, this, Configuration.START_POSITION, "marble", Configuration.MARBLE_DIAMETER);
+
+        new Goal(this, Configuration.GOAL_POSITION, "goal", Configuration.GOAL_DIAMETER);
     
         this.input.on('pointerdown', this.handlePointerDown, this);
         
