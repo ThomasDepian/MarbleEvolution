@@ -33,6 +33,13 @@ export class Main extends Phaser.Scene {
      */
     private marble: Marble;
 
+    /**
+     * Reference to the goal.
+     * 
+     * @note Only for testing!!!
+     */
+    private goal: Goal;
+
     
     constructor() {
         super('main');
@@ -67,7 +74,7 @@ export class Main extends Phaser.Scene {
     
         this.marble = new Marble(this.matter.world, this, Configuration.START_POSITION, "marble", Configuration.MARBLE_DIAMETER);
 
-        new Goal(this, Configuration.GOAL_POSITION, "goal", Configuration.GOAL_DIAMETER);
+        this.goal = new Goal(this, Configuration.GOAL_POSITION, "goal", Configuration.GOAL_DIAMETER);
     
         this.input.on('pointerdown', this.handlePointerDown, this);
         
@@ -79,7 +86,7 @@ export class Main extends Phaser.Scene {
      */
     public update(): void {
 
-        
+              
         this.graphics.clear();
         if (this.initializationMode) {
 
@@ -103,6 +110,11 @@ export class Main extends Phaser.Scene {
             this.graphics.lineStyle(1, color);
             this.graphics.lineBetween(x1, y1, x2, y2);
         }
+
+        // Set texts
+        document.getElementById('moving').textContent = (this.marble.isMoving() ? 'moving' : 'standing');
+        document.getElementById('touching').textContent = (this.marble.isTouching(this.goal) ? 'touches' : 'touches not');
+        document.getElementById('difference').textContent = this.marble.differenceTo(this.goal).toFixed(2);
     }
 
     /**
