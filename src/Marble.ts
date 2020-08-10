@@ -72,12 +72,45 @@ export class Marble extends Phaser.Physics.Matter.Sprite {
     /**
      * Resets a marble.
      * 
-     * @remarks Test
      * A marble gets reset by setting its velocity to zero and
      * positioning it at the start point.
      */
     public reset(): void {
         this.setPosition(this.startPosition.x, this.startPosition.y);
         this.setVelocity(0, 0);
+    }
+
+     /**
+     * Computes the distance of a marble to a given object.
+     * 
+     * @param obj The object to which the difference should be computed.
+     * @returns The difference to the object.
+     */
+    public differenceTo(obj: Phaser.GameObjects.Components.Transform): number {
+        return new Phaser.Math.Vector2(this.x - obj.x, this.y - obj.y).length();
+    }
+
+    /**
+     * Checks whether the marble is moving or not.
+     * 
+     * A marble is moving if it has a velocity.
+     * 
+     * @returns Return _true_ if the marble is moving, _false_
+     *          otherwise.
+     */
+    public isMoving(): boolean{
+        return new Phaser.Math.Vector2(this.body.velocity).length() > 0.025;
+    }
+
+    /**
+     * Checks whether the marble is touching the specified object or not.
+     * 
+     * @returns Return _true_ if the marble touches the object,
+     *          _false_ otherwise.
+     */
+    public isTouching(obj: Phaser.GameObjects.Components.GetBounds): boolean{
+        const thisBounds = this.getBounds();
+        const objBounds = obj.getBounds();
+        return Phaser.Geom.Intersects.RectangleToRectangle(thisBounds, objBounds);
     }
 }
