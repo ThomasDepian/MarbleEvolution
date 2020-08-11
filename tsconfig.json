@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "moduleResolution": "node"
+    },
+    "typedocOptions": {
+      "inputFiles": ["./src"],
+      "mode": "file",
+      "out": "docs"
+    },
+    "include": [
+      "./src/**/*"
+    ]
+  }
