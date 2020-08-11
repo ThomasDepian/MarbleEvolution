@@ -1,3 +1,4 @@
+import { Obstacle } from './Obstacle';
 import { Goal } from './Goal';
 import { Marble } from './Marble';
 import { Configuration } from './Configuration';
@@ -53,6 +54,7 @@ export class Main extends Phaser.Scene {
     public preload(): void {
         this.load.image("marble", "assets/dot.png");
         this.load.image("goal", "assets/goal.png");
+        this.load.image("obstacle", "assets/obstacle.png");
     }
 
     /**
@@ -75,6 +77,10 @@ export class Main extends Phaser.Scene {
         this.marble = new Marble(this.matter.world, this, Configuration.START_POSITION, "marble", Configuration.MARBLE_DIAMETER);
 
         this.goal = new Goal(this, Configuration.GOAL_POSITION, "goal", Configuration.GOAL_DIAMETER);
+
+        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(200, 350), "obstacle", 400, 20);
+        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(350, 220), "obstacle", 300, 20);
+        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(100, 150), "obstacle", 80, 20);
     
         this.input.on('pointerdown', this.handlePointerDown, this);
         
