@@ -74,7 +74,10 @@ Chances are high that I am aware of the bug, as the current versions are still u
 Build with [**Phaser3**](https://phaser.io/phaser3).  
 Documentation generated with [**typedoc**](https://typedoc.org/).  
 **Assets used:**
-- Marble and goal image: https://www.iconfinder.com/icons/2203520/circle_dot_record_round_icon
+- Marble and goal image: https://www.iconfinder.com/icons/2203520/circle_dot_record_round_icon  
+
+**Development dependencies:**  
+See `package.json`
 
 
 ## Licence
