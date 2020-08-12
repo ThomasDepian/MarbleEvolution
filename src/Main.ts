@@ -78,11 +78,12 @@ export class Main extends Phaser.Scene {
 
         this.goal = new Goal(this, Configuration.GOAL_POSITION, "goal", Configuration.GOAL_DIAMETER);
 
-        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(200, 350), "obstacle", 400, 20);
-        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(350, 220), "obstacle", 300, 20);
-        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(100, 150), "obstacle", 80, 20);
+        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(200, 350), "obstacle", 400, 30);
+        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(350, 220), "obstacle", 300, 30);
+        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(120, 150), "obstacle", 80, 30);
     
         this.input.on('pointerdown', this.handlePointerDown, this);
+        this.input.on('pointerup', this.handlePointerUp, this);
         
     }
 
@@ -106,12 +107,12 @@ export class Main extends Phaser.Scene {
             const y1 = Configuration.START_POSITION.y
             const y2 = this.game.input.activePointer.y;
 
-            const length = Math.min(this.vectorToPointer().length(), 300);
+            const length = Math.min(this.vectorToPointer().length(), 250);
             this.text.text = "Power: " + (length / 10).toFixed(2);
 
             // Draw the colored line displaying the start dirction of the marble
             // Color will be interpolated between green (0 power) and red (max power)
-            const colorInter = Phaser.Display.Color.Interpolate.RGBWithRGB(0, 255, 0, 255, 0, 0, 300, length);
+            const colorInter = Phaser.Display.Color.Interpolate.RGBWithRGB(0, 255, 0, 255, 0, 0, 250, length);
             const color = (colorInter.r << 16) + (colorInter.g << 8) + (colorInter.b);
             this.graphics.lineStyle(1, color);
             this.graphics.lineBetween(x1, y1, x2, y2);
@@ -120,7 +121,7 @@ export class Main extends Phaser.Scene {
         // Set texts
         document.getElementById('moving').textContent = (this.marble.isMoving() ? 'moving' : 'standing');
         document.getElementById('touching').textContent = (this.marble.isTouching(this.goal) ? 'touches' : 'touches not');
-        document.getElementById('difference').textContent = this.marble.differenceTo(this.goal).toFixed(2);
+        document.getElementById('difference').textContent = this.marble.distanceTo(this.goal).toFixed(2);
     }
 
     /**
@@ -141,20 +142,24 @@ export class Main extends Phaser.Scene {
 
     /**
      * Handles the pointer (mostly mouse) down event for the main scene.
-     * The handler toggles the [[initializationMode]]. Depending on
-     * the mode, either the [[marble]] gets reseted or the game
-     * starts.
+     * The handler activates the [[initializationMode]].
      */
     private handlePointerDown(): void {
-        this.initializationMode = !this.initializationMode;
+        this.initializationMode = true;
+        
+        this.text.visible = true;
+        this.marble.reset();
+    }
 
-        if (this.initializationMode) {
-            this.text.visible = true;
-            this.marble.reset();
-        } else {
-            this.text.visible = false;
-            this.startGame();
-        }
+    /**
+     * Handles the pointer (mostly mouse) up event for the main scene.
+     * The handler deactivates the [[initializationMode]] and starts the
+     * game.
+     */
+    private handlePointerUp(): void {
+        this.initializationMode = false;
+        this.text.visible = false;
+        this.startGame();
     }
 
     /**

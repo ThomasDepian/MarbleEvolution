@@ -83,10 +83,10 @@ export class Marble extends Phaser.Physics.Matter.Sprite {
      /**
      * Computes the distance of a marble to a given object.
      * 
-     * @param obj The object to which the difference should be computed.
-     * @returns The difference to the object.
+     * @param obj The object to which the distance should be computed.
+     * @returns The distance to the object.
      */
-    public differenceTo(obj: Phaser.GameObjects.Components.Transform): number {
+    public distanceTo(obj: Phaser.GameObjects.Components.Transform): number {
         return new Phaser.Math.Vector2(this.x - obj.x, this.y - obj.y).length();
     }
 
