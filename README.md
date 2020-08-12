@@ -70,7 +70,7 @@ First of all thanks for showing the interest to participate. Please feel free to
 Your eyes spotted something you think is wrong?   
 Chances are high that I am aware of the bug, ss the current versions are still under heavy development. But if the bug persists over several versions feel free to open an issue. 
 
-## Frameworks & Assets used
+## Other Resources
 Build with [**Phaser3**](https://phaser.io/phaser3).  
 Documentation generated with [**typedoc**](https://typedoc.org/).  
 **Assets used:**
