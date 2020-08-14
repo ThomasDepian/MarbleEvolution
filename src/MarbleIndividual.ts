@@ -64,6 +64,16 @@ export class MarbleIndividual extends Marble {
      */
     public readonly diameter: number;
 
+    /**
+     * 
+     * @param world The world to which the individual belongs.
+     * @param scene The scene to which the individual belongs.
+     * @param startPoint Start point of the individual.
+     * @param textureName The name of the texture. **Note**: Must be loaded _before_ the call.
+     * @param diameter Diameter of the marble.
+     * @param goal The goal to which the individuals are reaching.
+     * @param dna The DNA of the individual. If not present, a random DNA will be generated.
+     */
     constructor (
         world: Phaser.Physics.Matter.World,
         scene: Phaser.Scene,

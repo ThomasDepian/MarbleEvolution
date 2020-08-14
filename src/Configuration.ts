@@ -30,7 +30,7 @@ export class Configuration {
     /** 
      * Specifies the amount of individuals.
      */
-    static readonly INDIVIDUAL_COUNT = 20;
+    static readonly INDIVIDUAL_COUNT = 100;
 
     /** 
      * Specifies the probability that a child mutates.
@@ -71,11 +71,17 @@ export class Configuration {
      * That means if the angle property mutates, the following 
      * will hold: |new_angle - old_angle| <= 3.
      */
-    static readonly ANGLE_MUTATION_RANGE = 0.5
+    static readonly ANGLE_MUTATION_RANGE = 0.5;
 
     /** 
      * Specifies the probability that during reproduction the
      * propery from the father will be choosen.
      */
-    static readonly FATHER_GENES_PROBABILITY = 0.5
+    static readonly FATHER_GENES_PROBABILITY = 0.5;
+
+    /** 
+     * Specifies whether a human or the genetic algorithm (the _AI_)
+     * plays the game.
+     */
+    static readonly HUMAN_MODE = false;
 }

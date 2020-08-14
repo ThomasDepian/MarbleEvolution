@@ -42,13 +42,6 @@ export class Main extends Phaser.Scene {
      * @note Only for testing!!!
      */
     private goal: Goal;
-
-    /**
-     * Specifies whether the AI mode is enabled or not.
-     * 
-     * @note Only for testing!!!
-     */
-    private readonly AI_MODE = true;
     
     /**
      * Specifies whether the AI has started acting.
@@ -104,14 +97,8 @@ export class Main extends Phaser.Scene {
 
         this.goal = new Goal(this, Configuration.GOAL_POSITION, "goal", Configuration.GOAL_DIAMETER);
 
-        if (!this.AI_MODE) {
+        if (Configuration.HUMAN_MODE) {
             this.marble = new Marble(this.matter.world, this, Configuration.START_POSITION, "marble", Configuration.MARBLE_DIAMETER);
-        } else {
-            const marbles: MarbleIndividual[] = [];
-            for (let i = 0; i < 100; i++) {
-                marbles.push(new MarbleIndividual(this.matter.world, this, Configuration.START_POSITION, "marble", Configuration.MARBLE_DIAMETER, this.goal))
-            }
-            initializeAlgorithm(marbles);
         }
 
         new Obstacle(this.matter.world, this, new Phaser.Geom.Point(200, 350), "obstacle", 400, 30);
@@ -119,7 +106,7 @@ export class Main extends Phaser.Scene {
         new Obstacle(this.matter.world, this, new Phaser.Geom.Point(120, 150), "obstacle", 80, 30);
     
         
-        if (!this.AI_MODE) {
+        if (Configuration.HUMAN_MODE) {
             this.input.on('pointerdown', this.handlePointerDown, this);
             this.input.on('pointerup', this.handlePointerUp, this);
         } else {
@@ -134,7 +121,7 @@ export class Main extends Phaser.Scene {
      */
     public update(): void {
 
-        if (!this.AI_MODE) {
+        if (Configuration.HUMAN_MODE) {
             this.graphics.clear();
             if (this.initializationMode) {
 
@@ -241,12 +228,14 @@ export class Main extends Phaser.Scene {
             this.launched = false;
             killAll();
         } else {
+            const marbles: MarbleIndividual[] = [];
+            for (let i = 0; i < Configuration.INDIVIDUAL_COUNT; i++) {
+                marbles.push(new MarbleIndividual(this.matter.world, this, Configuration.START_POSITION, "marble", Configuration.MARBLE_DIAMETER, this.goal))
+            }
+            initializeAlgorithm(marbles);
             this.newIteration = true;
             this.launched = true;
         }
        
     }
-
-
-    
 }

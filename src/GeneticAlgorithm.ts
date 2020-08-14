@@ -1,9 +1,8 @@
+import { Configuration } from './Configuration';
+import { MarbleIndividual } from './MarbleIndividual';
 /**
  * File providing helper utilities for the genetic algorithm.
  */
-
-import { Configuration } from './Configuration';
-import { MarbleIndividual } from './MarbleIndividual';
 
 
 /**
@@ -18,7 +17,6 @@ export let iterationCount: number;
 let population: MarbleIndividual[];
 
 
-// TODO: Evtl noch, dass man auch nur eine Größe angeben kann
 /**
  * @param initialPopulation The intial population.
  */
