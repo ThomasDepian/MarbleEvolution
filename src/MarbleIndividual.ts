@@ -22,14 +22,47 @@ export class MarbleIndividual extends Marble {
 
     /**
      * The dna of the marble individual.
+     * @readonly
      */
-    private dna: MarbleDNA;
+    public readonly dna: MarbleDNA;
 
     /**
      * The goal to which the individual should
      * try to find a way.
+     * @readonly
      */
-    private goal: Goal;
+    public readonly goal: Goal;
+
+    /**
+     * The goal to which the individual should
+     * try to find a way.
+     * @readonly
+     */
+    public readonly scene: Phaser.Scene;
+
+    /**
+     * The startpoint of the individual.
+     * 
+     * @note Only needed for the reproduce function.
+     * @readony
+     */
+    public readonly startPoint: Phaser.Geom.Point;
+
+    /**
+     * The name of the texture for the individual.
+     * 
+     * @note Only needed for the reproduce function.
+     * @readonly
+     */
+    public readonly textureName: string;
+
+    /**
+     * The diameter of the individual.
+     * 
+     * @note Only needed for the reproduce function.
+     * @readonly
+     */
+    public readonly diameter: number;
 
     constructor (
         world: Phaser.Physics.Matter.World,
@@ -37,12 +70,31 @@ export class MarbleIndividual extends Marble {
         startPoint: Phaser.Geom.Point,
         textureName: string,
         diameter: number,
-        dna: MarbleDNA,
-        goal: Goal){
+        goal: Goal,
+        dna?: MarbleDNA){
 
         super(world, scene, startPoint, textureName, diameter); 
-        this.dna  = dna;
+        this.scene = scene;
+        this.startPoint = startPoint;
+        this.textureName = textureName;
+        this.diameter = diameter;
         this.goal = goal;
+
+        if (dna === undefined) {
+            const power = Math.random() * 25;
+            const angle = Math.random() * Math.PI;
+
+            this.dna = {
+                'power': power,
+                'angle': angle
+            }
+        }else {
+            this.dna  = dna;
+        }
+
+        // Disable collions
+        this.setCollisionGroup(-1);
+        
     }
 
     /**
@@ -66,7 +118,7 @@ export class MarbleIndividual extends Marble {
     public fitness(): number {
         const distance = super.distanceTo(this.goal);
 
-        return Math.pow(distance, 2);
+        return 1 / Math.pow(distance, 2);
     }
 
 
@@ -105,8 +157,6 @@ export class MarbleIndividual extends Marble {
 
             this.dna.angle = angle;
         } 
-        
-
     }
 }
 

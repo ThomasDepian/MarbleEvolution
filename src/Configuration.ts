@@ -1,3 +1,4 @@
+import * as Phaser from 'phaser';
 
 /**
  * Class containing the configuration for the marble evolution game.
