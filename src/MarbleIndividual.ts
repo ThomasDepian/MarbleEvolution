@@ -2,6 +2,7 @@ import { Configuration } from './Configuration';
 import { Goal } from './Goal';
 import { Marble } from './Marble';
 import * as Phaser from 'phaser';
+import { v4 as uuidv4 } from 'uuid';
 
 
 /**
@@ -65,6 +66,17 @@ export class MarbleIndividual extends Marble {
     public readonly diameter: number;
 
     /**
+     * Unique identifier to identifiy and efficently store the individuals.
+     * 
+     * This is a uuidv4 128-bit number. See
+     * (this article) [https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)]
+     * for more information.
+     * 
+     * @readonly
+     */
+    private readonly id: string;
+
+    /**
      * 
      * @param world The world to which the individual belongs.
      * @param scene The scene to which the individual belongs.
@@ -104,7 +116,7 @@ export class MarbleIndividual extends Marble {
 
         // Disable collions
         this.setCollisionGroup(-1);
-        
+        this.id = uuidv4();
     }
 
     /**
@@ -167,6 +179,15 @@ export class MarbleIndividual extends Marble {
 
             this.dna.angle = angle;
         } 
+    }
+
+    /**
+     * Returns a string representation of an object.
+     * 
+     * @returns Returns the string representation.
+     */
+    public toString(): string {
+        return this.id + ': DNA: {power:' + this.dna.power + ', angle: ' + this.dna.angle + '} Distance to goal: ' + this.distanceTo(this.goal);
     }
 }
 

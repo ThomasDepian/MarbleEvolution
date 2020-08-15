@@ -101,9 +101,8 @@ export class Main extends Phaser.Scene {
             this.marble = new Marble(this.matter.world, this, Configuration.START_POSITION, "marble", Configuration.MARBLE_DIAMETER);
         }
 
-        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(200, 350), "obstacle", 400, 30);
-        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(350, 220), "obstacle", 300, 30);
-        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(120, 150), "obstacle", 80, 30);
+        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(200, 350), "obstacle", 200, 30);
+        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(350, 220), "obstacle", 250, 30);
     
         
         if (Configuration.HUMAN_MODE) {
@@ -112,7 +111,6 @@ export class Main extends Phaser.Scene {
         } else {
             this.input.on('pointerup', this.startAI, this);
         }
-        
     }
 
     /**

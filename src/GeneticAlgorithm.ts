@@ -22,25 +22,27 @@ let population: MarbleIndividual[];
  */
 export function initializeAlgorithm(initialPopulation: MarbleIndividual[] = []): void {
     population = initialPopulation;
-    iterationCount = 0;
+    iterationCount = 1;
 }
 
 /**
  * Starts a new iteration.
  */
 export function startIteration(): void {
-    iterationCount++;
     population.forEach(individual => individual.startIndividual());
 }
 
 /**
  * Stops the current iteration.
- * 
- * @todo Extend docu once more is known
+ * Creates a new population and print the results of the current population.
  */
 export function stopIteration(): void {
-    population.forEach(individual => individual.stop());
+    population.forEach(individual => {
+        individual.stop();
+        console.log(individual.toString());
+    });
     iterationFinished();
+    iterationCount++;
 }
 
 /**
