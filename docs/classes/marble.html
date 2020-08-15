@@ -91,6 +91,11 @@
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">Marble</span>
+								<ul class="tsd-hierarchy">
+									<li>
+										<a href="marbleindividual.html" class="tsd-signature-type">MarbleIndividual</a>
+									</li>
+								</ul>
 							</li>
 						</ul>
 					</li>
@@ -227,8 +232,8 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="marble.html#createbitmapmask" class="tsd-kind-icon">create<wbr>Bitmap<wbr>Mask</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="marble.html#creategeometrymask" class="tsd-kind-icon">create<wbr>Geometry<wbr>Mask</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="marble.html#destroy" class="tsd-kind-icon">destroy</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="marble.html#differenceto" class="tsd-kind-icon">difference<wbr>To</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marble.html#disableinteractive" class="tsd-kind-icon">disable<wbr>Interactive</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="marble.html#distanceto" class="tsd-kind-icon">distance<wbr>To</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marble.html#emit" class="tsd-kind-icon">emit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marble.html#eventnames" class="tsd-kind-icon">event<wbr>Names</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite tsd-is-inherited"><a href="marble.html#getbottomcenter" class="tsd-kind-icon">get<wbr>Bottom<wbr>Center</a></li>
@@ -337,6 +342,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="marble.html#setz" class="tsd-kind-icon">setZ</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marble.html#shutdown" class="tsd-kind-icon">shutdown</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="marble.html#start" class="tsd-kind-icon">start</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="marble.html#stop" class="tsd-kind-icon">stop</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marble.html#thrust" class="tsd-kind-icon">thrust</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marble.html#thrustback" class="tsd-kind-icon">thrust<wbr>Back</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marble.html#thrustleft" class="tsd-kind-icon">thrust<wbr>Left</a></li>
@@ -366,7 +372,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Sprite.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Marble.ts#L18">src/Marble.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Marble.ts#L18">src/Marble.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -426,7 +432,7 @@
 					<h3>active</h3>
 					<div class="tsd-signature tsd-kind-icon">active<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#active">active</a></p>
+						<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#active">active</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:15077</li>
 						</ul>
@@ -444,7 +450,7 @@
 					<h3>alpha</h3>
 					<div class="tsd-signature tsd-kind-icon">alpha<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#alpha">alpha</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#alpha">alpha</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#alpha">alpha</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:67951</li>
@@ -462,7 +468,7 @@
 					<h3>alpha<wbr>Bottom<wbr>Left</h3>
 					<div class="tsd-signature tsd-kind-icon">alpha<wbr>Bottom<wbr>Left<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#alphabottomleft">alphaBottomLeft</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#alphabottomleft">alphaBottomLeft</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#alphabottomleft">alphaBottomLeft</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:67969</li>
@@ -480,7 +486,7 @@
 					<h3>alpha<wbr>Bottom<wbr>Right</h3>
 					<div class="tsd-signature tsd-kind-icon">alpha<wbr>Bottom<wbr>Right<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#alphabottomright">alphaBottomRight</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#alphabottomright">alphaBottomRight</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#alphabottomright">alphaBottomRight</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:67975</li>
@@ -498,7 +504,7 @@
 					<h3>alpha<wbr>Top<wbr>Left</h3>
 					<div class="tsd-signature tsd-kind-icon">alpha<wbr>Top<wbr>Left<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#alphatopleft">alphaTopLeft</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#alphatopleft">alphaTopLeft</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#alphatopleft">alphaTopLeft</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:67957</li>
@@ -516,7 +522,7 @@
 					<h3>alpha<wbr>Top<wbr>Right</h3>
 					<div class="tsd-signature tsd-kind-icon">alpha<wbr>Top<wbr>Right<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#alphatopright">alphaTopRight</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#alphatopright">alphaTopRight</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#alphatopright">alphaTopRight</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:67963</li>
@@ -534,7 +540,7 @@
 					<h3>angle</h3>
 					<div class="tsd-signature tsd-kind-icon">angle<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">integer</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#angle">angle</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#angle">angle</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#angle">angle</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68687</li>
@@ -554,7 +560,7 @@
 					<h3>anims</h3>
 					<div class="tsd-signature tsd-kind-icon">anims<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Animation</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#anims">anims</a></p>
+						<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#anims">anims</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:34133</li>
 						</ul>
@@ -570,7 +576,7 @@
 					<h3>blend<wbr>Mode</h3>
 					<div class="tsd-signature tsd-kind-icon">blend<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">BlendModes</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#blendmode">blendMode</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#blendmode">blendMode</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#blendmode">blendMode</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:67998</li>
@@ -601,7 +607,7 @@
 					<h3>body</h3>
 					<div class="tsd-signature tsd-kind-icon">body<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Body</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">StaticBody</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">MatterJS.BodyType</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#body">body</a></p>
+						<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#body">body</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:15115</li>
 						</ul>
@@ -617,7 +623,7 @@
 					<h3>camera<wbr>Filter</h3>
 					<div class="tsd-signature tsd-kind-icon">camera<wbr>Filter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#camerafilter">cameraFilter</a></p>
+						<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#camerafilter">cameraFilter</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:15104</li>
 						</ul>
@@ -635,7 +641,7 @@
 					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> center<wbr>OfMass</h3>
 					<div class="tsd-signature tsd-kind-icon">center<wbr>OfMass<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Vector2</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#centerofmass">centerOfMass</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#centerofmass">centerOfMass</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68966</li>
 						</ul>
@@ -653,7 +659,7 @@
 					<h3>data</h3>
 					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DataManager</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#data">data</a></p>
+						<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#data">data</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:15090</li>
 						</ul>
@@ -671,7 +677,7 @@
 					<h3>default<wbr>Pipeline</h3>
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Pipeline<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">WebGLPipeline</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#defaultpipeline">defaultPipeline</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#defaultpipeline">defaultPipeline</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#defaultpipeline">defaultPipeline</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68311</li>
@@ -688,7 +694,7 @@
 					<h3>depth</h3>
 					<div class="tsd-signature tsd-kind-icon">depth<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#depth">depth</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#depth">depth</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#depth">depth</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68035</li>
@@ -710,7 +716,7 @@
 					<h3>display<wbr>Height</h3>
 					<div class="tsd-signature tsd-kind-icon">display<wbr>Height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#displayheight">displayHeight</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#displayheight">displayHeight</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#displayheight">displayHeight</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68434</li>
@@ -729,7 +735,7 @@
 					<h3>display<wbr>OriginX</h3>
 					<div class="tsd-signature tsd-kind-icon">display<wbr>OriginX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#displayoriginx">displayOriginX</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#displayoriginx">displayOriginX</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#displayoriginx">displayOriginX</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68271</li>
@@ -748,7 +754,7 @@
 					<h3>display<wbr>OriginY</h3>
 					<div class="tsd-signature tsd-kind-icon">display<wbr>OriginY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#displayoriginy">displayOriginY</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#displayoriginy">displayOriginY</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#displayoriginy">displayOriginY</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68278</li>
@@ -767,7 +773,7 @@
 					<h3>display<wbr>Width</h3>
 					<div class="tsd-signature tsd-kind-icon">display<wbr>Width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#displaywidth">displayWidth</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#displaywidth">displayWidth</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#displaywidth">displayWidth</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68425</li>
@@ -786,7 +792,7 @@
 					<h3>flipX</h3>
 					<div class="tsd-signature tsd-kind-icon">flipX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#flipx">flipX</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#flipx">flipX</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#flipx">flipX</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68058</li>
@@ -806,7 +812,7 @@
 					<h3>flipY</h3>
 					<div class="tsd-signature tsd-kind-icon">flipY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#flipy">flipY</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#flipy">flipY</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#flipy">flipY</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68067</li>
@@ -826,7 +832,7 @@
 					<h3>frame</h3>
 					<div class="tsd-signature tsd-kind-icon">frame<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Frame</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#frame">frame</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#frame">frame</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#frame">frame</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68482</li>
@@ -843,7 +849,7 @@
 					<h3>height</h3>
 					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#height">height</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#height">height</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#height">height</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68416</li>
@@ -863,7 +869,7 @@
 					<h3>ignore<wbr>Destroy</h3>
 					<div class="tsd-signature tsd-kind-icon">ignore<wbr>Destroy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#ignoredestroy">ignoreDestroy</a></p>
+						<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#ignoredestroy">ignoreDestroy</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:15123</li>
 						</ul>
@@ -882,7 +888,7 @@
 					<h3>input</h3>
 					<div class="tsd-signature tsd-kind-icon">input<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Phaser.Types.Input.InteractiveObject</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#input">input</a></p>
+						<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#input">input</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:15110</li>
 						</ul>
@@ -899,7 +905,7 @@
 					<h3>is<wbr>Cropped</h3>
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Cropped<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#iscropped">isCropped</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#iscropped">isCropped</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#iscropped">isCropped</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68489</li>
@@ -918,7 +924,7 @@
 					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> is<wbr>Tinted</h3>
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Tinted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#istinted">isTinted</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#istinted">isTinted</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#istinted">isTinted</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68635</li>
@@ -935,7 +941,7 @@
 					<h3>mask</h3>
 					<div class="tsd-signature tsd-kind-icon">mask<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">BitmapMask</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">GeometryMask</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#mask">mask</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#mask">mask</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#mask">mask</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68196</li>
@@ -952,7 +958,7 @@
 					<h3>name</h3>
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#name">name</a></p>
+						<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#name">name</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:15070</li>
 						</ul>
@@ -969,7 +975,7 @@
 					<h3>originX</h3>
 					<div class="tsd-signature tsd-kind-icon">originX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#originx">originX</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#originx">originX</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#originx">originX</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68256</li>
@@ -989,7 +995,7 @@
 					<h3>originY</h3>
 					<div class="tsd-signature tsd-kind-icon">originY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#originy">originY</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#originy">originY</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#originy">originY</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68264</li>
@@ -1009,7 +1015,7 @@
 					<h3>parent<wbr>Container</h3>
 					<div class="tsd-signature tsd-kind-icon">parent<wbr>Container<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Container</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#parentcontainer">parentContainer</a></p>
+						<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#parentcontainer">parentContainer</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:15064</li>
 						</ul>
@@ -1025,7 +1031,7 @@
 					<h3>pipeline</h3>
 					<div class="tsd-signature tsd-kind-icon">pipeline<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">WebGLPipeline</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#pipeline">pipeline</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#pipeline">pipeline</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#pipeline">pipeline</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68316</li>
@@ -1042,7 +1048,7 @@
 					<h3>render<wbr>Flags</h3>
 					<div class="tsd-signature tsd-kind-icon">render<wbr>Flags<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">integer</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#renderflags">renderFlags</a></p>
+						<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#renderflags">renderFlags</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:15097</li>
 						</ul>
@@ -1060,7 +1066,7 @@
 					<h3>rotation</h3>
 					<div class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#rotation">rotation</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#rotation">rotation</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#rotation">rotation</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68697</li>
@@ -1080,7 +1086,7 @@
 					<h3>scale</h3>
 					<div class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#scale">scale</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#scale">scale</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#scale">scale</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68667</li>
@@ -1100,7 +1106,7 @@
 					<h3>scaleX</h3>
 					<div class="tsd-signature tsd-kind-icon">scaleX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#scalex">scaleX</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#scalex">scaleX</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#scalex">scaleX</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68672</li>
@@ -1117,7 +1123,7 @@
 					<h3>scaleY</h3>
 					<div class="tsd-signature tsd-kind-icon">scaleY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#scaley">scaleY</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#scaley">scaleY</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#scaley">scaleY</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68677</li>
@@ -1134,7 +1140,7 @@
 					<h3><span class="tsd-flag ts-flagProtected">Protected</span> scene</h3>
 					<div class="tsd-signature tsd-kind-icon">scene<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Scene</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#scene">scene</a></p>
+						<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#scene">scene</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:15041</li>
 						</ul>
@@ -1151,7 +1157,7 @@
 					<h3>scroll<wbr>FactorX</h3>
 					<div class="tsd-signature tsd-kind-icon">scroll<wbr>FactorX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#scrollfactorx">scrollFactorX</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#scrollfactorx">scrollFactorX</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#scrollfactorx">scrollFactorX</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68358</li>
@@ -1178,7 +1184,7 @@
 					<h3>scroll<wbr>FactorY</h3>
 					<div class="tsd-signature tsd-kind-icon">scroll<wbr>FactorY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#scrollfactory">scrollFactorY</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#scrollfactory">scrollFactorY</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#scrollfactory">scrollFactorY</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68377</li>
@@ -1206,7 +1212,7 @@
 					<div class="tsd-signature tsd-kind-icon">start<wbr>Position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Point</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Marble.ts#L18">src/Marble.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Marble.ts#L18">src/Marble.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1220,7 +1226,7 @@
 					<h3>state</h3>
 					<div class="tsd-signature tsd-kind-icon">state<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">integer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#state">state</a></p>
+						<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#state">state</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:15059</li>
 						</ul>
@@ -1241,7 +1247,7 @@
 					<h3>tab<wbr>Index</h3>
 					<div class="tsd-signature tsd-kind-icon">tab<wbr>Index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">integer</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#tabindex">tabIndex</a></p>
+						<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#tabindex">tabIndex</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:15083</li>
 						</ul>
@@ -1258,7 +1264,7 @@
 					<h3>texture</h3>
 					<div class="tsd-signature tsd-kind-icon">texture<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Texture</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">CanvasTexture</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#texture">texture</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#texture">texture</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#texture">texture</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68477</li>
@@ -1275,7 +1281,7 @@
 					<h3>tint</h3>
 					<div class="tsd-signature tsd-kind-icon">tint<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">integer</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#tint">tint</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#tint">tint</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#tint">tint</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68630</li>
@@ -1293,7 +1299,7 @@
 					<h3>tint<wbr>Bottom<wbr>Left</h3>
 					<div class="tsd-signature tsd-kind-icon">tint<wbr>Bottom<wbr>Left<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">integer</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#tintbottomleft">tintBottomLeft</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#tintbottomleft">tintBottomLeft</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#tintbottomleft">tintBottomLeft</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68618</li>
@@ -1311,7 +1317,7 @@
 					<h3>tint<wbr>Bottom<wbr>Right</h3>
 					<div class="tsd-signature tsd-kind-icon">tint<wbr>Bottom<wbr>Right<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">integer</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#tintbottomright">tintBottomRight</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#tintbottomright">tintBottomRight</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#tintbottomright">tintBottomRight</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68624</li>
@@ -1329,7 +1335,7 @@
 					<h3>tint<wbr>Fill</h3>
 					<div class="tsd-signature tsd-kind-icon">tint<wbr>Fill<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#tintfill">tintFill</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#tintfill">tintFill</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#tintfill">tintFill</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68547</li>
@@ -1346,7 +1352,7 @@
 					<h3>tint<wbr>Top<wbr>Left</h3>
 					<div class="tsd-signature tsd-kind-icon">tint<wbr>Top<wbr>Left<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">integer</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#tinttopleft">tintTopLeft</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#tinttopleft">tintTopLeft</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#tinttopleft">tintTopLeft</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68606</li>
@@ -1364,7 +1370,7 @@
 					<h3>tint<wbr>Top<wbr>Right</h3>
 					<div class="tsd-signature tsd-kind-icon">tint<wbr>Top<wbr>Right<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">integer</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#tinttopright">tintTopRight</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#tinttopright">tintTopRight</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#tinttopright">tintTopRight</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68612</li>
@@ -1382,7 +1388,7 @@
 					<h3>type</h3>
 					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#type">type</a></p>
+						<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#type">type</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:15047</li>
 						</ul>
@@ -1399,7 +1405,7 @@
 					<h3>visible</h3>
 					<div class="tsd-signature tsd-kind-icon">visible<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#visible">visible</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#visible">visible</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#visible">visible</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68794</li>
@@ -1417,7 +1423,7 @@
 					<h3>w</h3>
 					<div class="tsd-signature tsd-kind-icon">w<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#w">w</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#w">w</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#w">w</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68658</li>
@@ -1434,7 +1440,7 @@
 					<h3>width</h3>
 					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#width">width</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#width">width</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#width">width</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68407</li>
@@ -1454,7 +1460,7 @@
 					<h3>world</h3>
 					<div class="tsd-signature tsd-kind-icon">world<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">World</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#world">world</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#world">world</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:67924</li>
 						</ul>
@@ -1470,7 +1476,7 @@
 					<h3>x</h3>
 					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#x">x</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#x">x</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#x">x</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68640</li>
@@ -1487,7 +1493,7 @@
 					<h3>y</h3>
 					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#y">y</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#y">y</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#y">y</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68645</li>
@@ -1504,7 +1510,7 @@
 					<h3>z</h3>
 					<div class="tsd-signature tsd-kind-icon">z<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#z">z</a></p>
+						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#z">z</a></p>
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#z">z</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:68653</li>
@@ -1523,7 +1529,7 @@
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> RENDER_<wbr>MASK</h3>
 					<div class="tsd-signature tsd-kind-icon">RENDER_<wbr>MASK<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">integer</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#render_mask">RENDER_MASK</a></p>
+						<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#render_mask">RENDER_MASK</a></p>
 						<ul>
 							<li>Defined in node_modules/phaser/types/phaser.d.ts:15351</li>
 						</ul>
@@ -1546,7 +1552,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#addlistener">addListener</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#addlistener">addListener</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:8232</li>
 								</ul>
@@ -1590,7 +1596,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#applyforce">applyForce</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#applyforce">applyForce</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68876</li>
 								</ul>
@@ -1622,7 +1628,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#applyforcefrom">applyForceFrom</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#applyforcefrom">applyForceFrom</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68883</li>
 								</ul>
@@ -1660,7 +1666,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#clearalpha">clearAlpha</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#clearalpha">clearAlpha</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#clearalpha">clearAlpha</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:67931</li>
@@ -1685,7 +1691,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#clearmask">clearMask</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#clearmask">clearMask</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#clearmask">clearMask</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68219</li>
@@ -1718,7 +1724,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#cleartint">clearTint</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#cleartint">clearTint</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#cleartint">clearTint</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68555</li>
@@ -1744,7 +1750,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#createbitmapmask">createBitmapMask</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#createbitmapmask">createBitmapMask</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#createbitmapmask">createBitmapMask</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68234</li>
@@ -1784,7 +1790,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#creategeometrymask">createGeometryMask</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#creategeometrymask">createGeometryMask</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#creategeometrymask">createGeometryMask</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68248</li>
@@ -1822,7 +1828,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#destroy">destroy</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#destroy">destroy</a></p>
 								<p>Overrides EventEmitter.destroy</p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:15346</li>
@@ -1853,38 +1859,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="differenceto" class="tsd-anchor"></a>
-					<h3>difference<wbr>To</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">difference<wbr>To<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Transform</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Marble.ts#L89">src/Marble.ts:89</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Computes the distance of a marble to a given object.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>obj: <span class="tsd-signature-type">Transform</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The object to which the difference should be computed.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-							<p>The difference to the object.</p>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="disableinteractive" class="tsd-anchor"></a>
 					<h3>disable<wbr>Interactive</h3>
@@ -1894,7 +1868,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#disableinteractive">disableInteractive</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#disableinteractive">disableInteractive</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:15280</li>
 								</ul>
@@ -1912,6 +1886,38 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="distanceto" class="tsd-anchor"></a>
+					<h3>distance<wbr>To</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">distance<wbr>To<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Transform</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Marble.ts#L98">src/Marble.ts:98</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Computes the distance of a marble to a given object.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>obj: <span class="tsd-signature-type">Transform</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The object to which the distance should be computed.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The distance to the object.</p>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="emit" class="tsd-anchor"></a>
 					<h3>emit</h3>
@@ -1921,7 +1927,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#emit">emit</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#emit">emit</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:8216</li>
 								</ul>
@@ -1959,7 +1965,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#eventnames">eventNames</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#eventnames">eventNames</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:8197</li>
 								</ul>
@@ -1982,7 +1988,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#getbottomcenter">getBottomCenter</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#getbottomcenter">getBottomCenter</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#getbottomcenter">getBottomCenter</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68176</li>
@@ -2028,7 +2034,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#getbottomleft">getBottomLeft</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#getbottomleft">getBottomLeft</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#getbottomleft">getBottomLeft</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68168</li>
@@ -2074,7 +2080,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#getbottomright">getBottomRight</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#getbottomright">getBottomRight</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#getbottomright">getBottomRight</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68184</li>
@@ -2120,7 +2126,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#getbounds">getBounds</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#getbounds">getBounds</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#getbounds">getBounds</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68191</li>
@@ -2160,7 +2166,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#getcenter">getCenter</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#getcenter">getCenter</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#getcenter">getCenter</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68120</li>
@@ -2200,7 +2206,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#getdata">getData</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#getdata">getData</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:15251</li>
 								</ul>
@@ -2239,7 +2245,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#getindexlist">getIndexList</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#getindexlist">getIndexList</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:15330</li>
 								</ul>
@@ -2266,7 +2272,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#getleftcenter">getLeftCenter</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#getleftcenter">getLeftCenter</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#getleftcenter">getLeftCenter</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68152</li>
@@ -2312,7 +2318,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#getlocaltransformmatrix">getLocalTransformMatrix</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#getlocaltransformmatrix">getLocalTransformMatrix</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#getlocaltransformmatrix">getLocalTransformMatrix</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68773</li>
@@ -2345,7 +2351,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#getparentrotation">getParentRotation</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#getparentrotation">getParentRotation</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#getparentrotation">getParentRotation</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68787</li>
@@ -2370,7 +2376,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#getpipelinename">getPipelineName</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#getpipelinename">getPipelineName</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#getpipelinename">getPipelineName</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68339</li>
@@ -2394,7 +2400,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#getrightcenter">getRightCenter</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#getrightcenter">getRightCenter</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#getrightcenter">getRightCenter</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68160</li>
@@ -2440,7 +2446,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#gettopcenter">getTopCenter</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#gettopcenter">getTopCenter</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#gettopcenter">getTopCenter</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68136</li>
@@ -2486,7 +2492,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#gettopleft">getTopLeft</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#gettopleft">getTopLeft</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#gettopleft">getTopLeft</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68128</li>
@@ -2532,7 +2538,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#gettopright">getTopRight</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#gettopright">getTopRight</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#gettopright">getTopRight</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68144</li>
@@ -2578,7 +2584,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#getworldtransformmatrix">getWorldTransformMatrix</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#getworldtransformmatrix">getWorldTransformMatrix</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#getworldtransformmatrix">getWorldTransformMatrix</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68780</li>
@@ -2617,7 +2623,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#incdata">incData</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#incdata">incData</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:15212</li>
 								</ul>
@@ -2659,7 +2665,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#initpipeline">initPipeline</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#initpipeline">initPipeline</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#initpipeline">initPipeline</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68323</li>
@@ -2694,7 +2700,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Marble.ts#L101">src/Marble.ts:101</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Marble.ts#L110">src/Marble.ts:110</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2718,7 +2724,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#issensor">isSensor</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#issensor">isSensor</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68978</li>
 								</ul>
@@ -2741,7 +2747,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#isstatic">isStatic</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#isstatic">isStatic</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:69092</li>
 								</ul>
@@ -2765,7 +2771,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Marble.ts#L111">src/Marble.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Marble.ts#L121">src/Marble.ts:121</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2794,7 +2800,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#listenercount">listenerCount</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#listenercount">listenerCount</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:8209</li>
 								</ul>
@@ -2826,7 +2832,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#listeners">listeners</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#listeners">listeners</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:8203</li>
 								</ul>
@@ -2858,7 +2864,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#off">off</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#off">off</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:8258</li>
 								</ul>
@@ -2908,7 +2914,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#on">on</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#on">on</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:8224</li>
 								</ul>
@@ -2952,7 +2958,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#once">once</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#once">once</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:8240</li>
 								</ul>
@@ -2996,7 +3002,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#play">play</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#play">play</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:34148</li>
 								</ul>
@@ -3040,7 +3046,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#preupdate">preUpdate</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#preupdate">preUpdate</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:34140</li>
 								</ul>
@@ -3078,7 +3084,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#removealllisteners">removeAllListeners</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#removealllisteners">removeAllListeners</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:8264</li>
 								</ul>
@@ -3110,7 +3116,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#removeinteractive">removeInteractive</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#removeinteractive">removeInteractive</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:15302</li>
 								</ul>
@@ -3146,7 +3152,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#removelistener">removeListener</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#removelistener">removeListener</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:8249</li>
 								</ul>
@@ -3197,7 +3203,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Marble.ts#L78">src/Marble.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Marble.ts#L87">src/Marble.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3220,7 +3226,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#resetflip">resetFlip</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#resetflip">resetFlip</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#resetflip">resetFlip</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68113</li>
@@ -3244,7 +3250,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#resetpipeline">resetPipeline</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#resetpipeline">resetPipeline</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#resetpipeline">resetPipeline</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68334</li>
@@ -3268,7 +3274,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setactive">setActive</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#setactive">setActive</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:15130</li>
 								</ul>
@@ -3301,7 +3307,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setalpha">setAlpha</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setalpha">setAlpha</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setalpha">setAlpha</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:67944</li>
@@ -3355,7 +3361,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setangle">setAngle</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setangle">setAngle</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setangle">setAngle</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68733</li>
@@ -3388,7 +3394,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setangularvelocity">setAngularVelocity</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setangularvelocity">setAngularVelocity</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:69105</li>
 								</ul>
@@ -3421,7 +3427,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setawake">setAwake</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setawake">setAwake</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:69051</li>
 								</ul>
@@ -3444,7 +3450,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setblendmode">setBlendMode</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setblendmode">setBlendMode</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setblendmode">setBlendMode</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68022</li>
@@ -3491,7 +3497,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setbody">setBody</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setbody">setBody</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:69041</li>
 								</ul>
@@ -3531,7 +3537,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setbounce">setBounce</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setbounce">setBounce</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68808</li>
 								</ul>
@@ -3563,7 +3569,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setcircle">setCircle</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setcircle">setCircle</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68999</li>
 								</ul>
@@ -3603,7 +3609,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setcollideswith">setCollidesWith</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setcollideswith">setCollidesWith</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68833</li>
 								</ul>
@@ -3637,7 +3643,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setcollisioncategory">setCollisionCategory</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setcollisioncategory">setCollisionCategory</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68816</li>
 								</ul>
@@ -3671,7 +3677,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setcollisiongroup">setCollisionGroup</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setcollisiongroup">setCollisionGroup</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68825</li>
 								</ul>
@@ -3706,7 +3712,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setcrop">setCrop</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setcrop">setCrop</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setcrop">setCrop</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68518</li>
@@ -3769,7 +3775,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setdata">setData</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#setdata">setData</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:15198</li>
 								</ul>
@@ -3823,7 +3829,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setdataenabled">setDataEnabled</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#setdataenabled">setDataEnabled</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:15155</li>
 								</ul>
@@ -3846,7 +3852,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setdensity">setDensity</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setdensity">setDensity</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68957</li>
 								</ul>
@@ -3878,7 +3884,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setdepth">setDepth</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setdepth">setDepth</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setdepth">setDepth</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68049</li>
@@ -3916,7 +3922,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setdisplayorigin">setDisplayOrigin</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setdisplayorigin">setDisplayOrigin</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setdisplayorigin">setDisplayOrigin</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68300</li>
@@ -3956,7 +3962,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setdisplaysize">setDisplaySize</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setdisplaysize">setDisplaySize</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setdisplaysize">setDisplaySize</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68472</li>
@@ -3996,7 +4002,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setexistingbody">setExistingBody</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setexistingbody">setExistingBody</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:69031</li>
 								</ul>
@@ -4035,7 +4041,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setfixedrotation">setFixedRotation</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setfixedrotation">setFixedRotation</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:69098</li>
 								</ul>
@@ -4059,7 +4065,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setflip">setFlip</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setflip">setFlip</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setflip">setFlip</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68108</li>
@@ -4101,7 +4107,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setflipx">setFlipX</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setflipx">setFlipX</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setflipx">setFlipX</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68091</li>
@@ -4137,7 +4143,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setflipy">setFlipY</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setflipy">setFlipY</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setflipy">setFlipY</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68097</li>
@@ -4170,7 +4176,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setframe">setFrame</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setframe">setFrame</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setframe">setFrame</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68542</li>
@@ -4219,7 +4225,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setfriction">setFriction</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setfriction">setFriction</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68923</li>
 								</ul>
@@ -4263,7 +4269,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setfrictionair">setFrictionAir</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setfrictionair">setFrictionAir</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68931</li>
 								</ul>
@@ -4297,7 +4303,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setfrictionstatic">setFrictionStatic</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setfrictionstatic">setFrictionStatic</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68939</li>
 								</ul>
@@ -4331,7 +4337,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setignoregravity">setIgnoreGravity</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setignoregravity">setIgnoreGravity</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68945</li>
 								</ul>
@@ -4363,7 +4369,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setinteractive">setInteractive</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#setinteractive">setInteractive</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:15269</li>
 								</ul>
@@ -4414,7 +4420,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setmask">setMask</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setmask">setMask</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setmask">setMask</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68213</li>
@@ -4454,7 +4460,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setmass">setMass</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setmass">setMass</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68951</li>
 								</ul>
@@ -4486,7 +4492,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setname">setName</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#setname">setName</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:15137</li>
 								</ul>
@@ -4519,7 +4525,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setoncollide">setOnCollide</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setoncollide">setOnCollide</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68842</li>
 								</ul>
@@ -4553,7 +4559,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setoncollideactive">setOnCollideActive</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setoncollideactive">setOnCollideActive</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68860</li>
 								</ul>
@@ -4587,7 +4593,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setoncollideend">setOnCollideEnd</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setoncollideend">setOnCollideEnd</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68851</li>
 								</ul>
@@ -4621,7 +4627,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setoncollidewith">setOnCollideWith</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setoncollidewith">setOnCollideWith</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68870</li>
 								</ul>
@@ -4661,7 +4667,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setorigin">setOrigin</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setorigin">setOrigin</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setorigin">setOrigin</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68287</li>
@@ -4701,7 +4707,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setoriginfromframe">setOriginFromFrame</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setoriginfromframe">setOriginFromFrame</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setoriginfromframe">setOriginFromFrame</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68292</li>
@@ -4725,7 +4731,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setpipeline">setPipeline</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setpipeline">setPipeline</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setpipeline">setPipeline</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68329</li>
@@ -4758,7 +4764,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setpolygon">setPolygon</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setpolygon">setPolygon</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:69010</li>
 								</ul>
@@ -4804,7 +4810,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setposition">setPosition</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setposition">setPosition</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setposition">setPosition</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68706</li>
@@ -4855,7 +4861,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setrandomposition">setRandomPosition</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setrandomposition">setRandomPosition</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setrandomposition">setRandomPosition</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68721</li>
@@ -4910,7 +4916,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setrectangle">setRectangle</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setrectangle">setRectangle</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68989</li>
 								</ul>
@@ -4956,7 +4962,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setrotation">setRotation</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setrotation">setRotation</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setrotation">setRotation</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68727</li>
@@ -4989,7 +4995,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setscale">setScale</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setscale">setScale</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setscale">setScale</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68740</li>
@@ -5028,7 +5034,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setscrollfactor">setScrollFactor</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setscrollfactor">setScrollFactor</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setscrollfactor">setScrollFactor</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68398</li>
@@ -5077,7 +5083,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setsensor">setSensor</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setsensor">setSensor</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68973</li>
 								</ul>
@@ -5110,7 +5116,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setsize">setSize</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setsize">setSize</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setsize">setSize</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68463</li>
@@ -5155,7 +5161,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setsizetoframe">setSizeToFrame</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setsizetoframe">setSizeToFrame</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setsizetoframe">setSizeToFrame</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68448</li>
@@ -5194,7 +5200,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setsleependevent">setSleepEndEvent</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setsleependevent">setSleepEndEvent</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:69081</li>
 								</ul>
@@ -5226,7 +5232,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setsleepevents">setSleepEvents</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setsleepevents">setSleepEvents</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:69069</li>
 								</ul>
@@ -5267,7 +5273,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setsleepstartevent">setSleepStartEvent</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setsleepstartevent">setSleepStartEvent</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:69075</li>
 								</ul>
@@ -5299,7 +5305,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setsleepthreshold">setSleepThreshold</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setsleepthreshold">setSleepThreshold</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:69057</li>
 								</ul>
@@ -5331,7 +5337,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setstate">setState</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#setstate">setState</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:15150</li>
 								</ul>
@@ -5368,7 +5374,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setstatic">setStatic</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setstatic">setStatic</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:69087</li>
 								</ul>
@@ -5400,7 +5406,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#settexture">setTexture</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#settexture">setTexture</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#settexture">setTexture</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68527</li>
@@ -5440,7 +5446,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#settint">setTint</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#settint">setTint</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#settint">setTint</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68577</li>
@@ -5499,7 +5505,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#settintfill">setTintFill</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#settintfill">setTintFill</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#settintfill">setTintFill</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68600</li>
@@ -5559,7 +5565,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#settosleep">setToSleep</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#settosleep">setToSleep</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:69046</li>
 								</ul>
@@ -5582,7 +5588,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#settrapezoid">setTrapezoid</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#settrapezoid">setTrapezoid</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:69022</li>
 								</ul>
@@ -5634,7 +5640,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setvelocity">setVelocity</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setvelocity">setVelocity</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:69124</li>
 								</ul>
@@ -5672,7 +5678,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setvelocityx">setVelocityX</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setvelocityx">setVelocityX</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:69111</li>
 								</ul>
@@ -5704,7 +5710,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setvelocityy">setVelocityY</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setvelocityy">setVelocityY</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:69117</li>
 								</ul>
@@ -5736,7 +5742,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setvisible">setVisible</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setvisible">setVisible</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setvisible">setVisible</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68802</li>
@@ -5770,7 +5776,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setw">setW</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setw">setW</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setw">setW</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68767</li>
@@ -5803,7 +5809,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setx">setX</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setx">setX</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setx">setX</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68746</li>
@@ -5836,7 +5842,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#sety">setY</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#sety">setY</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#sety">setY</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68752</li>
@@ -5869,7 +5875,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#setz">setZ</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#setz">setZ</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#setz">setZ</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68761</li>
@@ -5904,7 +5910,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#shutdown">shutdown</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#shutdown">shutdown</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:8187</li>
 								</ul>
@@ -5928,7 +5934,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Marble.ts#L64">src/Marble.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Marble.ts#L64">src/Marble.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5972,6 +5978,29 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="stop" class="tsd-anchor"></a>
+					<h3>stop</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">stop<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Marble.ts#L77">src/Marble.ts:77</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Stops the marble.</p>
+								</div>
+								<p>A marble gets reset by setting its velocity to zero.</p>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="thrust" class="tsd-anchor"></a>
 					<h3>thrust</h3>
@@ -5981,7 +6010,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#thrust">thrust</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#thrust">thrust</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68891</li>
 								</ul>
@@ -6014,7 +6043,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#thrustback">thrustBack</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#thrustback">thrustBack</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68915</li>
 								</ul>
@@ -6047,7 +6076,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#thrustleft">thrustLeft</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#thrustleft">thrustLeft</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68899</li>
 								</ul>
@@ -6080,7 +6109,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#thrustright">thrustRight</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#thrustright">thrustRight</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68907</li>
 								</ul>
@@ -6113,7 +6142,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#tojson">toJSON</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#tojson">toJSON</a></p>
 								<p>Overrides GameObject.toJSON</p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:34153</li>
@@ -6137,7 +6166,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#toggledata">toggleData</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#toggledata">toggleData</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:15225</li>
 								</ul>
@@ -6173,7 +6202,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#toggleflipx">toggleFlipX</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#toggleflipx">toggleFlipX</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#toggleflipx">toggleFlipX</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68076</li>
@@ -6200,7 +6229,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#toggleflipy">toggleFlipY</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#toggleflipy">toggleFlipY</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#toggleflipy">toggleFlipY</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68081</li>
@@ -6224,7 +6253,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#update">update</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#update">update</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:15308</li>
 								</ul>
@@ -6256,7 +6285,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#updatedisplayorigin">updateDisplayOrigin</a></p>
+								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#updatedisplayorigin">updateDisplayOrigin</a></p>
 								<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#updatedisplayorigin">updateDisplayOrigin</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:68306</li>
@@ -6281,7 +6310,7 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="obstacle.html">Obstacle</a>.<a href="obstacle.html#willrender">willRender</a></p>
+								<p>Inherited from <a href="goal.html">Goal</a>.<a href="goal.html#willrender">willRender</a></p>
 								<ul>
 									<li>Defined in node_modules/phaser/types/phaser.d.ts:15320</li>
 								</ul>
@@ -6544,11 +6573,11 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="marble.html#destroy" class="tsd-kind-icon">destroy</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="marble.html#differenceto" class="tsd-kind-icon">difference<wbr>To</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="marble.html#disableinteractive" class="tsd-kind-icon">disable<wbr>Interactive</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="marble.html#distanceto" class="tsd-kind-icon">distance<wbr>To</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="marble.html#emit" class="tsd-kind-icon">emit</a>
@@ -6874,6 +6903,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="marble.html#start" class="tsd-kind-icon">start</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="marble.html#stop" class="tsd-kind-icon">stop</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="marble.html#thrust" class="tsd-kind-icon">thrust</a>
 							</li>
@@ -6915,10 +6947,46 @@
 						<a href="marbleevolution.html" class="tsd-kind-icon">Marble<wbr>Evolution</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="marbleindividual.html" class="tsd-kind-icon">Marble<wbr>Individual</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="obstacle.html" class="tsd-kind-icon">Obstacle</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/marbledna.html" class="tsd-kind-icon">MarbleDNA</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#game" class="tsd-kind-icon">game</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#iterationcount" class="tsd-kind-icon">iteration<wbr>Count</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#population" class="tsd-kind-icon">population</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#allstoped" class="tsd-kind-icon">all<wbr>Stoped</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#initializealgorithm" class="tsd-kind-icon">initialize<wbr>Algorithm</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#iterationfinished" class="tsd-kind-icon">iteration<wbr>Finished</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#killall" class="tsd-kind-icon">kill<wbr>All</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#randomselect" class="tsd-kind-icon">random<wbr>Select</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#reproduce" class="tsd-kind-icon">reproduce</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#startiteration" class="tsd-kind-icon">start<wbr>Iteration</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#stopiteration" class="tsd-kind-icon">stop<wbr>Iteration</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="../globals.html#config" class="tsd-kind-icon">config</a>
@@ -6934,6 +7002,7 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
@@ -6943,6 +7012,9 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>

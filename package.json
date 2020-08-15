@@ -1,6 +1,6 @@
 {
   "name": "marble-evolution",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Genetic algorithm tries to master the marble game.",
   "main": "index.js",
   "scripts": {
@@ -34,6 +34,7 @@
     "ts-loader": "^8.0.2",
     "typedoc": "^0.18.0",
     "typescript": "^3.9.7",
+    "uuid": "^8.3.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   },

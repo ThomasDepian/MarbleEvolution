@@ -1,8 +1,10 @@
+import { MarbleIndividual, MarbleDNA } from './MarbleIndividual';
 import { Obstacle } from './Obstacle';
 import { Goal } from './Goal';
 import { Marble } from './Marble';
 import { Configuration } from './Configuration';
 import * as Phaser from 'phaser';
+import { initializeAlgorithm, iterationCount, startIteration, allStoped, stopIteration, killAll } from './GeneticAlgorithm';
 
 
 
@@ -40,7 +42,27 @@ export class Main extends Phaser.Scene {
      * @note Only for testing!!!
      */
     private goal: Goal;
-
+    
+    /**
+     * Specifies whether the AI has started acting.
+     * 
+     * @note Only for testing!!!
+     */
+    private AIStarted = false;
+    
+    /**
+     * Specifies whether a new iteration should be started.
+     * 
+     * @note Only for testing!!!
+     */
+    private newIteration = false;
+    
+    /**
+     * Specifies whether the AI has launched or not.
+     * 
+     * @note Only for testing!!!
+     */
+    private launched = false;
     
     constructor() {
         super('main');
@@ -71,19 +93,24 @@ export class Main extends Phaser.Scene {
 
         this.graphics = this.add.graphics();
         this.text = this.add.text(400, 470, "Power: xx.xx", {fontFamily: "'Lato', sans-serif", color: "#000", fontSize: "1rem"});
-        this.text.visible = false;
-        
-    
-        this.marble = new Marble(this.matter.world, this, Configuration.START_POSITION, "marble", Configuration.MARBLE_DIAMETER);
+        this.text.visible = false;      
 
         this.goal = new Goal(this, Configuration.GOAL_POSITION, "goal", Configuration.GOAL_DIAMETER);
 
-        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(200, 350), "obstacle", 400, 20);
-        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(350, 220), "obstacle", 300, 20);
-        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(100, 150), "obstacle", 80, 20);
+        if (Configuration.HUMAN_MODE) {
+            this.marble = new Marble(this.matter.world, this, Configuration.START_POSITION, "marble", Configuration.MARBLE_DIAMETER);
+        }
+
+        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(200, 350), "obstacle", 200, 30);
+        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(350, 220), "obstacle", 250, 30);
     
-        this.input.on('pointerdown', this.handlePointerDown, this);
         
+        if (Configuration.HUMAN_MODE) {
+            this.input.on('pointerdown', this.handlePointerDown, this);
+            this.input.on('pointerup', this.handlePointerUp, this);
+        } else {
+            this.input.on('pointerup', this.startAI, this);
+        }
     }
 
     /**
@@ -92,35 +119,51 @@ export class Main extends Phaser.Scene {
      */
     public update(): void {
 
-              
-        this.graphics.clear();
-        if (this.initializationMode) {
+        if (Configuration.HUMAN_MODE) {
+            this.graphics.clear();
+            if (this.initializationMode) {
 
-            // Compute length between start point and mouse position and display
-            // resulting power value.
-            // **Note**: capped at 300
-            // TODO: Make configurable
-            const x1 = Configuration.START_POSITION.x;
-            const x2 = this.game.input.activePointer.x;
+                // Compute length between start point and mouse position and display
+                // resulting power value.
+                // **Note**: capped at 300
+                // TODO: Make configurable
+                const x1 = Configuration.START_POSITION.x;
+                const x2 = this.game.input.activePointer.x;
 
-            const y1 = Configuration.START_POSITION.y
-            const y2 = this.game.input.activePointer.y;
+                const y1 = Configuration.START_POSITION.y
+                const y2 = this.game.input.activePointer.y;
 
-            const length = Math.min(this.vectorToPointer().length(), 300);
-            this.text.text = "Power: " + (length / 10).toFixed(2);
+                const length = Math.min(this.vectorToPointer().length(), 250);
+                this.text.text = "Power: " + (length / 10).toFixed(2);
 
-            // Draw the colored line displaying the start dirction of the marble
-            // Color will be interpolated between green (0 power) and red (max power)
-            const colorInter = Phaser.Display.Color.Interpolate.RGBWithRGB(0, 255, 0, 255, 0, 0, 300, length);
-            const color = (colorInter.r << 16) + (colorInter.g << 8) + (colorInter.b);
-            this.graphics.lineStyle(1, color);
-            this.graphics.lineBetween(x1, y1, x2, y2);
+                // Draw the colored line displaying the start dirction of the marble
+                // Color will be interpolated between green (0 power) and red (max power)
+                const colorInter = Phaser.Display.Color.Interpolate.RGBWithRGB(0, 255, 0, 255, 0, 0, 250, length);
+                const color = (colorInter.r << 16) + (colorInter.g << 8) + (colorInter.b);
+                this.graphics.lineStyle(1, color);
+                this.graphics.lineBetween(x1, y1, x2, y2);
+
+                
+            }
+
+            // Set texts
+            document.getElementById('moving').textContent = (this.marble.isMoving() ? 'moving' : 'standing');
+            document.getElementById('touching').textContent = (this.marble.isTouching(this.goal) ? 'touches' : 'touches not');
+            document.getElementById('difference').textContent = this.marble.distanceTo(this.goal).toFixed(2);
+        } else {
+            if (this.newIteration) {
+                this.newIteration = false;
+                console.log('Iteration ' + iterationCount);
+                startIteration();
+                this.AIStarted = true;
+            } else if(this.AIStarted) {
+                if (allStoped()) {
+                    this.AIStarted = false;
+                    stopIteration();
+                    this.newIteration = true;
+                }
+            }
         }
-
-        // Set texts
-        document.getElementById('moving').textContent = (this.marble.isMoving() ? 'moving' : 'standing');
-        document.getElementById('touching').textContent = (this.marble.isTouching(this.goal) ? 'touches' : 'touches not');
-        document.getElementById('difference').textContent = this.marble.differenceTo(this.goal).toFixed(2);
     }
 
     /**
@@ -141,20 +184,24 @@ export class Main extends Phaser.Scene {
 
     /**
      * Handles the pointer (mostly mouse) down event for the main scene.
-     * The handler toggles the [[initializationMode]]. Depending on
-     * the mode, either the [[marble]] gets reseted or the game
-     * starts.
+     * The handler activates the [[initializationMode]].
      */
     private handlePointerDown(): void {
-        this.initializationMode = !this.initializationMode;
+        this.initializationMode = true;
+        
+        this.text.visible = true;
+        this.marble.reset();
+    }
 
-        if (this.initializationMode) {
-            this.text.visible = true;
-            this.marble.reset();
-        } else {
-            this.text.visible = false;
-            this.startGame();
-        }
+    /**
+     * Handles the pointer (mostly mouse) up event for the main scene.
+     * The handler deactivates the [[initializationMode]] and starts the
+     * game.
+     */
+    private handlePointerUp(): void {
+        this.initializationMode = false;
+        this.text.visible = false;
+        this.startGame();
     }
 
     /**
@@ -169,6 +216,24 @@ export class Main extends Phaser.Scene {
         return new Phaser.Math.Vector2(mouseX - startPoint.x, mouseY - startPoint.y);
     }
 
-
-    
+     /**
+     * Handles the pointer (mostly mouse) up event for the main scene - in AI mode.
+     */
+    private startAI(): void {
+        if (this.launched) {
+            this.newIteration = false;
+            this.AIStarted = false;
+            this.launched = false;
+            killAll();
+        } else {
+            const marbles: MarbleIndividual[] = [];
+            for (let i = 0; i < Configuration.INDIVIDUAL_COUNT; i++) {
+                marbles.push(new MarbleIndividual(this.matter.world, this, Configuration.START_POSITION, "marble", Configuration.MARBLE_DIAMETER, this.goal))
+            }
+            initializeAlgorithm(marbles);
+            this.newIteration = true;
+            this.launched = true;
+        }
+       
+    }
 }

@@ -10,9 +10,9 @@ Coming soon.
 ## How to play
 ### Human mode
 Once the game has launched left-click somewhere in the game-frame to adjust the direction and the power with which the marble should launch. The colored line shows you the approximate direction and the text in the lower right corner tells you with which power the marble launches. The higher the power, the faster the marble moves.
-The text below the game-frame shows you some basic information about the current state of the marble. Once launched, the marble can be resetted at any time by left-clicking again inside the game-frame.
+The text below the game-frame shows you some basic information about the current state of the marble. By releasing the mouse, the marble launches. Once launched, the marble can be resetted at any time by left-clicking again inside the game-frame.
 ### AI mode
-Coming soon.
+Once the game has launched a left-click inside the game-frame starts the simulation. Another left click resets the simulation progress by killing all individuals. Some debug output will be printed in the console of the browser.
 
 ## Configuration
 Currently the only way to change the layout of the game, the behaviour of the marbles or anything else is by setting up the project locally and changing some hard coded values. A good starting point is the _Configuration.ts_ file or the _Main.ts_ as almost any values are set there.

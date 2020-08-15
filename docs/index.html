@@ -81,11 +81,11 @@
 					<h3>Human mode</h3>
 				</a>
 				<p>Once the game has launched left-click somewhere in the game-frame to adjust the direction and the power with which the marble should launch. The colored line shows you the approximate direction and the text in the lower right corner tells you with which power the marble launches. The higher the power, the faster the marble moves.
-				The text below the game-frame shows you some basic information about the current state of the marble. Once launched, the marble can be resetted at any time by left-clicking again inside the game-frame.</p>
+				The text below the game-frame shows you some basic information about the current state of the marble. By releasing the mouse, the marble launches. Once launched, the marble can be resetted at any time by left-clicking again inside the game-frame.</p>
 				<a href="#ai-mode" id="ai-mode" style="color: inherit; text-decoration: none;">
 					<h3>AI mode</h3>
 				</a>
-				<p>Coming soon.</p>
+				<p>Once the game has launched a left-click inside the game-frame starts the simulation. Another left click resets the simulation progress by killing all individuals. Some debug output will be printed in the console of the browser.</p>
 				<a href="#configuration" id="configuration" style="color: inherit; text-decoration: none;">
 					<h2>Configuration</h2>
 				</a>
@@ -192,10 +192,46 @@
 						<a href="classes/marbleevolution.html" class="tsd-kind-icon">Marble<wbr>Evolution</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="classes/marbleindividual.html" class="tsd-kind-icon">Marble<wbr>Individual</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="classes/obstacle.html" class="tsd-kind-icon">Obstacle</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/marbledna.html" class="tsd-kind-icon">MarbleDNA</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#game" class="tsd-kind-icon">game</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#iterationcount" class="tsd-kind-icon">iteration<wbr>Count</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#population" class="tsd-kind-icon">population</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#allstoped" class="tsd-kind-icon">all<wbr>Stoped</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#initializealgorithm" class="tsd-kind-icon">initialize<wbr>Algorithm</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#iterationfinished" class="tsd-kind-icon">iteration<wbr>Finished</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#killall" class="tsd-kind-icon">kill<wbr>All</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#randomselect" class="tsd-kind-icon">random<wbr>Select</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#reproduce" class="tsd-kind-icon">reproduce</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#startiteration" class="tsd-kind-icon">start<wbr>Iteration</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#stopiteration" class="tsd-kind-icon">stop<wbr>Iteration</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#config" class="tsd-kind-icon">config</a>
@@ -211,6 +247,7 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
@@ -220,6 +257,9 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>

@@ -70,23 +70,32 @@ export class Marble extends Phaser.Physics.Matter.Sprite {
     }
 
     /**
+     * Stops the marble.
+     * 
+     * A marble gets reset by setting its velocity to zero.
+     */
+    public stop(): void {
+        this.setVelocity(0, 0);
+    }
+
+    /**
      * Resets a marble.
      * 
      * A marble gets reset by setting its velocity to zero and
      * positioning it at the start point.
      */
     public reset(): void {
+        this.stop();
         this.setPosition(this.startPosition.x, this.startPosition.y);
-        this.setVelocity(0, 0);
     }
 
      /**
      * Computes the distance of a marble to a given object.
      * 
-     * @param obj The object to which the difference should be computed.
-     * @returns The difference to the object.
+     * @param obj The object to which the distance should be computed.
+     * @returns The distance to the object.
      */
-    public differenceTo(obj: Phaser.GameObjects.Components.Transform): number {
+    public distanceTo(obj: Phaser.GameObjects.Components.Transform): number {
         return new Phaser.Math.Vector2(this.x - obj.x, this.y - obj.y).length();
     }
 
@@ -99,7 +108,8 @@ export class Marble extends Phaser.Physics.Matter.Sprite {
      *          otherwise.
      */
     public isMoving(): boolean{
-        return new Phaser.Math.Vector2(this.body.velocity).length() > 0.025;
+        // return new Phaser.Math.Vector2(this.body.velocity).length() > 0.025;
+        return new Phaser.Math.Vector2(this.body.velocity).length() > 0.075;
     }
 
     /**
