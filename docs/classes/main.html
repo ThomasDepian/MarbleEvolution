@@ -99,6 +99,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="main.html#aistarted" class="tsd-kind-icon">AIStarted</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="main.html#add" class="tsd-kind-icon">add</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="main.html#anims" class="tsd-kind-icon">anims</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="main.html#cache" class="tsd-kind-icon">cache</a></li>
@@ -112,11 +113,13 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="main.html#graphics" class="tsd-kind-icon">graphics</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="main.html#initializationmode" class="tsd-kind-icon">initialization<wbr>Mode</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="main.html#input" class="tsd-kind-icon">input</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="main.html#launched" class="tsd-kind-icon">launched</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="main.html#lights" class="tsd-kind-icon">lights</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="main.html#load" class="tsd-kind-icon">load</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="main.html#make" class="tsd-kind-icon">make</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="main.html#marble" class="tsd-kind-icon">marble</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="main.html#matter" class="tsd-kind-icon">matter</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="main.html#newiteration" class="tsd-kind-icon">new<wbr>Iteration</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="main.html#physics" class="tsd-kind-icon">physics</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="main.html#plugins" class="tsd-kind-icon">plugins</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="main.html#registry" class="tsd-kind-icon">registry</a></li>
@@ -135,7 +138,9 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="main.html#create" class="tsd-kind-icon">create</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="main.html#handlepointerdown" class="tsd-kind-icon">handle<wbr>Pointer<wbr>Down</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="main.html#handlepointerup" class="tsd-kind-icon">handle<wbr>Pointer<wbr>Up</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="main.html#preload" class="tsd-kind-icon">preload</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="main.html#startai" class="tsd-kind-icon">startAI</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="main.html#startgame" class="tsd-kind-icon">start<wbr>Game</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="main.html#update" class="tsd-kind-icon">update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="main.html#vectortopointer" class="tsd-kind-icon">vector<wbr>ToPointer</a></li>
@@ -157,7 +162,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Scene.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Main.ts#L42">src/Main.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Main.ts#L65">src/Main.ts:65</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="main.html" class="tsd-signature-type">Main</a></h4>
@@ -167,6 +172,26 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="aistarted" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> AIStarted</h3>
+					<div class="tsd-signature tsd-kind-icon">AIStarted<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Main.ts#L51">src/Main.ts:51</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies whether the AI has started acting.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>note</dt>
+							<dd><p>Only for testing!!!</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="add" class="tsd-anchor"></a>
 					<h3>add</h3>
@@ -326,7 +351,7 @@
 					<div class="tsd-signature tsd-kind-icon">goal<span class="tsd-signature-symbol">:</span> <a href="goal.html" class="tsd-signature-type">Goal</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Main.ts#L42">src/Main.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Main.ts#L44">src/Main.ts:44</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -346,7 +371,7 @@
 					<div class="tsd-signature tsd-kind-icon">graphics<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Graphics</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Main.ts#L19">src/Main.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Main.ts#L21">src/Main.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -363,7 +388,7 @@
 					<div class="tsd-signature tsd-kind-icon">initialization<wbr>Mode<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Main.ts#L28">src/Main.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Main.ts#L30">src/Main.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -387,6 +412,26 @@
 							<p>A scene level Input Manager Plugin.
 							This property will only be available if defined in the Scene Injection Map and the plugin is installed.</p>
 						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="launched" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> launched</h3>
+					<div class="tsd-signature tsd-kind-icon">launched<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Main.ts#L65">src/Main.ts:65</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies whether the AI has launched or not.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>note</dt>
+							<dd><p>Only for testing!!!</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -446,7 +491,7 @@
 					<div class="tsd-signature tsd-kind-icon">marble<span class="tsd-signature-symbol">:</span> <a href="marble.html" class="tsd-signature-type">Marble</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Main.ts#L35">src/Main.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Main.ts#L37">src/Main.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -475,6 +520,26 @@
 							<p>A scene level Matter Physics Plugin.
 							This property will only be available if defined in the Scene Injection Map, the plugin is installed and configured.</p>
 						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="newiteration" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> new<wbr>Iteration</h3>
+					<div class="tsd-signature tsd-kind-icon">new<wbr>Iteration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Main.ts#L58">src/Main.ts:58</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specifies whether a new iteration should be started.</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>note</dt>
+							<dd><p>Only for testing!!!</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -602,7 +667,7 @@
 					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Text</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Main.ts#L24">src/Main.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Main.ts#L26">src/Main.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -676,7 +741,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Main.ts#L64">src/Main.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Main.ts#L86">src/Main.ts:86</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -699,15 +764,37 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Main.ts#L148">src/Main.ts:148</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Main.ts#L189">src/Main.ts:189</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Handles the pointer (mostly mouse) down event for the main scene.
-										The handler toggles the <a href="main.html#initializationmode">initializationMode</a>. Depending on
-										the mode, either the <a href="main.html#marble">marble</a> gets reseted or the game
-									starts.</p>
+									The handler activates the <a href="main.html#initializationmode">initializationMode</a>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="handlepointerup" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> handle<wbr>Pointer<wbr>Up</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">handle<wbr>Pointer<wbr>Up<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Main.ts#L201">src/Main.ts:201</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Handles the pointer (mostly mouse) up event for the main scene.
+										The handler deactivates the <a href="main.html#initializationmode">initializationMode</a> and starts the
+									game.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -724,7 +811,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Main.ts#L54">src/Main.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Main.ts#L76">src/Main.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -732,6 +819,28 @@
 									<p>Loads the needed assets, currently only image files,
 										<strong>before</strong> the game loads to ensure the assets are ready once
 									the game launces.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="startai" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> startAI</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">startAI<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Main.ts#L222">src/Main.ts:222</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Handles the pointer (mostly mouse) up event for the main scene - in AI mode.</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -748,7 +857,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Main.ts#L132">src/Main.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Main.ts#L175">src/Main.ts:175</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -779,7 +888,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="initializer.html">Initializer</a>.<a href="initializer.html#update">update</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Main.ts#L93">src/Main.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Main.ts#L120">src/Main.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -802,7 +911,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/fc401c8/src/Main.ts#L166">src/Main.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Main.ts#L213">src/Main.ts:213</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -853,6 +962,9 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 								<a href="main.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="main.html#aistarted" class="tsd-kind-icon">AIStarted</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="main.html#add" class="tsd-kind-icon">add</a>
 							</li>
@@ -892,6 +1004,9 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="main.html#input" class="tsd-kind-icon">input</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="main.html#launched" class="tsd-kind-icon">launched</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="main.html#lights" class="tsd-kind-icon">lights</a>
 							</li>
@@ -906,6 +1021,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="main.html#matter" class="tsd-kind-icon">matter</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="main.html#newiteration" class="tsd-kind-icon">new<wbr>Iteration</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="main.html#physics" class="tsd-kind-icon">physics</a>
@@ -946,8 +1064,14 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="main.html#handlepointerdown" class="tsd-kind-icon">handle<wbr>Pointer<wbr>Down</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="main.html#handlepointerup" class="tsd-kind-icon">handle<wbr>Pointer<wbr>Up</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="main.html#preload" class="tsd-kind-icon">preload</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="main.html#startai" class="tsd-kind-icon">startAI</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="main.html#startgame" class="tsd-kind-icon">start<wbr>Game</a>
@@ -969,10 +1093,46 @@
 						<a href="marbleevolution.html" class="tsd-kind-icon">Marble<wbr>Evolution</a>
 					</li>
 					<li class=" tsd-kind-class">
+						<a href="marbleindividual.html" class="tsd-kind-icon">Marble<wbr>Individual</a>
+					</li>
+					<li class=" tsd-kind-class">
 						<a href="obstacle.html" class="tsd-kind-icon">Obstacle</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/marbledna.html" class="tsd-kind-icon">MarbleDNA</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#game" class="tsd-kind-icon">game</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#iterationcount" class="tsd-kind-icon">iteration<wbr>Count</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="../globals.html#population" class="tsd-kind-icon">population</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#allstoped" class="tsd-kind-icon">all<wbr>Stoped</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#initializealgorithm" class="tsd-kind-icon">initialize<wbr>Algorithm</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#iterationfinished" class="tsd-kind-icon">iteration<wbr>Finished</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#killall" class="tsd-kind-icon">kill<wbr>All</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#randomselect" class="tsd-kind-icon">random<wbr>Select</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#reproduce" class="tsd-kind-icon">reproduce</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#startiteration" class="tsd-kind-icon">start<wbr>Iteration</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#stopiteration" class="tsd-kind-icon">stop<wbr>Iteration</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="../globals.html#config" class="tsd-kind-icon">config</a>
@@ -988,6 +1148,7 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
@@ -997,6 +1158,9 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
