@@ -2,10 +2,10 @@ import { MarbleIndividual, MarbleDNA } from './MarbleIndividual';
 import { Obstacle } from './Obstacle';
 import { Goal } from './Goal';
 import { Marble } from './Marble';
-import { Configuration } from './Configuration';
+import { ConfigurationHandler } from './Configuration';
 import * as Phaser from 'phaser';
 import { initializeAlgorithm, iterationCount, startIteration, allStoped, stopIteration, killAll } from './GeneticAlgorithm';
-
+import * as YAML from 'yaml'
 
 
 /**
@@ -50,6 +50,7 @@ export class Main extends Phaser.Scene {
      */
     private AIStarted = false;
     
+    
     /**
      * Specifies whether a new iteration should be started.
      * 
@@ -77,6 +78,8 @@ export class Main extends Phaser.Scene {
         this.load.image("marble", "assets/dot.png");
         this.load.image("goal", "assets/goal.png");
         this.load.image("obstacle", "assets/obstacle.png");
+        this.load.text("configuration", "config/default.yaml");
+        
     }
 
     /**
@@ -95,17 +98,24 @@ export class Main extends Phaser.Scene {
         this.text = this.add.text(400, 470, "Power: xx.xx", {fontFamily: "'Lato', sans-serif", color: "#000", fontSize: "1rem"});
         this.text.visible = false;      
 
-        this.goal = new Goal(this, Configuration.GOAL_POSITION, "goal", Configuration.GOAL_DIAMETER);
+        this.goal = new Goal(this, ConfigurationHandler.GOAL_POSITION, "goal", ConfigurationHandler.GOAL_DIAMETER);
 
-        if (Configuration.HUMAN_MODE) {
-            this.marble = new Marble(this.matter.world, this, Configuration.START_POSITION, "marble", Configuration.MARBLE_DIAMETER);
+        if (ConfigurationHandler.HUMAN_MODE) {
+            this.marble = new Marble(this.matter.world, this, ConfigurationHandler.START_POSITION, "marble", ConfigurationHandler.MARBLE_DIAMETER);
         }
 
         new Obstacle(this.matter.world, this, new Phaser.Geom.Point(200, 350), "obstacle", 200, 30);
         new Obstacle(this.matter.world, this, new Phaser.Geom.Point(350, 220), "obstacle", 250, 30);
+
+        // console.log(this.cache.json.get("configuration"));
+        const yamlFile = this.cache.text.get("configuration");
+        console.log(YAML.parse(yamlFile));
+        
+        
+        
     
         
-        if (Configuration.HUMAN_MODE) {
+        if (ConfigurationHandler.HUMAN_MODE) {
             this.input.on('pointerdown', this.handlePointerDown, this);
             this.input.on('pointerup', this.handlePointerUp, this);
         } else {
@@ -119,7 +129,7 @@ export class Main extends Phaser.Scene {
      */
     public update(): void {
 
-        if (Configuration.HUMAN_MODE) {
+        if (ConfigurationHandler.HUMAN_MODE) {
             this.graphics.clear();
             if (this.initializationMode) {
 
@@ -127,10 +137,10 @@ export class Main extends Phaser.Scene {
                 // resulting power value.
                 // **Note**: capped at 300
                 // TODO: Make configurable
-                const x1 = Configuration.START_POSITION.x;
+                const x1 = ConfigurationHandler.START_POSITION.x;
                 const x2 = this.game.input.activePointer.x;
 
-                const y1 = Configuration.START_POSITION.y
+                const y1 = ConfigurationHandler.START_POSITION.y
                 const y2 = this.game.input.activePointer.y;
 
                 const length = Math.min(this.vectorToPointer().length(), 250);
@@ -210,7 +220,7 @@ export class Main extends Phaser.Scene {
      * @param startPoint Startpoint of the vector.
      * @returns The vector will be returned.
      */
-    private vectorToPointer(startPoint: Phaser.Geom.Point = Configuration.START_POSITION): Phaser.Math.Vector2 {
+    private vectorToPointer(startPoint: Phaser.Geom.Point = ConfigurationHandler.START_POSITION): Phaser.Math.Vector2 {
         const mouseX = this.game.input.activePointer.x;
         const mouseY = this.game.input.activePointer.y;
         return new Phaser.Math.Vector2(mouseX - startPoint.x, mouseY - startPoint.y);
@@ -227,8 +237,8 @@ export class Main extends Phaser.Scene {
             killAll();
         } else {
             const marbles: MarbleIndividual[] = [];
-            for (let i = 0; i < Configuration.INDIVIDUAL_COUNT; i++) {
-                marbles.push(new MarbleIndividual(this.matter.world, this, Configuration.START_POSITION, "marble", Configuration.MARBLE_DIAMETER, this.goal))
+            for (let i = 0; i < ConfigurationHandler.INDIVIDUAL_COUNT; i++) {
+                marbles.push(new MarbleIndividual(this.matter.world, this, ConfigurationHandler.START_POSITION, "marble", ConfigurationHandler.MARBLE_DIAMETER, this.goal))
             }
             initializeAlgorithm(marbles);
             this.newIteration = true;

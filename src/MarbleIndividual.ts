@@ -1,4 +1,4 @@
-import { Configuration } from './Configuration';
+import { ConfigurationHandler } from './Configuration';
 import { Goal } from './Goal';
 import { Marble } from './Marble';
 import * as Phaser from 'phaser';
@@ -156,10 +156,10 @@ export class MarbleIndividual extends Marble {
      * @see [[Configuration]]: Please refer to the configuration class for the concrete probabilities.
      */
     public mutate(): void {
-        if (Math.random() < Configuration.POWER_MUTATION_PROBABILITY) {
+        if (Math.random() < ConfigurationHandler.POWER_MUTATION_PROBABILITY) {
             let power = this.dna.power;
 
-            const powerRange = Configuration.POWER_MUTATION_RANGE;
+            const powerRange = ConfigurationHandler.POWER_MUTATION_RANGE;
             power += Math.floor(Math.random() * (powerRange - -powerRange) ) + powerRange;
 
             power = Math.min(0, power);
@@ -168,10 +168,10 @@ export class MarbleIndividual extends Marble {
             this.dna.power = power;
         } 
         
-        if (Math.random() < Configuration.ANGLE_MUTATION_PROBABILITY) {
+        if (Math.random() < ConfigurationHandler.ANGLE_MUTATION_PROBABILITY) {
             let angle = this.dna.angle;
 
-            const angleRange = Configuration.ANGLE_MUTATION_RANGE;
+            const angleRange = ConfigurationHandler.ANGLE_MUTATION_RANGE;
             angle += Math.floor(Math.random() * (angleRange - -angleRange) ) + angleRange;
 
             angle = Math.min(0, angle);

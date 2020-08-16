@@ -5,7 +5,7 @@ import * as Phaser from 'phaser';
  * @todo Read in from external file.
  * @todo Add more configuration options.
  */
-export class Configuration {
+export class ConfigurationHandler {
     /**
      * Specifies the diameter of a marble.
      */
@@ -14,7 +14,7 @@ export class Configuration {
     /**
      * Specifies the default start point of a marble.
      */
-    static readonly START_POSITION = new Phaser.Geom.Point(500 / 2, 500 - 2 * Configuration.MARBLE_DIAMETER);
+    static readonly START_POSITION = new Phaser.Geom.Point(500 / 2, 500 - 2 * ConfigurationHandler.MARBLE_DIAMETER);
 
     /**
      * Specifies the diameter of the goal.
@@ -24,7 +24,7 @@ export class Configuration {
     /**
      * Specifies the default point of the goal.
      */
-    static readonly GOAL_POSITION = new Phaser.Geom.Point(500 / 2, 2 * Configuration.GOAL_DIAMETER);
+    static readonly GOAL_POSITION = new Phaser.Geom.Point(500 / 2, 2 * ConfigurationHandler.GOAL_DIAMETER);
 
 
     /** 
@@ -84,4 +84,74 @@ export class Configuration {
      * plays the game.
      */
     static readonly HUMAN_MODE = false;
+
+    
+}
+
+export interface Configuration {
+    gameSettings: {
+        humanMode: boolean,
+        debugMode: boolean
+    },
+    skins: {
+        marble: string,
+        obstacle: string,
+        goal: string,
+        individual: string
+    },
+    geneticAlgorithm: {
+        individualCount: number,
+        fatherGenesProbability : {
+            power: number,
+            angle: number
+        },
+        mutationProbability: {
+            general: number,
+            power: number,
+            angle: number
+        },
+        mutationRange: {
+            power: {
+                lowerBound: number,
+                upperBound: number
+            },
+            angle: {
+                lowerBound: number,
+                upperBound: number
+            }
+        },
+        levels: [
+            {
+                number: number,
+                name: string,
+                marble: {
+                    diameter: number,
+                    position: {
+                        x: number,
+                        y: number
+                    }
+                },
+                goal: {
+                    diameter: number,
+                    position: {
+                        x: number,
+                        y: number
+                    }
+                },
+                obstacles: [
+                    {
+                        position: {
+                            x: number,
+                            y: number
+                        },
+                        size: {
+                            width: number,
+                            height: number
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    
 }

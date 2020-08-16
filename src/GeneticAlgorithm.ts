@@ -1,4 +1,4 @@
-import { Configuration } from './Configuration';
+import { ConfigurationHandler } from './Configuration';
 import { MarbleIndividual } from './MarbleIndividual';
 /**
  * File providing helper utilities for the genetic algorithm.
@@ -71,7 +71,7 @@ export function killAll(): void {
  * Calls the fitness function for each individual and generates
  * based on the fitness values a new generation.
  * 
- * @see [[Configuration]]: Please refer to the configuration class for limitations and probabilities that may
+ * @see [[ConfigurationHandler]]: Please refer to the configuration class for limitations and probabilities that may
  * apply.
  */
 function iterationFinished(): void {
@@ -85,7 +85,7 @@ function iterationFinished(): void {
 
         const child = reproduce(father, mother);
 
-        if (Math.random() < Configuration.MUTATION_PROBABILITY) {
+        if (Math.random() < ConfigurationHandler.MUTATION_PROBABILITY) {
             child.mutate();
         }
 
@@ -153,7 +153,7 @@ function randomSelect(fitnesValues: number[]): MarbleIndividual {
  * Creates a new individual (child) based on two other individuals (parents).
  * 
  * The genes ('DNA') are mixed according to some probability.
- * @see [[Configuration]]: Please refer to the configuration class for limitations and probabilities that may
+ * @see [[ConfigurationHandler]]: Please refer to the ConfigurationHandler class for limitations and probabilities that may
  * 
  * @param father The father of the child.
  * @param mother The mother of the child.
@@ -165,8 +165,8 @@ function reproduce(father: MarbleIndividual, mother: MarbleIndividual): MarbleIn
     const motherDNA = mother.dna;
 
     const childDNA = {
-        'power': Math.random() < Configuration.FATHER_GENES_PROBABILITY ? fatherDNA.power : motherDNA.power,
-        'angle': Math.random() < Configuration.FATHER_GENES_PROBABILITY ? fatherDNA.angle : motherDNA.angle
+        'power': Math.random() < ConfigurationHandler.FATHER_GENES_PROBABILITY ? fatherDNA.power : motherDNA.power,
+        'angle': Math.random() < ConfigurationHandler.FATHER_GENES_PROBABILITY ? fatherDNA.angle : motherDNA.angle
     }
 
     const child = new MarbleIndividual(

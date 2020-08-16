@@ -4,7 +4,7 @@ import * as Phaser from 'phaser';
  * Class representing the goal in the game.
  * Other objects (especially marbles) usually do not collide with the goal.
  * 
- * @see [[Configuration]]: Please refer to the configuration class for any limitations/settings which may apply.
+ * @see [[ConfigurationHandler]]: Please refer to the configuration class for any limitations/settings which may apply.
  */
 export class Goal extends Phaser.GameObjects.Sprite {
 
