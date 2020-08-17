@@ -1,6 +1,6 @@
 import { BoundSpecification } from './BoundSpecification';
 import { Obstacle } from './Obstacle';
-import { Coordinate } from './Coordinate';
+import { Coordinate, CoordinateConfiguartion } from './Coordinate';
 import * as Phaser from 'phaser';
 
 /**
@@ -125,17 +125,7 @@ export class ConfigurationHandler {
         }
         config[keys[0]] = ConfigurationHandler.setPropertyRec(config[keys[0]], keys.slice(1).join('.'), value);
         return config;
-    }
-
-
-
-
-
-    
-    
-
-
-    
+    }   
 }
 
 /**
@@ -143,33 +133,8 @@ export class ConfigurationHandler {
  * all configuartion options for the game.
  */
 export interface Configuration {
-    gameSettings: GameSettingsConfiguration,
-    /**
-     * Specifies the skins used in the game.
-     * Each skin may be an image (**png or jpg**) which must be
-     * **inside the assets folder**. 
-     */
-    skins: {
-        /**
-         * Path to the skin for the marble.
-         */
-        marble: string,
-        /**
-         * Path to the skin for the obstacle.
-         */
-        obstacle: string,
-        /**
-         * Path to the skin for the goal.
-         */
-        goal: string,
-        /**
-         * Path to the skin for the individual.
-         */
-        individual: string
-    },
-    
+    gameSettings: GameSettingsConfiguration,   
     geneticAlgorithm: GeneticAlgorithmConfiguration,
-    
     levels: LevelConfiguration[]
 }
 
@@ -212,7 +177,7 @@ export interface LevelConfiguration {
         /**
          * Specifies the start point of a marble.
          */
-        position: Coordinate
+        position: CoordinateConfiguartion
     },
     /**
      * Specification of the goal.
@@ -227,7 +192,7 @@ export interface LevelConfiguration {
         /**
          * Specifies the position of the goal.
          */
-        position: Coordinate
+        position: CoordinateConfiguartion
     },
     obstacles: ObstacleConfiguration[]
 }
@@ -239,7 +204,7 @@ export interface ObstacleConfiguration {
     /**
      * Position of the obstacle.
      */
-    position: Coordinate,
+    position: CoordinateConfiguartion,
     /**
      * Size of the obstacle in pixels.
      */

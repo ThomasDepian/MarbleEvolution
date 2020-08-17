@@ -1,3 +1,4 @@
+import { Coordinate } from './Coordinate';
 import { MarbleIndividual, MarbleDNA } from './MarbleIndividual';
 import { Obstacle } from './Obstacle';
 import { Goal } from './Goal';
@@ -84,10 +85,17 @@ export class Main extends Phaser.Scene {
      * the game launces.
      */
     public preload(): void {
-        this.load.image("marble", "assets/dot.png");
-        this.load.image("goal", "assets/goal.png");
-        this.load.image("obstacle", "assets/obstacle.png");
-        this.load.text("configuration", "config/default.yaml");
+        const marbleSkinPath     = 'assets/dot.png';
+        const goalSkinPath       = 'assets/goal.png';
+        const obstacleSkinPath   = 'assets/obstacle.png';
+        const individualSkinPath = 'assets/dot.png';
+        const configPath         = 'config/default.yaml';
+
+        this.load.image("marble",       marbleSkinPath);
+        this.load.image("goal",         goalSkinPath);
+        this.load.image("obstacle",     obstacleSkinPath);
+        this.load.image("individual",   individualSkinPath);
+        this.load.text("configuration", configPath);
     }
 
     /**
@@ -120,29 +128,30 @@ export class Main extends Phaser.Scene {
         const level          = ConfigurationHandler.getLevel(levelNumber);
         
         // skins
-        const marbleSkin     = ConfigurationHandler.getProperty<string>('skins.marble');
-        const goalSkin       = ConfigurationHandler.getProperty<string>('skins.goal');
-        const obstacleSkin   = ConfigurationHandler.getProperty<string>('skins.obstacle');
-        const individualSkin = ConfigurationHandler.getProperty<string>('skins.individual');
+        const marbleSkin     = "marble";
+        const goalSkin       = "goal";
+        const obstacleSkin   = "obstacle";
+        const individualSkin = "individual";
+        
 
         // obstacles
         const obstacles = level.obstacles;
         obstacles.forEach(o => {
-            new Obstacle(this.matter.world, this, o.position.toPoint(), obstacleSkin, o.size.width, o.size.height);
+            new Obstacle(this.matter.world, this, Coordinate.of(o.position).toPoint(), obstacleSkin, o.size.width, o.size.height);
         })
 
         // goal
-        const goal = new Goal(this, level.goal.position.toPoint(), goalSkin, level.goal.diameter);
+        const goal = new Goal(this, Coordinate.of(level.goal.position).toPoint(), goalSkin, level.goal.diameter);
 
         // marbles
         if (ConfigurationHandler.isHumanMode()) {
-            this.marble = new Marble(this.matter.world, this, level.marble.position.toPoint(), marbleSkin, level.marble.diameter);
+            this.marble = new Marble(this.matter.world, this, Coordinate.of(level.marble.position).toPoint(), marbleSkin, level.marble.diameter);
             this.goal   = goal;
         } else {
             const individualCount= ConfigurationHandler.getGeneticAlgorithm().individualCount;
             const initialPopulation: MarbleIndividual[] = []
             for (let i = 0; i < individualCount; i++) {
-                initialPopulation.push(new MarbleIndividual(this.matter.world, this, level.marble.position.toPoint(), individualSkin, level.marble.diameter, goal));
+                initialPopulation.push(new MarbleIndividual(this.matter.world, this, Coordinate.of(level.marble.position).toPoint(), individualSkin, level.marble.diameter, goal));
             }
             initializeGeneticAlgorithm(initialPopulation);
         }
@@ -290,7 +299,7 @@ export class Main extends Phaser.Scene {
      * @param startPoint Startpoint of the vector.
      * @returns The vector will be returned.
      */
-    private vectorToPointer(startPoint: Phaser.Geom.Point = ConfigurationHandler.getLevel().marble.position.toPoint()): Phaser.Math.Vector2 {
+    private vectorToPointer(startPoint: Phaser.Geom.Point = Coordinate.of(ConfigurationHandler.getLevel().marble.position).toPoint()): Phaser.Math.Vector2 {
         const mouseX = this.game.input.activePointer.x;
         const mouseY = this.game.input.activePointer.y;
         return new Phaser.Math.Vector2(mouseX - startPoint.x, mouseY - startPoint.y);

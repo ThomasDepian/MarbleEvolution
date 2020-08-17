@@ -3,15 +3,6 @@ gameSettings:
     false
   debugMode:
     true
-skins: # must be inside in the assets folder
-  marble:
-    dot.png 
-  obstacle:
-    obstacle.png
-  goal:
-    goal.png
-  individual:
-    dot.png
 geneticAlgorithm:
   individualCount:
     100
