@@ -2,9 +2,9 @@ import { MarbleIndividual, MarbleDNA } from './MarbleIndividual';
 import { Obstacle } from './Obstacle';
 import { Goal } from './Goal';
 import { Marble } from './Marble';
-import { ConfigurationHandler } from './Configuration';
+import { ConfigurationHandler, Configuration } from './Configuration';
 import * as Phaser from 'phaser';
-import { initializeAlgorithm, iterationCount, startIteration, allStoped, stopIteration, killAll } from './GeneticAlgorithm';
+import { initializeGeneticAlgorithm, iterationCount, startIteration, allStoped, stopIteration, killAll } from './GeneticAlgorithm';
 import * as YAML from 'yaml'
 
 
@@ -24,24 +24,33 @@ export class Main extends Phaser.Scene {
      * power during the _initialization_ phase of the marble.
      */
     private text: Phaser.GameObjects.Text;
+
+
+    /**
+     * Reference to the goal.
+     * 
+     * @note Only referenced if human mode is enabled
+     */
+    private goal: Goal;
+
+    /**
+     * Reference to the marble.
+     * 
+     * @note Only referenced if human mode is enabled
+     */
+    private marble: Marble;
+
+
+
+
     /**
      * Specifies wheter the initialization mode is active or not.
      */
     private initializationMode = false;
 
-    /**
-     * Reference to the marble.
-     * 
-     * @note Only for testing!!!
-     */
-    private marble: Marble;
+    
 
-    /**
-     * Reference to the goal.
-     * 
-     * @note Only for testing!!!
-     */
-    private goal: Goal;
+    
     
     /**
      * Specifies whether the AI has started acting.
@@ -79,43 +88,82 @@ export class Main extends Phaser.Scene {
         this.load.image("goal", "assets/goal.png");
         this.load.image("obstacle", "assets/obstacle.png");
         this.load.text("configuration", "config/default.yaml");
-        
     }
 
     /**
-     * Method called once the scene gets created.
-     * Initizies the required properties in order to start a new game.
+     * Performs any work needed for initializing the [[ConfigurationHandler]].
+     * 
+     * **Must only be called once**
      */
-    public create(): void {     
-        
+    private initializeConfiguration() {
+        const yamlText = this.cache.text.get('configuration');
+        const yamlJSON = YAML.parse(yamlText);
+        ConfigurationHandler.updateConfig(<Configuration>yamlJSON);
+    }
+
+    /**
+     * Performs any operation needed to initialize the physics engine.
+     */
+    private initializePhysics() {
         // specifiy the world borders.
         // **Note** A 'thickness' of 70 is needed to ensure the 
         // marble does not fly through a border wall.
-        this.matter.world.setBounds(0,0, 500, 500, 70, true, true, true, true);
-        
+        this.matter.world.setBounds(0,0, +this.game.config.width, +this.game.config.height, 70, true, true, true, true);
+    }
 
+    /**
+     * Creates the level.
+     * 
+     * @param levelNumber The number of the level. **Must be specified in the configuration.**
+     */
+    private createLevel(levelNumber: number = 0) {
+        const level          = ConfigurationHandler.getLevel(levelNumber);
+        
+        // skins
+        const marbleSkin     = ConfigurationHandler.getProperty<string>('skins.marble');
+        const goalSkin       = ConfigurationHandler.getProperty<string>('skins.goal');
+        const obstacleSkin   = ConfigurationHandler.getProperty<string>('skins.obstacle');
+        const individualSkin = ConfigurationHandler.getProperty<string>('skins.individual');
+
+        // obstacles
+        const obstacles = level.obstacles;
+        obstacles.forEach(o => {
+            new Obstacle(this.matter.world, this, o.position.toPoint(), obstacleSkin, o.size.width, o.size.height);
+        })
+
+        // goal
+        const goal = new Goal(this, level.goal.position.toPoint(), goalSkin, level.goal.diameter);
+
+        // marbles
+        if (ConfigurationHandler.isHumanMode()) {
+            this.marble = new Marble(this.matter.world, this, level.marble.position.toPoint(), marbleSkin, level.marble.diameter);
+            this.goal   = goal;
+        } else {
+            const individualCount= ConfigurationHandler.getGeneticAlgorithm().individualCount;
+            const initialPopulation: MarbleIndividual[] = []
+            for (let i = 0; i < individualCount; i++) {
+                initialPopulation.push(new MarbleIndividual(this.matter.world, this, level.marble.position.toPoint(), individualSkin, level.marble.diameter, goal));
+            }
+            initializeGeneticAlgorithm(initialPopulation);
+        }
+
+    }
+
+    /**
+     * Intitializes the texts and graphics. Only needed if `humanMode = true`
+     */
+    private initializeText() {
         this.graphics = this.add.graphics();
         this.text = this.add.text(400, 470, "Power: xx.xx", {fontFamily: "'Lato', sans-serif", color: "#000", fontSize: "1rem"});
         this.text.visible = false;      
+    }
 
-        this.goal = new Goal(this, ConfigurationHandler.GOAL_POSITION, "goal", ConfigurationHandler.GOAL_DIAMETER);
-
-        if (ConfigurationHandler.HUMAN_MODE) {
-            this.marble = new Marble(this.matter.world, this, ConfigurationHandler.START_POSITION, "marble", ConfigurationHandler.MARBLE_DIAMETER);
-        }
-
-        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(200, 350), "obstacle", 200, 30);
-        new Obstacle(this.matter.world, this, new Phaser.Geom.Point(350, 220), "obstacle", 250, 30);
-
-        // console.log(this.cache.json.get("configuration"));
-        const yamlFile = this.cache.text.get("configuration");
-        console.log(YAML.parse(yamlFile));
-        
-        
-        
-    
-        
-        if (ConfigurationHandler.HUMAN_MODE) {
+    /**
+     * Intitializes all handler functions
+     */
+    // TODO: Anonymus function
+    private initializeHandlers() {
+        if (ConfigurationHandler.isHumanMode()) {
             this.input.on('pointerdown', this.handlePointerDown, this);
             this.input.on('pointerup', this.handlePointerUp, this);
         } else {
@@ -124,12 +172,34 @@ export class Main extends Phaser.Scene {
     }
 
     /**
+     * Method called once the scene gets created.
+     * Initizies the required properties in order to start a new game.
+     */
+    public create(): void {     
+        
+        // ON LEVEL CHANGE
+        // this.scene.restart()
+        // THIS CALLS a init() method
+        
+
+        this.initializeConfiguration();
+        this.initializePhysics();
+
+        if (ConfigurationHandler.isHumanMode()) {
+            this.initializeText();
+        }
+
+        this.createLevel();
+        this.initializeHandlers();
+    }
+
+    /**
      * Method for updating the screen.
      * Gets called FPS-times per second.
      */
     public update(): void {
 
-        if (ConfigurationHandler.HUMAN_MODE) {
+        if (ConfigurationHandler.isHumanMode()) {
             this.graphics.clear();
             if (this.initializationMode) {
 
@@ -137,10 +207,10 @@ export class Main extends Phaser.Scene {
                 // resulting power value.
                 // **Note**: capped at 300
                 // TODO: Make configurable
-                const x1 = ConfigurationHandler.START_POSITION.x;
+                const x1 = ConfigurationHandler.getLevel().marble.position.x;
                 const x2 = this.game.input.activePointer.x;
 
-                const y1 = ConfigurationHandler.START_POSITION.y
+                const y1 = ConfigurationHandler.getLevel().marble.position.y
                 const y2 = this.game.input.activePointer.y;
 
                 const length = Math.min(this.vectorToPointer().length(), 250);
@@ -157,8 +227,8 @@ export class Main extends Phaser.Scene {
             }
 
             // Set texts
-            document.getElementById('moving').textContent = (this.marble.isMoving() ? 'moving' : 'standing');
-            document.getElementById('touching').textContent = (this.marble.isTouching(this.goal) ? 'touches' : 'touches not');
+            document.getElementById('moving').textContent     = (this.marble.isMoving() ? 'moving' : 'standing');
+            document.getElementById('touching').textContent   = (this.marble.isTouching(this.goal) ? 'touches' : 'touches not');
             document.getElementById('difference').textContent = this.marble.distanceTo(this.goal).toFixed(2);
         } else {
             if (this.newIteration) {
@@ -220,7 +290,7 @@ export class Main extends Phaser.Scene {
      * @param startPoint Startpoint of the vector.
      * @returns The vector will be returned.
      */
-    private vectorToPointer(startPoint: Phaser.Geom.Point = ConfigurationHandler.START_POSITION): Phaser.Math.Vector2 {
+    private vectorToPointer(startPoint: Phaser.Geom.Point = ConfigurationHandler.getLevel().marble.position.toPoint()): Phaser.Math.Vector2 {
         const mouseX = this.game.input.activePointer.x;
         const mouseY = this.game.input.activePointer.y;
         return new Phaser.Math.Vector2(mouseX - startPoint.x, mouseY - startPoint.y);
@@ -236,11 +306,6 @@ export class Main extends Phaser.Scene {
             this.launched = false;
             killAll();
         } else {
-            const marbles: MarbleIndividual[] = [];
-            for (let i = 0; i < ConfigurationHandler.INDIVIDUAL_COUNT; i++) {
-                marbles.push(new MarbleIndividual(this.matter.world, this, ConfigurationHandler.START_POSITION, "marble", ConfigurationHandler.MARBLE_DIAMETER, this.goal))
-            }
-            initializeAlgorithm(marbles);
             this.newIteration = true;
             this.launched = true;
         }

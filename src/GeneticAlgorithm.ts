@@ -20,7 +20,7 @@ let population: MarbleIndividual[];
 /**
  * @param initialPopulation The intial population.
  */
-export function initializeAlgorithm(initialPopulation: MarbleIndividual[] = []): void {
+export function initializeGeneticAlgorithm(initialPopulation: MarbleIndividual[] = []): void {
     population = initialPopulation;
     iterationCount = 1;
 }
@@ -85,7 +85,7 @@ function iterationFinished(): void {
 
         const child = reproduce(father, mother);
 
-        if (Math.random() < ConfigurationHandler.MUTATION_PROBABILITY) {
+        if (Math.random() < ConfigurationHandler.getGeneticAlgorithm().mutationProbability.general) {
             child.mutate();
         }
 
@@ -165,8 +165,8 @@ function reproduce(father: MarbleIndividual, mother: MarbleIndividual): MarbleIn
     const motherDNA = mother.dna;
 
     const childDNA = {
-        'power': Math.random() < ConfigurationHandler.FATHER_GENES_PROBABILITY ? fatherDNA.power : motherDNA.power,
-        'angle': Math.random() < ConfigurationHandler.FATHER_GENES_PROBABILITY ? fatherDNA.angle : motherDNA.angle
+        'power': Math.random() < ConfigurationHandler.getGeneticAlgorithm().fatherGenesProbability.power ? fatherDNA.power : motherDNA.power,
+        'angle': Math.random() < ConfigurationHandler.getGeneticAlgorithm().fatherGenesProbability.angle ? fatherDNA.angle : motherDNA.angle
     }
 
     const child = new MarbleIndividual(

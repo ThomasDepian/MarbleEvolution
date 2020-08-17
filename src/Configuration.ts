@@ -9,98 +9,122 @@ import * as Phaser from 'phaser';
  * @todo Add more configuration options.
  */
 export class ConfigurationHandler {
-     /**
-     * Specifies the diameter of a marble.
-     */
-    static readonly MARBLE_DIAMETER = 5;
 
     /**
-     * Specifies the default start point of a marble.
+     * Current configuration.
      */
-    static readonly START_POSITION = new Phaser.Geom.Point(500 / 2, 500 - 2 * ConfigurationHandler.MARBLE_DIAMETER);
+    public static config: Configuration;
 
     /**
-     * Specifies the diameter of the goal.
+     * Updated the entire configuration.
+     * **Note** Erases any changes made to the current configuration.
+     * @param config The new configuration.
      */
-    static readonly GOAL_DIAMETER = 20;
-
-    /**
-     * Specifies the default point of the goal.
-     */
-    static readonly GOAL_POSITION = new Phaser.Geom.Point(500 / 2, 2 * ConfigurationHandler.GOAL_DIAMETER);
-
-
-    /** 
-     * Specifies the amount of individuals.
-     */
-    static readonly INDIVIDUAL_COUNT = 100;
-
-    /** 
-     * Specifies the probability that a child mutates.
-     */
-    static readonly MUTATION_PROBABILITY = 0.18;
-
-    /** 
-     * Specifies the probability that a power property of the 
-     * DNA mutates.
-     * 
-     * **Note:** This means, if the childs mutates, there is a
-     * 50% chance that the power property will mutate.
-     * That means, in total the power property has a mutation chance
-     * of 0.18 * 0.5 = 0.09 = 9%
-     */
-    static readonly POWER_MUTATION_PROBABILITY = 0.5;
-
-    /** 
-     * Specifies the probability that a angle property of the 
-     * DNA mutates.
-     * 
-     * **Note:** This means, if the childs mutates, there is a
-     * 50% chance that the angle property will mutate.
-     * That means, in total the angle property has a mutation chance
-     * of 0.18 * 0.5 = 0.09 = 9%
-     */
-    static readonly ANGLE_MUTATION_PROBABILITY = 0.5;
-
-    /** 
-     * Specifies the bounds for a power mutation.
-     * That means if the power property mutates, the following 
-     * will hold: |new_power - old_power| <= 3.
-     */
-    static readonly POWER_MUTATION_RANGE = 3;
-
-    /** 
-     * Specifies the bounds for a angle mutation.
-     * That means if the angle property mutates, the following 
-     * will hold: |new_angle - old_angle| <= 3.
-     */
-    static readonly ANGLE_MUTATION_RANGE = 0.5;
-
-    /** 
-     * Specifies the probability that during reproduction the
-     * propery from the father will be choosen.
-     */
-    static readonly FATHER_GENES_PROBABILITY = 0.5;
-
-    /** 
-     * Specifies whether a human or the genetic algorithm (the _AI_)
-     * plays the game.
-     */
-    static readonly HUMAN_MODE = false;
-   
-   
-    private config: Configuration;
-
-    constructor(config?: Configuration) {
-        this.config = config;
+    public static updateConfig(config: Configuration): void {
+        ConfigurationHandler.config = config;
     }
 
-    public updateConfig(config: Configuration) {
-        this.config = config;
+    /**
+     * Gets the current value of a property of the configuration.
+     * 
+     * @param key The key of the property which should be returned. Must be given as _path_
+     *            starting the root of the configuration. Each level must be seperated by a dot `.`
+     *            _Example_: `gameSettings.debugMode` would return the current value of the property `debugMode`
+     *            inside the property `gameSettings`.
+     * 
+     * @returns Returns the value property.
+     */
+    public static getProperty<T>(key: string): T {
+        if (key === undefined) {
+            return;
+        }
+        return <T>key.split('.').reduce(function(o, k) {
+            return o[k];
+        }, ConfigurationHandler.config);
     }
 
-    public getProperty(key: string): any {
-        return this.config[key];
+    /**
+     * Fetches the configuration of a specific level.
+     * This is a shorthand for `getProperty<LevelConfiguration>('levels.levelNumber')`;
+     * 
+     * @param levelNumber The number of the level. Must be valid.
+     * 
+     * @returns The configuration for the specified level.
+     */
+    public static getLevel(levelNumber: number = 0): LevelConfiguration {
+        return this.config.levels[levelNumber];
+    }
+
+    /**
+     * Fetches the configuration of the genetic algorithm.
+     * This is a shorthand for `getProperty<GeneticAlgorithmConfiguration>('geneticAlgorithm')`;
+     * 
+     * @param levelNumber The number of the level. Must be valid.
+     * 
+     * @returns The configuration for the specified level.
+     */
+    public static getGeneticAlgorithm(): GeneticAlgorithmConfiguration {
+        return this.config.geneticAlgorithm;
+    }
+
+    /**
+     * Checks whether human mode is enabled or not.
+     * This is a shorthand for `getProperty<boolean>('gameSettings.humanMode')`;
+     * 
+     * @returns Returns `true` if the human mode is enabled, else `false`.
+     */
+    public static isHumanMode(): boolean {
+        return this.config.gameSettings.humanMode;
+    }
+
+    /**
+     * Checks whether debug mode is enabled or not.
+     * This is a shorthand for `getProperty<boolean>('gameSettings.debugMode')`;
+     * 
+     * @returns Returns `true` if the debug mode is enabled, else `false`.
+     */
+    public static isDebugMode(): boolean {
+        return this.config.gameSettings.debugMode;
+    }
+
+    /**
+     * Updates/Sets the value of a property in the configuration.
+     * **Note** The user must ensure that the new value is of the right type.
+     * @see [[Configuration]] for the actual types of the values.
+     * 
+     * @param key The key of the property which should be updated/set. Must be given as _path_
+     *            starting the root of the configuration. Each level must be seperated by a dot `.`
+     *            _Example_: `gameSettings.debugMode` would set the value of the property `debugMode`
+     *            inside the property `gameSettings` to a given value.
+     * @param value The new value of the property. **Must be of the correct type**.
+     */
+    public static setProperty(key: string, value: any): void  {
+        ConfigurationHandler.config = ConfigurationHandler.setPropertyRec(ConfigurationHandler.config, key, value);
+    }
+
+    /**
+     * Helper function realizing the [[setProperty]] method.
+     * This method recursivly travers the current configuration and updates every occurence in the
+     * path with its new value. If last layer of the given key is reached, the config will be updated
+     * with the new value and the updated object will be returned.
+     * For any other layer the object at the current layer will be updated with the result of this method
+     * when called for the underlaying layer.
+     * 
+     * @param config The config at the current layer.
+     * @param key The key of the property which should be updated/set. Must be given as _path_
+     *            starting the root of the configuration.  
+     * @param value The new value of the property.
+     * 
+     * @returns Returns the updated config.
+     */
+    private static setPropertyRec(config: any, key: string, value: any): any {
+        const keys = key.split('.');
+        if (keys.length === 1) {
+            config[keys[0]] = value;
+            return config;
+        }
+        config[keys[0]] = ConfigurationHandler.setPropertyRec(config[keys[0]], keys.slice(1).join('.'), value);
+        return config;
     }
 
 
@@ -143,70 +167,8 @@ export interface Configuration {
          */
         individual: string
     },
-    /**
-     * Specifies the settings for the genetic algorithm.
-     * 
-     * @note **Important** All **percentages** must be in the range **[0, 1]**.
-     */
-    geneticAlgorithm: {
-        /**
-         * With how many individuals should the simulation be performed.
-         */
-        individualCount: number,
-        /** 
-         * Specifies the probability that during reproduction the
-         * propery from the father will be choosen.
-         */
-        fatherGenesProbability : {
-            power: number,
-            angle: number
-        },
-        /**
-         * Specifies all mutation probabilites used in the algorithm.
-         */
-        mutationProbability: {
-            /**
-             * Specifies the probability that a child mutates.
-             */
-            general: number,
-            /** 
-             * Specifies the probability that the power property of the 
-             * DNA mutates.
-             * 
-             * **Note:** This means, if the childs mutates, there is for example
-             * a 50% chance that the power property will mutate.
-             * That means, in total the power property has a mutation chance
-             * of general * power = (for example) 0.18 * 0.5 = 0.09 = 9%
-             */
-            power: number,
-            /** 
-             * Specifies the probability that the angle property of the 
-             * DNA mutates.
-             * 
-             * **Note:** This means, if the childs mutates, there is for example
-             * a 50% chance that the angle property will mutate.
-             * That means, in total the angle property has a mutation chance
-             * of general * angle = (for example) 0.18 * 0.5 = 0.09 = 9%
-             */
-            angle: number
-        },
-        /**
-         * Specifies all mutation ranges.
-         * A range of lowerBound = -3, upperBound = 3
-         * means that the new propery is in the range
-         * `[old propery - 3, old propery + 3]`
-         */
-        mutationRange: {
-            /**
-             * Range for the power property of the dna.
-             */
-            power: BoundSpecification,
-            /**
-             * Range for the angle property of the dna.
-             */
-            angle: BoundSpecification
-        }
-    },
+    
+    geneticAlgorithm: GeneticAlgorithmConfiguration,
     
     levels: LevelConfiguration[]
 }
@@ -232,12 +194,6 @@ export interface GameSettingsConfiguration {
  * Specifies a level present in the game.
  */
 export interface LevelConfiguration {
-    /**
-     * Level numbers.
-     * Levels get sorted in ascending order 
-     * based on this number.
-     */
-    number: number,
     /**
      * Displayname of the level
      */
@@ -290,5 +246,71 @@ export interface ObstacleConfiguration {
     size: {
         width: number,
         height: number
+    }
+}
+
+
+/**
+ * Specifies the settings for the genetic algorithm.
+ * 
+ * @note **Important** All **percentages** must be in the range **[0, 1]**.
+ */
+export interface GeneticAlgorithmConfiguration {
+    /**
+     * With how many individuals should the simulation be performed.
+     */
+    individualCount: number,
+    /** 
+     * Specifies the probability that during reproduction the
+     * propery from the father will be choosen.
+     */
+    fatherGenesProbability : {
+        power: number,
+        angle: number
+    },
+    /**
+     * Specifies all mutation probabilites used in the algorithm.
+     */
+    mutationProbability: {
+        /**
+         * Specifies the probability that a child mutates.
+         */
+        general: number,
+        /** 
+         * Specifies the probability that the power property of the 
+         * DNA mutates.
+         * 
+         * **Note:** This means, if the childs mutates, there is for example
+         * a 50% chance that the power property will mutate.
+         * That means, in total the power property has a mutation chance
+         * of general * power = (for example) 0.18 * 0.5 = 0.09 = 9%
+         */
+        power: number,
+        /** 
+         * Specifies the probability that the angle property of the 
+         * DNA mutates.
+         * 
+         * **Note:** This means, if the childs mutates, there is for example
+         * a 50% chance that the angle property will mutate.
+         * That means, in total the angle property has a mutation chance
+         * of general * angle = (for example) 0.18 * 0.5 = 0.09 = 9%
+         */
+        angle: number
+    },
+    /**
+     * Specifies all mutation ranges.
+     * A range of lowerBound = -3, upperBound = 3
+     * means that the new propery is in the range
+     * `[old propery - 3, old propery + 3]`
+     */
+    mutationRange: {
+        /**
+         * Range for the power property of the dna.
+         */
+        power: BoundSpecification,
+        /**
+         * Range for the angle property of the dna.
+         */
+        angle: BoundSpecification
     }
 }
