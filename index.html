@@ -7,8 +7,47 @@
   </head>
   <body>
     <div id="game"></div>
-    <!-- <p>The marble is <i id="moving"> </i>.</p>
-    <p>The marble <i id="touching"></i> the goal.</p>
-    <p>The difference to the goal is <i id="difference"> </i>px.</p> -->
+    <div id="settings">
+
+      <div>
+        <input type="checkbox" id="human-mode" name="human-mode">
+        <label for="human-mode">Human mode</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="verbose-mode" name="verbose-mode">
+        <label for="verbose-mode">Verbose mode</label>
+      </div>
+
+      <div class="configuration ai">
+        <input type="number" id="general-mutation-probability" name="general-mutation-probability" min="0" max="100" step="0.01">
+        <label for="general-mutation-probability">General mutation probability</label>
+      </div>
+
+      <div class="configuration ai">
+        <input type="number" id="power-mutation-probability" name="power-mutation-probability" min="0" max="100" step="0.01">
+        <label for="power-mutation-probability">Power mutation probability</label>
+      </div>
+
+      <div class="configuration ai">
+        <input type="number" id="angle-mutation-probability" name="angle-mutation-probability" min="0" max="100" step="0.01">
+        <label for="angle-mutation-probability">Angle mutation probability</label>
+      </div>
+
+      <div class="configuration ai">
+        <input type="number" id="individual-count" name="individual-count" min="0" step="1">
+        <label for="individual-count">Individual count</label>
+      </div>
+
+
+      <div id="verbose-console-wrapper">
+        <p>Verbose console</p>
+        <textarea id="verbose-console"></textarea>
+      </div>
+      
+
+
+      <button id="start-button">Start</button>
+    </div>
   </body>
 </html>

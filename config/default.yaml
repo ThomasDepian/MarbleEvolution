@@ -1,7 +1,7 @@
 gameSettings:
   humanMode:
     false
-  debugMode:
+  verboseMode:
     true
 geneticAlgorithm:
   individualCount:

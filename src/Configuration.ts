@@ -16,12 +16,27 @@ export class ConfigurationHandler {
     public static config: Configuration;
 
     /**
+     * Updated configuration.
+     */
+    private static updatedConfig: Configuration;
+
+    /**
      * Updated the entire configuration.
      * **Note** Erases any changes made to the current configuration.
      * @param config The new configuration.
      */
     public static updateConfig(config: Configuration): void {
         ConfigurationHandler.config = config;
+        ConfigurationHandler.updatedConfig = config;
+    }
+
+    /**
+     * Applies the changes made to the [[updatedConfig]]
+     * to the _real_ configuration.
+     */
+    public static applyChanges(): void {
+        ConfigurationHandler.config = ConfigurationHandler.updatedConfig;
+        ConfigurationHandler.updatedConfig = ConfigurationHandler.config;
     }
 
     /**
@@ -29,7 +44,7 @@ export class ConfigurationHandler {
      * 
      * @param key The key of the property which should be returned. Must be given as _path_
      *            starting the root of the configuration. Each level must be seperated by a dot `.`
-     *            _Example_: `gameSettings.debugMode` would return the current value of the property `debugMode`
+     *            _Example_: `gameSettings.verboseMode` would return the current value of the property `verboseMode`
      *            inside the property `gameSettings`.
      * 
      * @returns Returns the value property.
@@ -78,13 +93,13 @@ export class ConfigurationHandler {
     }
 
     /**
-     * Checks whether debug mode is enabled or not.
-     * This is a shorthand for `getProperty<boolean>('gameSettings.debugMode')`;
+     * Checks whether verbose mode is enabled or not.
+     * This is a shorthand for `getProperty<boolean>('gameSettings.verboseMode')`;
      * 
-     * @returns Returns `true` if the debug mode is enabled, else `false`.
+     * @returns Returns `true` if the verbose mode is enabled, else `false`.
      */
-    public static isDebugMode(): boolean {
-        return this.config.gameSettings.debugMode;
+    public static isVerboseMode(): boolean {
+        return this.config.gameSettings.verboseMode;
     }
 
     /**
@@ -94,12 +109,12 @@ export class ConfigurationHandler {
      * 
      * @param key The key of the property which should be updated/set. Must be given as _path_
      *            starting the root of the configuration. Each level must be seperated by a dot `.`
-     *            _Example_: `gameSettings.debugMode` would set the value of the property `debugMode`
+     *            _Example_: `gameSettings.verboseMode` would set the value of the property `verboseMode`
      *            inside the property `gameSettings` to a given value.
      * @param value The new value of the property. **Must be of the correct type**.
      */
     public static setProperty(key: string, value: any): void  {
-        ConfigurationHandler.config = ConfigurationHandler.setPropertyRec(ConfigurationHandler.config, key, value);
+        ConfigurationHandler.updatedConfig = ConfigurationHandler.setPropertyRec(ConfigurationHandler.updatedConfig, key, value);
     }
 
     /**
@@ -149,10 +164,10 @@ export interface GameSettingsConfiguration {
      */
     humanMode: boolean,
     /**
-     * Specifies if the debug mode is active.
-     * If active, debug output will be generated.
+     * Specifies if the verbose mode is active.
+     * If active, verbose output will be generated.
      */
-    debugMode: boolean
+    verboseMode: boolean
 }
 
 /**

@@ -26,7 +26,6 @@ export class Main extends Phaser.Scene {
      */
     private text: Phaser.GameObjects.Text;
 
-
     /**
      * Reference to the goal.
      * 
@@ -43,16 +42,30 @@ export class Main extends Phaser.Scene {
 
 
 
+    private initializeConfig: boolean;
+    private levelNumber: number;
+    private verboseConsole: HTMLElement;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // TODO: REFACTOR
 
     /**
      * Specifies wheter the initialization mode is active or not.
      */
     private initializationMode = false;
 
-    
-
-    
-    
     /**
      * Specifies whether the AI has started acting.
      * 
@@ -74,9 +87,16 @@ export class Main extends Phaser.Scene {
      * @note Only for testing!!!
      */
     private launched = false;
+
+
+
+
+
     
     constructor() {
         super('main');
+        this.initializeEventListeners();
+
     }
 
     /**
@@ -96,6 +116,12 @@ export class Main extends Phaser.Scene {
         this.load.image("obstacle",     obstacleSkinPath);
         this.load.image("individual",   individualSkinPath);
         this.load.text("configuration", configPath);
+        
+    }
+
+    public init({initializeConfig = true, levelNumber = 0}: {initializeConfig: boolean, levelNumber: number}) {
+        this.initializeConfig = initializeConfig;
+        this.levelNumber = levelNumber;
     }
 
     /**
@@ -104,6 +130,8 @@ export class Main extends Phaser.Scene {
      * **Must only be called once**
      */
     private initializeConfiguration() {
+        console.log('initializeConfiguration');
+        
         const yamlText = this.cache.text.get('configuration');
         const yamlJSON = YAML.parse(yamlText);
         ConfigurationHandler.updateConfig(<Configuration>yamlJSON);
@@ -180,6 +208,40 @@ export class Main extends Phaser.Scene {
         }
     }
 
+    private fillHTMLWithConfiguration() {
+        (<HTMLInputElement>document.getElementById('human-mode')).checked = ConfigurationHandler.isHumanMode();
+        (<HTMLInputElement>document.getElementById('verbose-mode')).checked = ConfigurationHandler.isVerboseMode();
+
+        const visible = 'block';
+        const hidden  = 'none';
+        document.querySelectorAll('.configuration.ai').forEach(e => {
+            (<HTMLElement>e).style.display = ConfigurationHandler.isHumanMode() ? hidden : visible;
+        });
+
+        document.getElementById('verbose-console-wrapper').style.display = ConfigurationHandler.isVerboseMode() ? visible : hidden;
+    }
+
+    private updateConfiguartionFromHTML() {
+        ConfigurationHandler.setProperty('gameSettings.humanMode', (<HTMLInputElement>document.getElementById('human-mode')).checked);
+        ConfigurationHandler.setProperty('gameSettings.verboseMode', (<HTMLInputElement>document.getElementById('verbose-mode')).checked);
+    }
+
+    private initializeEventListeners(): void {
+        // Start button
+        document.getElementById('start-button').addEventListener('click', (e: Event) => this.handleStart());
+
+        document.getElementById('human-mode').addEventListener('click', (e: Event) => this.toggleConfiguration());
+
+        document.getElementById('verbose-mode').addEventListener('click', (e: Event) => {
+            const visible = 'block';
+            const hidden  = 'none';
+            const element = document.getElementById('verbose-console-wrapper');
+
+            element.style.display = element.style.display === visible ? hidden : visible;
+        });
+        
+    }
+
     /**
      * Method called once the scene gets created.
      * Initizies the required properties in order to start a new game.
@@ -190,16 +252,30 @@ export class Main extends Phaser.Scene {
         // this.scene.restart()
         // THIS CALLS a init() method
         
+        if (this.initializeConfig) {
+            this.initializeConfiguration();
+        }
 
-        this.initializeConfiguration();
+        this.verboseConsole = document.getElementById('verbose-console');
+
+        if (ConfigurationHandler.isVerboseMode()) {
+            this.verboseConsole.textContent = 'Verbose mode enabled...\n';
+        } else {
+            this.verboseConsole.textContent = 'Verbose mode disabled...\nPlease restart the game in verbose mode to see the output..\n';
+        }
+        
+
+        
         this.initializePhysics();
+
+        this.fillHTMLWithConfiguration();
+        this.initializeHandlers();
 
         if (ConfigurationHandler.isHumanMode()) {
             this.initializeText();
         }
-
+        
         this.createLevel();
-        this.initializeHandlers();
     }
 
     /**
@@ -207,8 +283,10 @@ export class Main extends Phaser.Scene {
      * Gets called FPS-times per second.
      */
     public update(): void {
-
+        
         if (ConfigurationHandler.isHumanMode()) {
+            
+            
             this.graphics.clear();
             if (this.initializationMode) {
 
@@ -236,13 +314,14 @@ export class Main extends Phaser.Scene {
             }
 
             // Set texts
-            document.getElementById('moving').textContent     = (this.marble.isMoving() ? 'moving' : 'standing');
-            document.getElementById('touching').textContent   = (this.marble.isTouching(this.goal) ? 'touches' : 'touches not');
-            document.getElementById('difference').textContent = this.marble.distanceTo(this.goal).toFixed(2);
+            // document.getElementById('moving').textContent     = (this.marble.isMoving() ? 'moving' : 'standing');
+            // document.getElementById('touching').textContent   = (this.marble.isTouching(this.goal) ? 'touches' : 'touches not');
+            // document.getElementById('difference').textContent = this.marble.distanceTo(this.goal).toFixed(2);
         } else {
             if (this.newIteration) {
                 this.newIteration = false;
                 console.log('Iteration ' + iterationCount);
+                // this.verboseConsole.textContent += "hallo"
                 startIteration();
                 this.AIStarted = true;
             } else if(this.AIStarted) {
@@ -319,5 +398,26 @@ export class Main extends Phaser.Scene {
             this.launched = true;
         }
        
+    }
+
+
+    private handleStart() {
+        this.updateConfiguartionFromHTML();
+        ConfigurationHandler.applyChanges();
+        this.scene.restart({initializeConfig: false});
+    }
+
+    private toggleConfiguration() {
+        const toggleVisibility = function(domElement: any) {            
+            const visible = 'block';
+            const hidden  = 'none';
+
+            domElement.style.display = domElement.style.display === visible ? hidden : visible;
+        }
+
+        document.querySelectorAll('.configuration').forEach(e => toggleVisibility(<HTMLElement>e));
+
+
+
     }
 }
