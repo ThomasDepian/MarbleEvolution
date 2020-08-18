@@ -21,12 +21,12 @@ geneticAlgorithm:
   mutationRange:
     power:
       lowerBound:
-        3
+        -3
       upperBound:
         3
     angle:
       lowerBound:
-        0.5
+        -0.5
       upperBound:
         0.5
 levels:

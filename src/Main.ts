@@ -47,7 +47,11 @@ export class Main extends Phaser.Scene {
     private verboseConsole: HTMLElement;
 
 
-
+    /**
+     * Specifies whether at least one marble has launched or not.
+     * 
+     */
+    private marbleLaunched = false;
 
 
 
@@ -81,12 +85,7 @@ export class Main extends Phaser.Scene {
      */
     private newIteration = false;
     
-    /**
-     * Specifies whether the AI has launched or not.
-     * 
-     * @note Only for testing!!!
-     */
-    private launched = false;
+    
 
 
 
@@ -209,8 +208,20 @@ export class Main extends Phaser.Scene {
     }
 
     private fillHTMLWithConfiguration() {
-        (<HTMLInputElement>document.getElementById('human-mode')).checked = ConfigurationHandler.isHumanMode();
-        (<HTMLInputElement>document.getElementById('verbose-mode')).checked = ConfigurationHandler.isVerboseMode();
+        (<HTMLInputElement>document.getElementById('human-mode')).checked =                 ConfigurationHandler.isHumanMode();
+        (<HTMLInputElement>document.getElementById('verbose-mode')).checked =               ConfigurationHandler.isVerboseMode();
+        (<HTMLInputElement>document.getElementById('general-mutation-probability')).value = (ConfigurationHandler.getGeneticAlgorithm().mutationProbability.general * 100).toString();
+        (<HTMLInputElement>document.getElementById('power-mutation-probability')).value =   (ConfigurationHandler.getGeneticAlgorithm().mutationProbability.power * 100).toString();
+        (<HTMLInputElement>document.getElementById('angle-mutation-probability')).value =   (ConfigurationHandler.getGeneticAlgorithm().mutationProbability.angle * 100).toString();
+        (<HTMLInputElement>document.getElementById('individual-count')).value =             ConfigurationHandler.getGeneticAlgorithm().individualCount.toString();
+        (<HTMLInputElement>document.getElementById('father-genes-power')).value =           (ConfigurationHandler.getGeneticAlgorithm().fatherGenesProbability.power * 100).toString();
+        (<HTMLInputElement>document.getElementById('father-genes-angle')).value =           (ConfigurationHandler.getGeneticAlgorithm().fatherGenesProbability.angle * 100).toString();
+        (<HTMLInputElement>document.getElementById('power-mutation-range-lower')).value =   ConfigurationHandler.getGeneticAlgorithm().mutationRange.power.lowerBound.toString();
+        (<HTMLInputElement>document.getElementById('power-mutation-range-upper')).value =   ConfigurationHandler.getGeneticAlgorithm().mutationRange.power.upperBound.toString();
+        (<HTMLInputElement>document.getElementById('angle-mutation-range-lower')).value =   ConfigurationHandler.getGeneticAlgorithm().mutationRange.angle.lowerBound.toString();
+        (<HTMLInputElement>document.getElementById('angle-mutation-range-upper')).value =   ConfigurationHandler.getGeneticAlgorithm().mutationRange.angle.upperBound.toString();
+
+        document.getElementById('levelName').textContent = ConfigurationHandler.getLevel().name;
 
         const visible = 'block';
         const hidden  = 'none';
@@ -222,8 +233,25 @@ export class Main extends Phaser.Scene {
     }
 
     private updateConfiguartionFromHTML() {
-        ConfigurationHandler.setProperty('gameSettings.humanMode', (<HTMLInputElement>document.getElementById('human-mode')).checked);
-        ConfigurationHandler.setProperty('gameSettings.verboseMode', (<HTMLInputElement>document.getElementById('verbose-mode')).checked);
+        const convertToPercentage = function(value: number, precision=4): number {
+            const percentageValue = value / 100;
+            const percentageRounded = percentageValue.toFixed(precision);
+            return +percentageRounded
+        }
+
+
+        ConfigurationHandler.setProperty('gameSettings.humanMode',                          (<HTMLInputElement>document.getElementById('human-mode')).checked);
+        ConfigurationHandler.setProperty('gameSettings.verboseMode',                        (<HTMLInputElement>document.getElementById('verbose-mode')).checked);
+        ConfigurationHandler.setProperty('geneticAlgorithm.mutationProbability.general',    convertToPercentage((<HTMLInputElement>document.getElementById('general-mutation-probability')).valueAsNumber));
+        ConfigurationHandler.setProperty('geneticAlgorithm.mutationProbability.power',      convertToPercentage((<HTMLInputElement>document.getElementById('power-mutation-probability')).valueAsNumber));
+        ConfigurationHandler.setProperty('geneticAlgorithm.mutationProbability.angle',      convertToPercentage((<HTMLInputElement>document.getElementById('angle-mutation-probability')).valueAsNumber));
+        ConfigurationHandler.setProperty('geneticAlgorithm.individualCount',                (<HTMLInputElement>document.getElementById('individual-count')).valueAsNumber);
+        ConfigurationHandler.setProperty('geneticAlgorithm.fatherGenesProbability.power',   convertToPercentage((<HTMLInputElement>document.getElementById('father-genes-power')).valueAsNumber));
+        ConfigurationHandler.setProperty('geneticAlgorithm.fatherGenesProbability.angle',   convertToPercentage((<HTMLInputElement>document.getElementById('father-genes-angle')).valueAsNumber));
+        ConfigurationHandler.setProperty('geneticAlgorithm.mutationRange.power.lowerBound', (<HTMLInputElement>document.getElementById('power-mutation-range-lower')).valueAsNumber);
+        ConfigurationHandler.setProperty('geneticAlgorithm.mutationRange.power.upperBound', (<HTMLInputElement>document.getElementById('power-mutation-range-upper')).valueAsNumber);
+        ConfigurationHandler.setProperty('geneticAlgorithm.mutationRange.angle.lowerBound', (<HTMLInputElement>document.getElementById('angle-mutation-range-lower')).valueAsNumber);
+        ConfigurationHandler.setProperty('geneticAlgorithm.mutationRange.angle.upperBound', (<HTMLInputElement>document.getElementById('angle-mutation-range-upper')).valueAsNumber);
     }
 
     private initializeEventListeners(): void {
@@ -292,7 +320,7 @@ export class Main extends Phaser.Scene {
 
                 // Compute length between start point and mouse position and display
                 // resulting power value.
-                // **Note**: capped at 300
+                // **Note**: capped at 250
                 // TODO: Make configurable
                 const x1 = ConfigurationHandler.getLevel().marble.position.x;
                 const x2 = this.game.input.activePointer.x;
@@ -355,10 +383,11 @@ export class Main extends Phaser.Scene {
      * The handler activates the [[initializationMode]].
      */
     private handlePointerDown(): void {
-        this.initializationMode = true;
+        if (!this.marbleLaunched) {
+            this.initializationMode = true;
+            this.text.visible = true;
+        }
         
-        this.text.visible = true;
-        this.marble.reset();
     }
 
     /**
@@ -388,14 +417,14 @@ export class Main extends Phaser.Scene {
      * Handles the pointer (mostly mouse) up event for the main scene - in AI mode.
      */
     private startAI(): void {
-        if (this.launched) {
+        if (this.marbleLaunched) {
             this.newIteration = false;
             this.AIStarted = false;
-            this.launched = false;
+            this.marbleLaunched = false;
             killAll();
         } else {
             this.newIteration = true;
-            this.launched = true;
+            this.marbleLaunched = true;
         }
        
     }

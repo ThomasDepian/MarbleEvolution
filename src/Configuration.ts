@@ -113,6 +113,8 @@ export class ConfigurationHandler {
      *            inside the property `gameSettings` to a given value.
      * @param value The new value of the property. **Must be of the correct type**.
      */
+
+     // TODO: MAKE GENERIC AND CHECK ON TYPE
     public static setProperty(key: string, value: any): void  {
         ConfigurationHandler.updatedConfig = ConfigurationHandler.setPropertyRec(ConfigurationHandler.updatedConfig, key, value);
     }

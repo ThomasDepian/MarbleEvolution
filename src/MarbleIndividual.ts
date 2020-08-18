@@ -160,11 +160,11 @@ export class MarbleIndividual extends Marble {
             let power = this.dna.power;
 
             const powerRange = ConfigurationHandler.getGeneticAlgorithm().mutationRange.power;
-            power += this.randomNumber(powerRange.lowerBound, powerRange.upperBound);
+            power += this.randomNumber(powerRange.lowerBound, powerRange.upperBound);            
 
             // TODO: Make configurable
-            power = Math.min(0, power);
-            power = Math.max(25, power);
+            power = Math.max(0, power);
+            power = Math.min(25, power);
 
             this.dna.power = power;
         } 
@@ -175,8 +175,8 @@ export class MarbleIndividual extends Marble {
             const angleRange = ConfigurationHandler.getGeneticAlgorithm().mutationRange.angle;
             angle += this.randomNumber(angleRange.lowerBound, angleRange.upperBound);
 
-            angle = Math.min(0, angle);
-            angle = Math.max(Math.PI, angle);
+            angle = Math.max(0, angle);
+            angle = Math.min(Math.PI, angle);
 
             this.dna.angle = angle;
         } 
@@ -190,7 +190,7 @@ export class MarbleIndividual extends Marble {
      * @param upperBound The upperbound of the range.
      */
     private randomNumber(lowerBound: number = 0, upperBound: number = 1): number {
-        return Math.floor(Math.random() * (upperBound - lowerBound + 1) ) + upperBound;
+        return Math.floor(Math.random() * (upperBound - lowerBound + 1) ) + lowerBound;
     }
 
     /**
