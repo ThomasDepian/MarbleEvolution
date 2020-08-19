@@ -41,9 +41,21 @@ export class Main extends Phaser.Scene {
     private marble: Marble;
 
 
-
+    /**
+     * Specifies whether the configuration should be initialized
+     * (i. e. read from the disk) or not.
+     */
     private initializeConfig: boolean;
+
+    /**
+     * Holds the current levelnumber.
+     */
     private levelNumber: number;
+
+    /**
+     * Holds a reference to the HTML element which
+     * acts as the console.
+     */
     private verboseConsole: HTMLElement;
 
 
@@ -52,8 +64,25 @@ export class Main extends Phaser.Scene {
      * 
      */
     private marbleLaunched = false;
+
+    /**
+     * Holds the number of tries performed in the human mode.
+     */
     private tryIterationCounter = 0;
+
+    /**
+     * Holds the best distance to the goal in the human mode.
+     * 
+     * @note The lower the distance is, the better
+     */
     private humanBestDistance = Infinity;
+
+    /**
+     * Holds the best distance to the goal in the ai mode.
+     * (i.e. not in human mode - performed by the genetic algorithm).
+     * 
+     * @note The lower the distance is, the better
+     */
     private aiBestDistance = Infinity;
 
 
@@ -121,6 +150,14 @@ export class Main extends Phaser.Scene {
         
     }
 
+    /**
+     * Init method for initializing the scene.
+     * 
+     * @note Gets called **after** `preload()` but **before** `create()`.
+     * 
+     * @param param0 Parameter describing the current/changed configuration of the scene
+     *               since the last restart.
+     */
     public init({initializeConfig = true, levelNumber = 0}: {initializeConfig: boolean, levelNumber: number}) {
         this.initializeConfig = initializeConfig;
         this.levelNumber = levelNumber;
@@ -210,6 +247,9 @@ export class Main extends Phaser.Scene {
         }
     }
 
+    /**
+     * Fills the HTML-elements with the configuration values.
+     */
     private fillHTMLWithConfiguration() {
         (<HTMLInputElement>document.getElementById('human-mode')).checked =                 ConfigurationHandler.isHumanMode();
         (<HTMLInputElement>document.getElementById('verbose-mode')).checked =               ConfigurationHandler.isVerboseMode();
@@ -238,6 +278,9 @@ export class Main extends Phaser.Scene {
         document.getElementById('stats-ai-mode').style.display    = ConfigurationHandler.isHumanMode() ? hidden : visible;
     }
 
+    /**
+     * Updates the configuration handler with the new values from the HTML input elements.
+     */
     private updateConfiguartionFromHTML() {
         const convertToPercentage = function(value: number, precision=4): number {
             const percentageValue = value / 100;
@@ -260,6 +303,11 @@ export class Main extends Phaser.Scene {
         ConfigurationHandler.setProperty('geneticAlgorithm.mutationRange.angle.upperBound', (<HTMLInputElement>document.getElementById('angle-mutation-range-upper')).valueAsNumber);
     }
 
+    /**
+     * Initializes all event listeners.
+     * 
+     * @note **Must only be called once** otherwise the game breaks.
+     */
     private initializeEventListeners(): void {
         // Start button
         document.getElementById('start-button').addEventListener('click', (e: Event) => this.handleStart());
@@ -464,12 +512,18 @@ export class Main extends Phaser.Scene {
     }
 
 
+    /**
+     * Handles the click on the start button.
+     */
     private handleStart() {
         this.updateConfiguartionFromHTML();
         ConfigurationHandler.applyChanges();
         this.scene.restart({initializeConfig: false});
     }
 
+    /**
+     * Shows/hides the configuration inputs based on the current mode.
+     */
     private toggleConfiguration() {
         const toggleVisibility = function(domElement: any) {            
             const visible = 'block';

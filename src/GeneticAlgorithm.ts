@@ -57,18 +57,28 @@ export function allStoped(): boolean {
 
 /**
  * Kills the entire population.
- * **Use with care**
+ * **Use with care**.
  */
 export function killAll(): void {
     population.forEach(individual => individual.destroy());
     population = [];
 }
 
+/**
+ * Computes the average distance to the goal of the current population.
+ * 
+ * @returns Returns the average distance to the goal.
+ */
 export function computeAvgDistance(): number {
     const sum = population.map(i => i.distanceToGoal()).reduce((p, c) => p + c);
     return sum / population.length;
 }
 
+/**
+ * Fetches the best (i.e. lowest) distance to the goal of the current population.
+ * 
+ * @returns Returnsthe best (i.e. lowest) to the goal.
+ */
 export function getBestDistance(): number {
     // destruct array into single values    
     return Math.min(...population.map(i => i.distanceToGoal()));

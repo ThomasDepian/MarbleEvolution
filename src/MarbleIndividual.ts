@@ -129,6 +129,13 @@ export class MarbleIndividual extends Marble {
         this.start(this.dna.power, this.dna.angle);
     }
 
+    /**
+     * Computes the distance to the goal.
+     * 
+     * @see [[Marble.distanceTo]] for further details.
+     * 
+     * @returns Returns the distance to the goal.
+     */
     public distanceToGoal(): number {
         return this.distanceTo(this.goal);
     }

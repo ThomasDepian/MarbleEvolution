@@ -1,7 +1,7 @@
 /**
  * Simple interface describing the properties of a coorindate
  * used in the game.
- * @note Can directly be passed to the constructor of [[Phaser.Math.Vector2]]
+ * @note Can directly be passed to the constructor of [[Phaser.Math.Vector2]].
  */
 export interface CoordinateConfiguartion {
     /**

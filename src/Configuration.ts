@@ -1,11 +1,9 @@
 import { BoundSpecification } from './BoundSpecification';
-import { Obstacle } from './Obstacle';
-import { Coordinate, CoordinateConfiguartion } from './Coordinate';
+import { CoordinateConfiguartion } from './Coordinate';
 import * as Phaser from 'phaser';
 
 /**
  * Class containing the configuration for the marble evolution game.
- * @todo Read in from external file.
  * @todo Add more configuration options.
  */
 export class ConfigurationHandler {

@@ -2,7 +2,7 @@
  * Simple interface describing the bound specification
  * used in the configuration file.
  * 
- * @see [[Configuration]]
+ * @see [[Configuration]] for further details
  */
 export interface BoundSpecification {
     /**
