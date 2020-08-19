@@ -89,8 +89,8 @@
 				<a href="#configuration" id="configuration" style="color: inherit; text-decoration: none;">
 					<h2>Configuration</h2>
 				</a>
-				<p>Currently the only way to change the layout of the game, the behaviour of the marbles or anything else is by setting up the project locally and changing some hard coded values. A good starting point is the <em>Configuration.ts</em> file or the <em>Main.ts</em> as almost any values are set there.</p>
-				<p><strong>The possibility to change some basic settings on the fly will be added in future versions.</strong></p>
+				<p>Various settings can be configurated without touching the code. There exists a folder <code>config</code> with two <code>.yaml</code> files: <code>config.yaml</code> and <code>default.yaml</code>, both containing some configuration values for the game. At startup, the <code>config.yaml</code> will be loaded and serves as the initial configuration, whereas <code>default.yaml</code> is just a backup copy in case you mess up the configuration.<br>The game contains also several ways of changing some values (as for example the mutation rate) &#39;on the fly&#39;. Just change the values on the webpage. The changes take affect once you press <code>Start</code>. Please note that the configuration <strong>will not be saved</strong>, unless you manually copy the configuration values into the file <code>config.yaml</code>.</p>
+				<p><strong>The possibility to change other settings and save the current configuration will be added in future versions.</strong></p>
 				<a href="#project-setup" id="project-setup" style="color: inherit; text-decoration: none;">
 					<h2>Project setup</h2>
 				</a>
@@ -174,7 +174,10 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="classes/configuration.html" class="tsd-kind-icon">Configuration</a>
+						<a href="classes/configurationhandler.html" class="tsd-kind-icon">Configuration<wbr>Handler</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/coordinate.html" class="tsd-kind-icon">Coordinate</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/goal.html" class="tsd-kind-icon">Goal</a>
@@ -198,7 +201,28 @@
 						<a href="classes/obstacle.html" class="tsd-kind-icon">Obstacle</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/boundspecification.html" class="tsd-kind-icon">Bound<wbr>Specification</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/configuration.html" class="tsd-kind-icon">Configuration</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/coordinateconfiguartion.html" class="tsd-kind-icon">Coordinate<wbr>Configuartion</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/gamesettingsconfiguration.html" class="tsd-kind-icon">Game<wbr>Settings<wbr>Configuration</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/geneticalgorithmconfiguration.html" class="tsd-kind-icon">Genetic<wbr>Algorithm<wbr>Configuration</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/levelconfiguration.html" class="tsd-kind-icon">Level<wbr>Configuration</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/marbledna.html" class="tsd-kind-icon">MarbleDNA</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/obstacleconfiguration.html" class="tsd-kind-icon">Obstacle<wbr>Configuration</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#game" class="tsd-kind-icon">game</a>
@@ -213,7 +237,13 @@
 						<a href="globals.html#allstoped" class="tsd-kind-icon">all<wbr>Stoped</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#initializealgorithm" class="tsd-kind-icon">initialize<wbr>Algorithm</a>
+						<a href="globals.html#computeavgdistance" class="tsd-kind-icon">compute<wbr>Avg<wbr>Distance</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getbestdistance" class="tsd-kind-icon">get<wbr>Best<wbr>Distance</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#initializegeneticalgorithm" class="tsd-kind-icon">initialize<wbr>Genetic<wbr>Algorithm</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#iterationfinished" class="tsd-kind-icon">iteration<wbr>Finished</a>
@@ -259,10 +289,11 @@
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 		</div>
 	</div>

@@ -6,9 +6,95 @@
     <script src="dist/app.js"></script>
   </head>
   <body>
+    <h1>Marble Evolution</h1>
+    <h2>Game</h2>
     <div id="game"></div>
-    <!-- <p>The marble is <i id="moving"> </i>.</p>
-    <p>The marble <i id="touching"></i> the goal.</p>
-    <p>The difference to the goal is <i id="difference"> </i>px.</p> -->
+    <h2>Stats</h2>
+    <div id="stats-human-mode">
+      <h3>Human mode</h3>
+      <p>Try: <b id="try-number"></b></p>
+      <p>Distance: <b id="human-distance"></b></p>
+      <p>Current best: <b id="human-current-best"></b></p>
+    </div>
+    <div id="stats-ai-mode">
+      <h3>AI mode - Genetic Algorithm</h3>
+      <p>Iteration: <b id="iteration-number"></b></p>
+      <p>Avg. distance last iteration: <b id="distance-avg-last-iteration"></b></p>
+      <p>Best distance last iteration: <b id="distance-best-last-iteration"></b></p>
+      <p>Best distance overall: <b id="distance-best-overall"></b></p>
+    </div>
+    <h2>Settings</h2>
+    <div id="settings">
+      <p>Level: <b id="levelName"></b></p>
+      <div>
+        <input type="checkbox" id="human-mode" name="human-mode">
+        <label for="human-mode">Human mode</label>
+      </div>
+
+      <div>
+        <input type="checkbox" id="verbose-mode" name="verbose-mode">
+        <label for="verbose-mode">Verbose mode</label>
+      </div>
+
+      <div class="configuration ai">
+        <input type="number" id="general-mutation-probability" name="general-mutation-probability" min="0" max="100" step="0.01">
+        <label for="general-mutation-probability">General mutation probability</label>
+      </div>
+
+      <div class="configuration ai">
+        <input type="number" id="power-mutation-probability" name="power-mutation-probability" min="0" max="100" step="0.01">
+        <label for="power-mutation-probability">Power mutation probability</label>
+      </div>
+
+      <div class="configuration ai">
+        <input type="number" id="angle-mutation-probability" name="angle-mutation-probability" min="0" max="100" step="0.01">
+        <label for="angle-mutation-probability">Angle mutation probability</label>
+      </div>
+
+      <div class="configuration ai">
+        <input type="number" id="individual-count" name="individual-count" min="0" step="1">
+        <label for="individual-count">Individual count</label>
+      </div>
+
+      <div class="configuration ai">
+        <input type="number" id="father-genes-power" name="father-genes-power" min="0" max="100" step="0.01">
+        <label for="father-genes-power">Father genes probability - power</label>
+      </div>
+
+      <div class="configuration ai">
+        <input type="number" id="father-genes-angle" name="father-genes-angle" min="0" max="100" step="0.01">
+        <label for="father-genes-angle">Father genes probability - angle</label>
+      </div>
+
+      <div class="configuration ai">
+        <input type="number" id="power-mutation-range-lower" name="power-mutation-range-lower" min="-100" max="100" step="0.1">
+        <label for="power-mutation-range-lower">Power mutation range - lower</label>
+      </div>
+
+      <div class="configuration ai">
+        <input type="number" id="power-mutation-range-upper" name="power-mutation-range-upper" min="-100" max="100" step="0.1">
+        <label for="power-mutation-range-upper">Power mutation range - upper</label>
+      </div>
+
+      <div class="configuration ai">
+        <input type="number" id="angle-mutation-range-lower" name="angle-mutation-range-lower" min="-3.14" max="3.14" step="0.001">
+        <label for="angle-mutation-range-lower">Angle mutation range - lower</label>
+      </div>
+
+      <div class="configuration ai">
+        <input type="number" id="angle-mutation-range-upper" name="angle-mutation-range-upper" min="-3.14" max="3.14" step="0.001">
+        <label for="angle-mutation-range-upper">Angle mutation range - upper</label>
+      </div>
+
+
+      <div id="verbose-console-wrapper">
+        <p>Verbose console</p>
+        <textarea id="verbose-console"></textarea>
+      </div>
+      
+
+
+      <button id="start-button">Start</button>
+    </div>
   </body>
 </html>

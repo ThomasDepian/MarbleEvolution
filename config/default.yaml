@@ -1,0 +1,74 @@
+# DEFAULT VALUES - DO NOT TOUCH
+gameSettings:
+  humanMode:
+    false
+  verboseMode:
+    true
+geneticAlgorithm:
+  individualCount:
+    100
+  fatherGenesProbability: # all percentages in the range [0, 1]
+    power:
+      0.5
+    angle:
+      0.5
+  mutationProbability: # all percentages in the range [0, 1]
+    general:
+      0.18
+    power:
+      0.5
+    angle:
+      0.5
+  mutationRange:
+    power:
+      lowerBound:
+        -3
+      upperBound:
+        3
+    angle:
+      lowerBound:
+        -0.5
+      upperBound:
+        0.5
+levels:
+  - number:
+      1
+    name:
+      Standard
+    marble: # marble
+      diameter: # should be an even number
+        6 
+      position:
+        x:
+          250
+        y:
+          490
+    goal:
+      diameter:  # should be an even number
+        20
+      position:
+        x:
+          250
+        y:
+          40
+    obstacles:
+      - position:
+          x:
+            200
+          y:
+            350
+        size:
+          width:
+            200
+          height: # should be at least 30, otherwhise proper collision detection is not granted
+            30
+      - position:
+          x:
+            250
+          y:
+            220
+        size:
+          width:
+            250
+          height: # should be at least 30, otherwhise proper collision detection is not granted
+            30

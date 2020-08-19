@@ -1,4 +1,4 @@
-import { Configuration } from './Configuration';
+import { ConfigurationHandler } from './Configuration';
 import { MarbleIndividual } from './MarbleIndividual';
 /**
  * File providing helper utilities for the genetic algorithm.
@@ -20,7 +20,7 @@ let population: MarbleIndividual[];
 /**
  * @param initialPopulation The intial population.
  */
-export function initializeAlgorithm(initialPopulation: MarbleIndividual[] = []): void {
+export function initializeGeneticAlgorithm(initialPopulation: MarbleIndividual[] = []): void {
     population = initialPopulation;
     iterationCount = 1;
 }
@@ -57,11 +57,31 @@ export function allStoped(): boolean {
 
 /**
  * Kills the entire population.
- * **Use with care**
+ * **Use with care**.
  */
 export function killAll(): void {
     population.forEach(individual => individual.destroy());
     population = [];
+}
+
+/**
+ * Computes the average distance to the goal of the current population.
+ * 
+ * @returns Returns the average distance to the goal.
+ */
+export function computeAvgDistance(): number {
+    const sum = population.map(i => i.distanceToGoal()).reduce((p, c) => p + c);
+    return sum / population.length;
+}
+
+/**
+ * Fetches the best (i.e. lowest) distance to the goal of the current population.
+ * 
+ * @returns Returnsthe best (i.e. lowest) to the goal.
+ */
+export function getBestDistance(): number {
+    // destruct array into single values    
+    return Math.min(...population.map(i => i.distanceToGoal()));
 }
 
 
@@ -71,7 +91,7 @@ export function killAll(): void {
  * Calls the fitness function for each individual and generates
  * based on the fitness values a new generation.
  * 
- * @see [[Configuration]]: Please refer to the configuration class for limitations and probabilities that may
+ * @see [[ConfigurationHandler]]: Please refer to the configuration class for limitations and probabilities that may
  * apply.
  */
 function iterationFinished(): void {
@@ -85,7 +105,7 @@ function iterationFinished(): void {
 
         const child = reproduce(father, mother);
 
-        if (Math.random() < Configuration.MUTATION_PROBABILITY) {
+        if (Math.random() < ConfigurationHandler.getGeneticAlgorithm().mutationProbability.general) {
             child.mutate();
         }
 
@@ -153,7 +173,7 @@ function randomSelect(fitnesValues: number[]): MarbleIndividual {
  * Creates a new individual (child) based on two other individuals (parents).
  * 
  * The genes ('DNA') are mixed according to some probability.
- * @see [[Configuration]]: Please refer to the configuration class for limitations and probabilities that may
+ * @see [[ConfigurationHandler]]: Please refer to the ConfigurationHandler class for limitations and probabilities that may
  * 
  * @param father The father of the child.
  * @param mother The mother of the child.
@@ -165,8 +185,8 @@ function reproduce(father: MarbleIndividual, mother: MarbleIndividual): MarbleIn
     const motherDNA = mother.dna;
 
     const childDNA = {
-        'power': Math.random() < Configuration.FATHER_GENES_PROBABILITY ? fatherDNA.power : motherDNA.power,
-        'angle': Math.random() < Configuration.FATHER_GENES_PROBABILITY ? fatherDNA.angle : motherDNA.angle
+        'power': Math.random() < ConfigurationHandler.getGeneticAlgorithm().fatherGenesProbability.power ? fatherDNA.power : motherDNA.power,
+        'angle': Math.random() < ConfigurationHandler.getGeneticAlgorithm().fatherGenesProbability.angle ? fatherDNA.angle : motherDNA.angle
     }
 
     const child = new MarbleIndividual(

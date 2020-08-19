@@ -1,4 +1,4 @@
-import { Configuration } from './Configuration';
+import { ConfigurationHandler } from './Configuration';
 import { Goal } from './Goal';
 import { Marble } from './Marble';
 import * as Phaser from 'phaser';
@@ -130,6 +130,17 @@ export class MarbleIndividual extends Marble {
     }
 
     /**
+     * Computes the distance to the goal.
+     * 
+     * @see [[Marble.distanceTo]] for further details.
+     * 
+     * @returns Returns the distance to the goal.
+     */
+    public distanceToGoal(): number {
+        return this.distanceTo(this.goal);
+    }
+
+    /**
      * Computes the fitness function of the individual.
      * 
      * The fitness function is currently computed using the reciprocal value of the distance to the
@@ -156,29 +167,41 @@ export class MarbleIndividual extends Marble {
      * @see [[Configuration]]: Please refer to the configuration class for the concrete probabilities.
      */
     public mutate(): void {
-        if (Math.random() < Configuration.POWER_MUTATION_PROBABILITY) {
+        if (Math.random() < ConfigurationHandler.getGeneticAlgorithm().mutationProbability.power) {
             let power = this.dna.power;
 
-            const powerRange = Configuration.POWER_MUTATION_RANGE;
-            power += Math.floor(Math.random() * (powerRange - -powerRange) ) + powerRange;
+            const powerRange = ConfigurationHandler.getGeneticAlgorithm().mutationRange.power;
+            power += this.randomNumber(powerRange.lowerBound, powerRange.upperBound);            
 
-            power = Math.min(0, power);
-            power = Math.max(25, power);
+            // TODO: Make configurable
+            power = Math.max(0, power);
+            power = Math.min(25, power);
 
             this.dna.power = power;
         } 
         
-        if (Math.random() < Configuration.ANGLE_MUTATION_PROBABILITY) {
+        if (Math.random() < ConfigurationHandler.getGeneticAlgorithm().mutationProbability.angle) {
             let angle = this.dna.angle;
 
-            const angleRange = Configuration.ANGLE_MUTATION_RANGE;
-            angle += Math.floor(Math.random() * (angleRange - -angleRange) ) + angleRange;
+            const angleRange = ConfigurationHandler.getGeneticAlgorithm().mutationRange.angle;
+            angle += this.randomNumber(angleRange.lowerBound, angleRange.upperBound);
 
-            angle = Math.min(0, angle);
-            angle = Math.max(Math.PI, angle);
+            angle = Math.max(0, angle);
+            angle = Math.min(Math.PI, angle);
 
             this.dna.angle = angle;
         } 
+    }
+
+
+    /**
+     * Helper function returning a random number in the range [lowerBound, upperBound], both included.
+     * 
+     * @param lowerBound The lowerbound of the range.
+     * @param upperBound The upperbound of the range.
+     */
+    private randomNumber(lowerBound: number = 0, upperBound: number = 1): number {
+        return Math.floor(Math.random() * (upperBound - lowerBound + 1) ) + lowerBound;
     }
 
     /**
