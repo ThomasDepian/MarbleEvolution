@@ -72,14 +72,14 @@
 						<p>Class representing marble controlled by the genetic algorithm.</p>
 					</div>
 					<p>The &#39;DNA&#39; of an individual consists of the values of the
-						[[power]] and the <a href="marbleindividual.html#angle">angle</a> property and is described using the interface
+						<a href="../interfaces/geneticalgorithmconfiguration.html#fathergenesprobability.__type.power">power</a> and the <a href="marbleindividual.html#angle">angle</a> property and is described using the interface
 					<a href="../interfaces/marbledna.html">MarbleDNA</a>.</p>
 					<p>This class relies heavily on the implementations of the Marble class.
 					See the <a href="marble.html">Marble</a> class for further information.</p>
 					<p>The genetic algorithm is part of the class GeneticAlgorithm.ts.</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
-						<dd><p><a href="configuration.html">Configuration</a>: Please refer to the configuration class for any limitations/settings which may apply.</p>
+						<dd><p><a href="../interfaces/configuration.html">Configuration</a>: Please refer to the configuration class for any limitations/settings which may apply.</p>
 						</dd>
 					</dl>
 				</div>
@@ -235,6 +235,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="marbleindividual.html#destroy" class="tsd-kind-icon">destroy</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#disableinteractive" class="tsd-kind-icon">disable<wbr>Interactive</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#distanceto" class="tsd-kind-icon">distance<wbr>To</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="marbleindividual.html#distancetogoal" class="tsd-kind-icon">distance<wbr>ToGoal</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#emit" class="tsd-kind-icon">emit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#eventnames" class="tsd-kind-icon">event<wbr>Names</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="marbleindividual.html#fitness" class="tsd-kind-icon">fitness</a></li>
@@ -268,6 +269,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#once" class="tsd-kind-icon">once</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#play" class="tsd-kind-icon">play</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="marbleindividual.html#preupdate" class="tsd-kind-icon">pre<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="marbleindividual.html#randomnumber" class="tsd-kind-icon">random<wbr>Number</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#removeinteractive" class="tsd-kind-icon">remove<wbr>Interactive</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#removelistener" class="tsd-kind-icon">remove<wbr>Listener</a></li>
@@ -377,7 +379,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="marble.html">Marble</a>.<a href="marble.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/MarbleIndividual.ts#L77">src/MarbleIndividual.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/MarbleIndividual.ts#L77">src/MarbleIndividual.ts:77</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -738,7 +740,7 @@
 					<div class="tsd-signature tsd-kind-icon">diameter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/MarbleIndividual.ts#L66">src/MarbleIndividual.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/MarbleIndividual.ts#L66">src/MarbleIndividual.ts:66</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -836,7 +838,7 @@
 					<div class="tsd-signature tsd-kind-icon">dna<span class="tsd-signature-symbol">:</span> <a href="../interfaces/marbledna.html" class="tsd-signature-type">MarbleDNA</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/MarbleIndividual.ts#L28">src/MarbleIndividual.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/MarbleIndividual.ts#L28">src/MarbleIndividual.ts:28</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -912,7 +914,7 @@
 					<div class="tsd-signature tsd-kind-icon">goal<span class="tsd-signature-symbol">:</span> <a href="goal.html" class="tsd-signature-type">Goal</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/MarbleIndividual.ts#L35">src/MarbleIndividual.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/MarbleIndividual.ts#L35">src/MarbleIndividual.ts:35</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -952,7 +954,7 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/MarbleIndividual.ts#L77">src/MarbleIndividual.ts:77</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/MarbleIndividual.ts#L77">src/MarbleIndividual.ts:77</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1246,7 +1248,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides <a href="goal.html">Goal</a>.<a href="goal.html#scene">scene</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/MarbleIndividual.ts#L42">src/MarbleIndividual.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/MarbleIndividual.ts#L42">src/MarbleIndividual.ts:42</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1320,7 +1322,7 @@
 					<div class="tsd-signature tsd-kind-icon">start<wbr>Point<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Point</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/MarbleIndividual.ts#L50">src/MarbleIndividual.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/MarbleIndividual.ts#L50">src/MarbleIndividual.ts:50</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1397,7 +1399,7 @@
 					<div class="tsd-signature tsd-kind-icon">texture<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/MarbleIndividual.ts#L58">src/MarbleIndividual.ts:58</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/MarbleIndividual.ts#L58">src/MarbleIndividual.ts:58</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -2034,7 +2036,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#distanceto">distanceTo</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Marble.ts#L98">src/Marble.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/Marble.ts#L98">src/Marble.ts:98</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2053,6 +2055,34 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 							<p>The distance to the object.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="distancetogoal" class="tsd-anchor"></a>
+					<h3>distance<wbr>ToGoal</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">distance<wbr>ToGoal<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/MarbleIndividual.ts#L139">src/MarbleIndividual.ts:139</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Computes the distance to the goal.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p><a href="marble.html#distanceto">Marble.distanceTo</a> for further details.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>Returns the distance to the goal.</p>
 						</li>
 					</ul>
 				</section>
@@ -2127,7 +2157,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/MarbleIndividual.ts#L140">src/MarbleIndividual.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/MarbleIndividual.ts#L151">src/MarbleIndividual.ts:151</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2864,7 +2894,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#ismoving">isMoving</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Marble.ts#L110">src/Marble.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/Marble.ts#L110">src/Marble.ts:110</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2936,7 +2966,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#istouching">isTouching</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Marble.ts#L121">src/Marble.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/Marble.ts#L121">src/Marble.ts:121</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3030,7 +3060,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/MarbleIndividual.ts#L158">src/MarbleIndividual.ts:158</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/MarbleIndividual.ts#L169">src/MarbleIndividual.ts:169</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3043,7 +3073,7 @@
 								with some probability and can alter in a given range.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
-									<dd><p><a href="configuration.html">Configuration</a>: Please refer to the configuration class for the concrete probabilities.</p>
+									<dd><p><a href="../interfaces/configuration.html">Configuration</a>: Please refer to the configuration class for the concrete probabilities.</p>
 									</dd>
 								</dl>
 							</div>
@@ -3271,6 +3301,43 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="randomnumber" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> random<wbr>Number</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">random<wbr>Number<span class="tsd-signature-symbol">(</span>lowerBound<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, upperBound<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/MarbleIndividual.ts#L203">src/MarbleIndividual.ts:203</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Helper function returning a random number in the range [lowerBound, upperBound], both included.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> lowerBound: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The lowerbound of the range.</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> upperBound: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The upperbound of the range.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="removealllisteners" class="tsd-anchor"></a>
 					<h3>remove<wbr>All<wbr>Listeners</h3>
@@ -3400,7 +3467,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#reset">reset</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Marble.ts#L87">src/Marble.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/Marble.ts#L87">src/Marble.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -6132,7 +6199,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#start">start</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Marble.ts#L64">src/Marble.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/Marble.ts#L64">src/Marble.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -6186,7 +6253,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/MarbleIndividual.ts#L128">src/MarbleIndividual.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/MarbleIndividual.ts#L128">src/MarbleIndividual.ts:128</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -6215,7 +6282,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#stop">stop</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/Marble.ts#L77">src/Marble.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/Marble.ts#L77">src/Marble.ts:77</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -6394,7 +6461,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/b395fb0/src/MarbleIndividual.ts#L189">src/MarbleIndividual.ts:189</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/MarbleIndividual.ts#L212">src/MarbleIndividual.ts:212</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -6597,7 +6664,10 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class">
-						<a href="configuration.html" class="tsd-kind-icon">Configuration</a>
+						<a href="configurationhandler.html" class="tsd-kind-icon">Configuration<wbr>Handler</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="coordinate.html" class="tsd-kind-icon">Coordinate</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="goal.html" class="tsd-kind-icon">Goal</a>
@@ -6850,6 +6920,9 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="marbleindividual.html#distanceto" class="tsd-kind-icon">distance<wbr>To</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="marbleindividual.html#distancetogoal" class="tsd-kind-icon">distance<wbr>ToGoal</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="marbleindividual.html#emit" class="tsd-kind-icon">emit</a>
 							</li>
@@ -6948,6 +7021,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="marbleindividual.html#preupdate" class="tsd-kind-icon">pre<wbr>Update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="marbleindividual.html#randomnumber" class="tsd-kind-icon">random<wbr>Number</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="marbleindividual.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a>
@@ -7230,7 +7306,28 @@
 						<a href="obstacle.html" class="tsd-kind-icon">Obstacle</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="../interfaces/boundspecification.html" class="tsd-kind-icon">Bound<wbr>Specification</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/configuration.html" class="tsd-kind-icon">Configuration</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/coordinateconfiguartion.html" class="tsd-kind-icon">Coordinate<wbr>Configuartion</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/gamesettingsconfiguration.html" class="tsd-kind-icon">Game<wbr>Settings<wbr>Configuration</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/geneticalgorithmconfiguration.html" class="tsd-kind-icon">Genetic<wbr>Algorithm<wbr>Configuration</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/levelconfiguration.html" class="tsd-kind-icon">Level<wbr>Configuration</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="../interfaces/marbledna.html" class="tsd-kind-icon">MarbleDNA</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/obstacleconfiguration.html" class="tsd-kind-icon">Obstacle<wbr>Configuration</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="../globals.html#game" class="tsd-kind-icon">game</a>
@@ -7245,7 +7342,13 @@
 						<a href="../globals.html#allstoped" class="tsd-kind-icon">all<wbr>Stoped</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="../globals.html#initializealgorithm" class="tsd-kind-icon">initialize<wbr>Algorithm</a>
+						<a href="../globals.html#computeavgdistance" class="tsd-kind-icon">compute<wbr>Avg<wbr>Distance</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#getbestdistance" class="tsd-kind-icon">get<wbr>Best<wbr>Distance</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#initializegeneticalgorithm" class="tsd-kind-icon">initialize<wbr>Genetic<wbr>Algorithm</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="../globals.html#iterationfinished" class="tsd-kind-icon">iteration<wbr>Finished</a>
@@ -7291,10 +7394,11 @@
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 		</div>
 	</div>

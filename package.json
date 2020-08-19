@@ -1,6 +1,6 @@
 {
   "name": "marble-evolution",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Genetic algorithm tries to master the marble game.",
   "main": "index.js",
   "scripts": {
