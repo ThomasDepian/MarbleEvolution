@@ -5,7 +5,7 @@ import { Goal } from './Goal';
 import { Marble } from './Marble';
 import { ConfigurationHandler, Configuration } from './Configuration';
 import * as Phaser from 'phaser';
-import { initializeGeneticAlgorithm, iterationCount, startIteration, allStoped, stopIteration, killAll } from './GeneticAlgorithm';
+import { initializeGeneticAlgorithm, iterationCount, startIteration, allStoped, stopIteration, killAll, computeAvgDistance, getBestDistance } from './GeneticAlgorithm';
 import * as YAML from 'yaml'
 
 
@@ -52,6 +52,9 @@ export class Main extends Phaser.Scene {
      * 
      */
     private marbleLaunched = false;
+    private tryIterationCounter = 0;
+    private humanBestDistance = Infinity;
+    private aiBestDistance = Infinity;
 
 
 
@@ -230,6 +233,9 @@ export class Main extends Phaser.Scene {
         });
 
         document.getElementById('verbose-console-wrapper').style.display = ConfigurationHandler.isVerboseMode() ? visible : hidden;
+
+        document.getElementById('stats-human-mode').style.display = ConfigurationHandler.isHumanMode() ? visible : hidden;
+        document.getElementById('stats-ai-mode').style.display    = ConfigurationHandler.isHumanMode() ? hidden : visible;
     }
 
     private updateConfiguartionFromHTML() {
@@ -291,7 +297,6 @@ export class Main extends Phaser.Scene {
         } else {
             this.verboseConsole.textContent = 'Verbose mode disabled...\nPlease restart the game in verbose mode to see the output..\n';
         }
-        
 
         
         this.initializePhysics();
@@ -339,6 +344,17 @@ export class Main extends Phaser.Scene {
                 this.graphics.lineBetween(x1, y1, x2, y2);
 
                 
+            } else if(this.marbleLaunched) {
+                const currentDistance = this.marble.distanceTo(this.goal);
+                document.getElementById('human-distance').textContent = currentDistance.toFixed(2);                
+                if(!this.marble.isMoving()) {
+                    if (currentDistance < this.humanBestDistance) {
+                        this.humanBestDistance = currentDistance;
+                        document.getElementById('human-current-best').textContent = this.humanBestDistance.toFixed(2);
+                    }
+                    this.marbleLaunched = false;
+                    this.marble.reset();
+                }
             }
 
             // Set texts
@@ -348,12 +364,25 @@ export class Main extends Phaser.Scene {
         } else {
             if (this.newIteration) {
                 this.newIteration = false;
-                console.log('Iteration ' + iterationCount);
+                // console.log('Iteration ' + iterationCount);
+                document.getElementById('iteration-number').textContent = iterationCount.toString();                
                 // this.verboseConsole.textContent += "hallo"
                 startIteration();
                 this.AIStarted = true;
             } else if(this.AIStarted) {
                 if (allStoped()) {
+                    document.getElementById('distance-avg-last-iteration').textContent = computeAvgDistance().toFixed(2);
+
+                    const bestDistance = getBestDistance();
+
+                    document.getElementById('distance-best-last-iteration').textContent = bestDistance.toFixed(2);
+
+                    if (bestDistance < this.aiBestDistance) {
+                        this.aiBestDistance = bestDistance;
+                        document.getElementById('distance-best-overall').textContent = bestDistance.toFixed(2);
+
+                    }
+                    
                     this.AIStarted = false;
                     stopIteration();
                     this.newIteration = true;
@@ -396,9 +425,14 @@ export class Main extends Phaser.Scene {
      * game.
      */
     private handlePointerUp(): void {
-        this.initializationMode = false;
-        this.text.visible = false;
-        this.startGame();
+        if(!this.marbleLaunched) {
+            this.initializationMode = false;
+            this.text.visible = false;
+            this.marbleLaunched = true;
+            this.tryIterationCounter++;
+            document.getElementById('try-number').textContent = this.tryIterationCounter.toString();
+            this.startGame();
+        }
     }
 
     /**

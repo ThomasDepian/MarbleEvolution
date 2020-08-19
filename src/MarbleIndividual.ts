@@ -129,6 +129,10 @@ export class MarbleIndividual extends Marble {
         this.start(this.dna.power, this.dna.angle);
     }
 
+    public distanceToGoal(): number {
+        return this.distanceTo(this.goal);
+    }
+
     /**
      * Computes the fitness function of the individual.
      * 

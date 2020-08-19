@@ -64,6 +64,16 @@ export function killAll(): void {
     population = [];
 }
 
+export function computeAvgDistance(): number {
+    const sum = population.map(i => i.distanceToGoal()).reduce((p, c) => p + c);
+    return sum / population.length;
+}
+
+export function getBestDistance(): number {
+    // destruct array into single values    
+    return Math.min(...population.map(i => i.distanceToGoal()));
+}
+
 
 /**
  * Performs action needed to conclude an iteration.

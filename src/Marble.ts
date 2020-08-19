@@ -108,8 +108,8 @@ export class Marble extends Phaser.Physics.Matter.Sprite {
      *          otherwise.
      */
     public isMoving(): boolean{
-        // return new Phaser.Math.Vector2(this.body.velocity).length() > 0.025;
         return new Phaser.Math.Vector2(this.body.velocity).length() > 0.075;
+        
     }
 
     /**
