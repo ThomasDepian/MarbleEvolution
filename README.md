@@ -15,9 +15,10 @@ The text below the game-frame shows you some basic information about the current
 Once the game has launched a left-click inside the game-frame starts the simulation. Another left click resets the simulation progress by killing all individuals. Some debug output will be printed in the console of the browser.
 
 ## Configuration
-Currently the only way to change the layout of the game, the behaviour of the marbles or anything else is by setting up the project locally and changing some hard coded values. A good starting point is the _Configuration.ts_ file or the _Main.ts_ as almost any values are set there.
+Various settings can be configurated without touching the code. There exists a folder `config` with two `.yaml` files: `config.yaml` and `default.yaml`, both containing some configuration values for the game. At startup, the `config.yaml` will be loaded and serves as the initial configuration, whereas `default.yaml` is just a backup copy in case you mess up the configuration.  
+The game contains also several ways of changing some values (as for example the mutation rate) 'on the fly'. Just change the values on the webpage. The changes take affect once you press `Start`. Please note that the configuration **will not be saved**, unless you manually copy the configuration values into the file `config.yaml`.
 
-**The possibility to change some basic settings on the fly will be added in future versions.**
+**The possibility to change other settings and save the current configuration will be added in future versions.**
 
 ## Project setup
 ### Prerequisites

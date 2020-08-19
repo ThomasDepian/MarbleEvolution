@@ -140,7 +140,7 @@ export class Main extends Phaser.Scene {
         const goalSkinPath       = 'assets/goal.png';
         const obstacleSkinPath   = 'assets/obstacle.png';
         const individualSkinPath = 'assets/dot.png';
-        const configPath         = 'config/default.yaml';
+        const configPath         = 'config/config.yaml';
 
         this.load.image("marble",       marbleSkinPath);
         this.load.image("goal",         goalSkinPath);
