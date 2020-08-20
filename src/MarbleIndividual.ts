@@ -15,58 +15,15 @@ import { v4 as uuidv4 } from 'uuid';
  * This class relies heavily on the implementations of the Marble class.
  * See the [[Marble]] class for further information.
  * 
- * The genetic algorithm is part of the class GeneticAlgorithm.ts.
+ * The genetic algorithm is described using several methods tagged with 'Genetic Algorithm'.
+ * Please refer to [[initializeGeneticAlgorithm]] as a starting point.
  * 
  * @see [[Configuration]]: Please refer to the configuration class for any limitations/settings which may apply.
  */
 export class MarbleIndividual extends Marble {
 
     /**
-     * The dna of the marble individual.
-     * @readonly
-     */
-    public readonly dna: MarbleDNA;
-
-    /**
-     * The goal to which the individual should
-     * try to find a way.
-     * @readonly
-     */
-    public readonly goal: Goal;
-
-    /**
-     * The goal to which the individual should
-     * try to find a way.
-     * @readonly
-     */
-    public readonly scene: Phaser.Scene;
-
-    /**
-     * The startpoint of the individual.
-     * 
-     * @note Only needed for the reproduce function.
-     * @readony
-     */
-    public readonly startPoint: Phaser.Geom.Point;
-
-    /**
-     * The name of the texture for the individual.
-     * 
-     * @note Only needed for the reproduce function.
-     * @readonly
-     */
-    public readonly textureName: string;
-
-    /**
-     * The diameter of the individual.
-     * 
-     * @note Only needed for the reproduce function.
-     * @readonly
-     */
-    public readonly diameter: number;
-
-    /**
-     * Unique identifier to identifiy and efficently store the individuals.
+     * Unique identifier to identifiy the individuals.
      * 
      * This is a uuidv4 128-bit number. See
      * (this article) [https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)]
@@ -76,31 +33,65 @@ export class MarbleIndividual extends Marble {
      */
     private readonly id: string;
 
+
+    /**
+     * The dna of the marble individual.
+     * 
+     * @readonly
+     */
+    private readonly dna: MarbleDNA;
+
+    /**
+     * The goal to which the individual should
+     * try to find a way.
+     * 
+     * @readonly
+     */
+    private readonly goal: Goal;
+
+    /**
+     * The name of the texture of the individual.
+     * 
+     * @note This property is only relevant for reproduction.
+     * 
+     * @readonly
+     */
+    private readonly textureName: string;
+
+    /**
+     * The diameter of the individual.
+     * 
+     * @note This property is only relevant for reproduction.
+     * 
+     * @readonly
+     */
+    private readonly diameter: number;
+
+
+    
     /**
      * 
-     * @param world The world to which the individual belongs.
-     * @param scene The scene to which the individual belongs.
-     * @param startPoint Start point of the individual.
+     * @param world       The world to which the individual belongs.
+     * @param scene       The scene to which the individual belongs.
+     * @param startPoint  Start point of the individual.
      * @param textureName The name of the texture. **Note**: Must be loaded _before_ the call.
-     * @param diameter Diameter of the marble.
-     * @param goal The goal to which the individuals are reaching.
-     * @param dna The DNA of the individual. If not present, a random DNA will be generated.
+     * @param diameter    Diameter of the individual. **Note**: Must be chosen such that the individual will not flow outside the screen.
+     * @param goal        The goal to which the individual is reaching.
+     * @param dna         The DNA of the individual. If not present, a random DNA will be generated.
      */
     constructor (
-        world: Phaser.Physics.Matter.World,
-        scene: Phaser.Scene,
-        startPoint: Phaser.Geom.Point,
+        world:       Phaser.Physics.Matter.World,
+        scene:       Phaser.Scene,
+        startPoint:  Phaser.Geom.Point,
         textureName: string,
-        diameter: number,
-        goal: Goal,
-        dna?: MarbleDNA){
-
-        super(world, scene, startPoint, textureName, diameter); 
-        this.scene = scene;
-        this.startPoint = startPoint;
+        diameter:    number,
+        goal:        Goal,
+        dna?:        MarbleDNA
+    ){
+        super(world, scene, startPoint, textureName, diameter);
+        this.goal        = goal;
         this.textureName = textureName;
-        this.diameter = diameter;
-        this.goal = goal;
+        this.diameter    = diameter;
 
         if (dna === undefined) {
             const power = Math.random() * 25;
@@ -114,7 +105,7 @@ export class MarbleIndividual extends Marble {
             this.dna  = dna;
         }
 
-        // Disable collions
+        // Disable collions within the same group (i.e. under individuals)
         this.setCollisionGroup(-1);
         this.id = uuidv4();
     }
@@ -123,7 +114,7 @@ export class MarbleIndividual extends Marble {
      * Starts the individual by calling the the start method
      * of the parent class.
      * 
-     * @see Marble.start
+     * @see [[Marble.start]] for further details.
      */
     public startIndividual(): void {
         this.start(this.dna.power, this.dna.angle);
@@ -154,6 +145,39 @@ export class MarbleIndividual extends Marble {
         return 1 / Math.pow(distance, 2);
     }
 
+    /**
+     * Creates a new individual (child) based on the current individual (acting as father)
+     * and an other individual (acting as mother).
+     * 
+     * The genes ('DNA') are mixed according to some probability.
+     * @see [[Configuration]]: Please refer to the configuration class for limitations and probabilities that may apply.
+     * 
+     * @param mother The mother of the child.
+     * 
+     * @returns A new child.
+     */
+    public reproduceWith(mother: MarbleIndividual): MarbleIndividual {
+        const fatherDNA = this.dna;
+        const motherDNA = mother.dna;
+
+        const childDNA = {
+            'power': Math.random() < ConfigurationHandler.getGeneticAlgorithm().fatherGenesProbability.power ? fatherDNA.power : motherDNA.power,
+            'angle': Math.random() < ConfigurationHandler.getGeneticAlgorithm().fatherGenesProbability.angle ? fatherDNA.angle : motherDNA.angle
+        }
+
+        const child = new MarbleIndividual(
+            this.world,
+            this.scene,
+            this.startPosition,
+            this.textureName,
+            this.diameter,
+            this.goal,
+            childDNA,
+        );
+
+        return child;
+    }
+
 
     /**
      * Mutates the individual.
@@ -164,16 +188,23 @@ export class MarbleIndividual extends Marble {
      * Each property/characteristics of the 'DNA' will be mutated
      * with some probability and can alter in a given range.
      * 
-     * @see [[Configuration]]: Please refer to the configuration class for the concrete probabilities.
+     * @see [[Configuration]]: Please refer to the configuration class for the concrete probabilities and ranges
      */
     public mutate(): void {
+        /**
+         * Helper function returning a random number in the range [lowerBound, upperBound], both included.
+         */
+        const randomNumber = function(lowerBound: number = 0, upperBound: number = 1): number {
+            return Math.floor(Math.random() * (upperBound - lowerBound + 1) ) + lowerBound;
+        }
+
+
         if (Math.random() < ConfigurationHandler.getGeneticAlgorithm().mutationProbability.power) {
             let power = this.dna.power;
 
             const powerRange = ConfigurationHandler.getGeneticAlgorithm().mutationRange.power;
-            power += this.randomNumber(powerRange.lowerBound, powerRange.upperBound);            
+            power += randomNumber(powerRange.lowerBound, powerRange.upperBound);            
 
-            // TODO: Make configurable
             power = Math.max(0, power);
             power = Math.min(25, power);
 
@@ -184,24 +215,13 @@ export class MarbleIndividual extends Marble {
             let angle = this.dna.angle;
 
             const angleRange = ConfigurationHandler.getGeneticAlgorithm().mutationRange.angle;
-            angle += this.randomNumber(angleRange.lowerBound, angleRange.upperBound);
+            angle += randomNumber(angleRange.lowerBound, angleRange.upperBound);
 
             angle = Math.max(0, angle);
             angle = Math.min(Math.PI, angle);
 
             this.dna.angle = angle;
         } 
-    }
-
-
-    /**
-     * Helper function returning a random number in the range [lowerBound, upperBound], both included.
-     * 
-     * @param lowerBound The lowerbound of the range.
-     * @param upperBound The upperbound of the range.
-     */
-    private randomNumber(lowerBound: number = 0, upperBound: number = 1): number {
-        return Math.floor(Math.random() * (upperBound - lowerBound + 1) ) + lowerBound;
     }
 
     /**

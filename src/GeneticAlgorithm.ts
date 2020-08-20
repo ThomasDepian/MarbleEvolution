@@ -123,7 +123,7 @@ function iterationFinished(): void {
         const father = randomSelect(fitnesValues);
         const mother = randomSelect(fitnesValues);
 
-        const child = reproduce(father, mother);
+        const child = father.reproduceWith(mother);
 
         if (Math.random() < ConfigurationHandler.getGeneticAlgorithm().mutationProbability.general) {
             child.mutate();
@@ -187,37 +187,4 @@ function randomSelect(fitnesValues: number[]): MarbleIndividual {
             return population[i];
         }
     }
-}
-
-/**
- * Creates a new individual (child) based on two other individuals (parents).
- * 
- * The genes ('DNA') are mixed according to some probability.
- * @see [[ConfigurationHandler]]: Please refer to the ConfigurationHandler class for limitations and probabilities that may
- * 
- * @param father The father of the child.
- * @param mother The mother of the child.
- * 
- * @returns A new child.
- */
-function reproduce(father: MarbleIndividual, mother: MarbleIndividual): MarbleIndividual {
-    const fatherDNA = father.dna;
-    const motherDNA = mother.dna;
-
-    const childDNA = {
-        'power': Math.random() < ConfigurationHandler.getGeneticAlgorithm().fatherGenesProbability.power ? fatherDNA.power : motherDNA.power,
-        'angle': Math.random() < ConfigurationHandler.getGeneticAlgorithm().fatherGenesProbability.angle ? fatherDNA.angle : motherDNA.angle
-    }
-
-    const child = new MarbleIndividual(
-        father.world,
-        father.scene,
-        father.startPoint,
-        father.textureName,
-        father.diameter,
-        father.goal,
-        childDNA,
-    );
-
-    return child;
 }

@@ -15,7 +15,7 @@ export class Marble extends Phaser.Physics.Matter.Sprite {
     /**
      * The start point of the marble.
      */
-    private startPosition: Phaser.Geom.Point;
+    protected startPosition: Phaser.Geom.Point;
     
     /**
      * 
@@ -23,7 +23,7 @@ export class Marble extends Phaser.Physics.Matter.Sprite {
      * @param scene       The scene to which the marble belongs.
      * @param startPoint  Start point of the marble.
      * @param textureName The name of the texture. **Note**: Must be loaded _before_ the call.
-     * @param diameter    Diameter of the marble. **Note**: Must be chosen such that the goal will not flow outside the screen.
+     * @param diameter    Diameter of the marble. **Note**: Must be chosen such that the marble will not flow outside the screen.
      */
     constructor (
         world:       Phaser.Physics.Matter.World,
