@@ -1,8 +1,11 @@
-import { ConfigurationHandler } from './Configuration';
-import { MarbleIndividual } from './MarbleIndividual';
 /**
+ * @packageDocumentation
  * File providing helper utilities for the genetic algorithm.
  */
+
+import { ConfigurationHandler } from './Configuration';
+import { MarbleIndividual } from './MarbleIndividual';
+
 
 
 /**
@@ -18,6 +21,12 @@ let population: MarbleIndividual[];
 
 
 /**
+ * Initializes the algorithm.
+ * 
+ * @note Erases any previous population.
+ * 
+ * @category Genetic Algorithm
+ * 
  * @param initialPopulation The intial population.
  */
 export function initializeGeneticAlgorithm(initialPopulation: MarbleIndividual[] = []): void {
@@ -27,14 +36,16 @@ export function initializeGeneticAlgorithm(initialPopulation: MarbleIndividual[]
 
 /**
  * Starts a new iteration.
+ * @category Genetic Algorithm
  */
 export function startIteration(): void {
     population.forEach(individual => individual.startIndividual());
 }
 
 /**
- * Stops the current iteration.
- * Creates a new population and print the results of the current population.
+ * Stops the current iteration and creates a new population.
+ * 
+ * @category Genetic Algorithm
  */
 export function stopIteration(): void {
     population.forEach(individual => {
@@ -48,7 +59,9 @@ export function stopIteration(): void {
 /**
  * Checks whether all individuals are stopped or not.
  * 
- * @returns Returns _true_ if all individuals have stopped, else _false_.
+ * @category Genetic Algorithm
+ * 
+ * @returns Returns `true` if all individuals have stopped, else `false`.
  */
 export function allStoped(): boolean {
     const stopped = population.map(inidividual => !inidividual.isMoving());
@@ -56,8 +69,11 @@ export function allStoped(): boolean {
 }
 
 /**
- * Kills the entire population.
+ * Kills the entire population and removes it from the scene.
+ *
  * **Use with care**.
+ * 
+ * @category Genetic Algorithm
  */
 export function killAll(): void {
     population.forEach(individual => individual.destroy());
@@ -66,6 +82,8 @@ export function killAll(): void {
 
 /**
  * Computes the average distance to the goal of the current population.
+ * 
+ * @category Genetic Algorithm
  * 
  * @returns Returns the average distance to the goal.
  */
@@ -76,6 +94,8 @@ export function computeAvgDistance(): number {
 
 /**
  * Fetches the best (i.e. lowest) distance to the goal of the current population.
+ * 
+ * @category Genetic Algorithm
  * 
  * @returns Returnsthe best (i.e. lowest) to the goal.
  */
