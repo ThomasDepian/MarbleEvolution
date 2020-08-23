@@ -12,19 +12,20 @@ Coming soon.
 Once the game has launched left-click somewhere in the game-frame to adjust the direction and the power with which the marble should launch. The colored line shows you the approximate direction and the text in the lower right corner tells you with which power the marble launches. The higher the power, the faster the marble moves.
 The text below the game-frame shows you some basic information about the current state of the marble. By releasing the mouse, the marble launches. Once launched, the marble can be resetted at any time by left-clicking again inside the game-frame.
 ### AI mode
-Once the game has launched a left-click inside the game-frame starts the simulation. Another left click resets the simulation progress by killing all individuals. Some debug output will be printed in the console of the browser.
+Once the game has launched a left-click inside the game-frame starts the simulation.
 
 ## Configuration
 Various settings can be configurated without touching the code. There exists a folder `config` with two `.yaml` files: `config.yaml` and `default.yaml`, both containing some configuration values for the game. At startup, the `config.yaml` will be loaded and serves as the initial configuration, whereas `default.yaml` is just a backup copy in case you mess up the configuration.  
 The game contains also several ways of changing some values (as for example the mutation rate) 'on the fly'. Just change the values on the webpage. The changes take affect once you press `Start`. Please note that the configuration **will not be saved**, unless you manually copy the configuration values into the file `config.yaml`.
 
 **The possibility to change other settings and save the current configuration will be added in future versions.**
+**The verbose console is still under development and produces currently no output.**
 
 ## Project setup
 ### Prerequisites
 If you want to run the code in your own environment you need a web server running on your machine.
 If you already have one installed just set the root folder to this folder and you can enjoy the game. If you haven't any installed, I can recommend you [http-server](https://www.npmjs.com/package/http-server). Just follow the documentation on the provided link.   
-Alternatively you can set up a developing environment which has a built in web server.
+Alternatively you can set up the developing environment which has a built in web server.
 ### Running the project
 To start the game just launch the server, visit the url your webserver is telling you and have fun.
 ### Developing 
