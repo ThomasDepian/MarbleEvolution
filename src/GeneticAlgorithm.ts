@@ -1,15 +1,10 @@
-import { ConfigurationHandler } from './Configuration';
-import { MarbleIndividual } from './MarbleIndividual';
 /**
+ * @packageDocumentation
  * File providing helper utilities for the genetic algorithm.
  */
 
-
-/**
- * Counts the number of iterations. The first iteration gets the number 1.
- * @readonly
- */
-export let iterationCount: number;
+import { ConfigurationHandler } from './Configuration';
+import { MarbleIndividual } from './MarbleIndividual';
 
 /**
  * List containing the individuals of the current iteration.
@@ -18,37 +13,44 @@ let population: MarbleIndividual[];
 
 
 /**
+ * Initializes the algorithm.
+ * 
+ * @note Erases any previous population.
+ * 
+ * @category Genetic Algorithm
+ * 
  * @param initialPopulation The intial population.
  */
-export function initializeGeneticAlgorithm(initialPopulation: MarbleIndividual[] = []): void {
+export function initializeAlgorithm(initialPopulation: MarbleIndividual[] = []): void {
     population = initialPopulation;
-    iterationCount = 1;
 }
 
 /**
  * Starts a new iteration.
+ * @category Genetic Algorithm
  */
 export function startIteration(): void {
     population.forEach(individual => individual.startIndividual());
 }
 
 /**
- * Stops the current iteration.
- * Creates a new population and print the results of the current population.
+ * Stops the current iteration and creates a new population.
+ * 
+ * @category Genetic Algorithm
  */
 export function stopIteration(): void {
     population.forEach(individual => {
         individual.stop();
-        console.log(individual.toString());
     });
     iterationFinished();
-    iterationCount++;
 }
 
 /**
  * Checks whether all individuals are stopped or not.
  * 
- * @returns Returns _true_ if all individuals have stopped, else _false_.
+ * @category Genetic Algorithm
+ * 
+ * @returns Returns `true` if all individuals have stopped, else `false`.
  */
 export function allStoped(): boolean {
     const stopped = population.map(inidividual => !inidividual.isMoving());
@@ -56,8 +58,11 @@ export function allStoped(): boolean {
 }
 
 /**
- * Kills the entire population.
+ * Kills the entire population and removes it from the scene.
+ *
  * **Use with care**.
+ * 
+ * @category Genetic Algorithm
  */
 export function killAll(): void {
     population.forEach(individual => individual.destroy());
@@ -66,6 +71,8 @@ export function killAll(): void {
 
 /**
  * Computes the average distance to the goal of the current population.
+ * 
+ * @category Genetic Algorithm
  * 
  * @returns Returns the average distance to the goal.
  */
@@ -76,6 +83,8 @@ export function computeAvgDistance(): number {
 
 /**
  * Fetches the best (i.e. lowest) distance to the goal of the current population.
+ * 
+ * @category Genetic Algorithm
  * 
  * @returns Returnsthe best (i.e. lowest) to the goal.
  */
@@ -93,6 +102,8 @@ export function getBestDistance(): number {
  * 
  * @see [[ConfigurationHandler]]: Please refer to the configuration class for limitations and probabilities that may
  * apply.
+ * 
+ * @category Genetic Algorithm
  */
 function iterationFinished(): void {
     const fitnesValues = population.map(i => i.fitness());
@@ -103,7 +114,7 @@ function iterationFinished(): void {
         const father = randomSelect(fitnesValues);
         const mother = randomSelect(fitnesValues);
 
-        const child = reproduce(father, mother);
+        const child = father.reproduceWith(mother);
 
         if (Math.random() < ConfigurationHandler.getGeneticAlgorithm().mutationProbability.general) {
             child.mutate();
@@ -137,6 +148,8 @@ function iterationFinished(): void {
  *                     individual in the population, the second from the second and so forth.
  * 
  * @returns The individual which is chosen for reproduction.
+ * 
+ * @category Genetic Algorithm
  */
 function randomSelect(fitnesValues: number[]): MarbleIndividual {
     const population_size = population.length;
@@ -167,37 +180,4 @@ function randomSelect(fitnesValues: number[]): MarbleIndividual {
             return population[i];
         }
     }
-}
-
-/**
- * Creates a new individual (child) based on two other individuals (parents).
- * 
- * The genes ('DNA') are mixed according to some probability.
- * @see [[ConfigurationHandler]]: Please refer to the ConfigurationHandler class for limitations and probabilities that may
- * 
- * @param father The father of the child.
- * @param mother The mother of the child.
- * 
- * @returns A new child.
- */
-function reproduce(father: MarbleIndividual, mother: MarbleIndividual): MarbleIndividual {
-    const fatherDNA = father.dna;
-    const motherDNA = mother.dna;
-
-    const childDNA = {
-        'power': Math.random() < ConfigurationHandler.getGeneticAlgorithm().fatherGenesProbability.power ? fatherDNA.power : motherDNA.power,
-        'angle': Math.random() < ConfigurationHandler.getGeneticAlgorithm().fatherGenesProbability.angle ? fatherDNA.angle : motherDNA.angle
-    }
-
-    const child = new MarbleIndividual(
-        father.world,
-        father.scene,
-        father.startPoint,
-        father.textureName,
-        father.diameter,
-        father.goal,
-        childDNA,
-    );
-
-    return child;
 }

@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>marble-evolution</title>
-	<meta name="description" content="Documentation for marble-evolution">
+	<title>Marble Evolution</title>
+	<meta name="description" content="Documentation for Marble Evolution">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">marble-evolution</a>
+					<a href="index.html" class="title">Marble Evolution</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1>marble-evolution</h1>
+			<h1>Marble Evolution</h1>
 		</div>
 	</div>
 </header>
@@ -85,12 +85,13 @@
 				<a href="#ai-mode" id="ai-mode" style="color: inherit; text-decoration: none;">
 					<h3>AI mode</h3>
 				</a>
-				<p>Once the game has launched a left-click inside the game-frame starts the simulation. Another left click resets the simulation progress by killing all individuals. Some debug output will be printed in the console of the browser.</p>
+				<p>Once the game has launched a left-click inside the game-frame starts the simulation.</p>
 				<a href="#configuration" id="configuration" style="color: inherit; text-decoration: none;">
 					<h2>Configuration</h2>
 				</a>
 				<p>Various settings can be configurated without touching the code. There exists a folder <code>config</code> with two <code>.yaml</code> files: <code>config.yaml</code> and <code>default.yaml</code>, both containing some configuration values for the game. At startup, the <code>config.yaml</code> will be loaded and serves as the initial configuration, whereas <code>default.yaml</code> is just a backup copy in case you mess up the configuration.<br>The game contains also several ways of changing some values (as for example the mutation rate) &#39;on the fly&#39;. Just change the values on the webpage. The changes take affect once you press <code>Start</code>. Please note that the configuration <strong>will not be saved</strong>, unless you manually copy the configuration values into the file <code>config.yaml</code>.</p>
-				<p><strong>The possibility to change other settings and save the current configuration will be added in future versions.</strong></p>
+				<p><strong>The possibility to change other settings and save the current configuration will be added in future versions.</strong>
+				<strong>The verbose console is still under development and produces currently no output.</strong></p>
 				<a href="#project-setup" id="project-setup" style="color: inherit; text-decoration: none;">
 					<h2>Project setup</h2>
 				</a>
@@ -98,7 +99,7 @@
 					<h3>Prerequisites</h3>
 				</a>
 				<p>If you want to run the code in your own environment you need a web server running on your machine.
-				If you already have one installed just set the root folder to this folder and you can enjoy the game. If you haven&#39;t any installed, I can recommend you <a href="https://www.npmjs.com/package/http-server">http-server</a>. Just follow the documentation on the provided link.<br>Alternatively you can set up a developing environment which has a built in web server.</p>
+				If you already have one installed just set the root folder to this folder and you can enjoy the game. If you haven&#39;t any installed, I can recommend you <a href="https://www.npmjs.com/package/http-server">http-server</a>. Just follow the documentation on the provided link.<br>Alternatively you can set up the developing environment which has a built in web server.</p>
 				<a href="#running-the-project" id="running-the-project" style="color: inherit; text-decoration: none;">
 					<h3>Running the project</h3>
 				</a>
@@ -173,6 +174,12 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/aimodestate.html" class="tsd-kind-icon">AIMode<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/humanmodestate.html" class="tsd-kind-icon">Human<wbr>Mode<wbr>State</a>
+					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/configurationhandler.html" class="tsd-kind-icon">Configuration<wbr>Handler</a>
 					</li>
@@ -181,9 +188,6 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/goal.html" class="tsd-kind-icon">Goal</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/initializer.html" class="tsd-kind-icon">Initializer</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/main.html" class="tsd-kind-icon">Main</a>
@@ -225,25 +229,142 @@
 						<a href="interfaces/obstacleconfiguration.html" class="tsd-kind-icon">Obstacle<wbr>Configuration</a>
 					</li>
 					<li class=" tsd-kind-variable">
+						<a href="globals.html#css_style_hidden" class="tsd-kind-icon">CSS_<wbr>STYLE_<wbr>HIDDEN</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#css_style_visible" class="tsd-kind-icon">CSS_<wbr>STYLE_<wbr>VISIBLE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_button_start" class="tsd-kind-icon">HTML_<wbr>BUTTON_<wbr>START</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_checkbox_human_mode" class="tsd-kind-icon">HTML_<wbr>CHECKBOX_<wbr>HUMAN_<wbr>MODE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_checkbox_verbose_mode" class="tsd-kind-icon">HTML_<wbr>CHECKBOX_<wbr>VERBOSE_<wbr>MODE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_input_angle_range_lower" class="tsd-kind-icon">HTML_<wbr>INPUT_<wbr>ANGLE_<wbr>RANGE_<wbr>LOWER</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_input_angle_range_upper" class="tsd-kind-icon">HTML_<wbr>INPUT_<wbr>ANGLE_<wbr>RANGE_<wbr>UPPER</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_input_father_angle" class="tsd-kind-icon">HTML_<wbr>INPUT_<wbr>FATHER_<wbr>ANGLE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_input_father_power" class="tsd-kind-icon">HTML_<wbr>INPUT_<wbr>FATHER_<wbr>POWER</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_input_individual_count" class="tsd-kind-icon">HTML_<wbr>INPUT_<wbr>INDIVIDUAL_<wbr>COUNT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_input_mutation_angle" class="tsd-kind-icon">HTML_<wbr>INPUT_<wbr>MUTATION_<wbr>ANGLE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_input_mutation_general" class="tsd-kind-icon">HTML_<wbr>INPUT_<wbr>MUTATION_<wbr>GENERAL</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_input_mutation_power" class="tsd-kind-icon">HTML_<wbr>INPUT_<wbr>MUTATION_<wbr>POWER</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_input_power_range_lower" class="tsd-kind-icon">HTML_<wbr>INPUT_<wbr>POWER_<wbr>RANGE_<wbr>LOWER</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_input_power_range_upper" class="tsd-kind-icon">HTML_<wbr>INPUT_<wbr>POWER_<wbr>RANGE_<wbr>UPPER</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_selector_class_ai_configuration" class="tsd-kind-icon">HTML_<wbr>SELECTOR_<wbr>CLASS_<wbr>AI_<wbr>CONFIGURATION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_selector_class_configuration" class="tsd-kind-icon">HTML_<wbr>SELECTOR_<wbr>CLASS_<wbr>CONFIGURATION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_selector_id_console_wrapper" class="tsd-kind-icon">HTML_<wbr>SELECTOR_<wbr>ID_<wbr>CONSOLE_<wbr>WRAPPER</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_selector_id_stats_ai" class="tsd-kind-icon">HTML_<wbr>SELECTOR_<wbr>ID_<wbr>STATS_<wbr>AI</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_selector_id_stats_human" class="tsd-kind-icon">HTML_<wbr>SELECTOR_<wbr>ID_<wbr>STATS_<wbr>HUMAN</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_text_ai_average_distance" class="tsd-kind-icon">HTML_<wbr>TEXT_<wbr>AI_<wbr>AVERAGE_<wbr>DISTANCE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_text_ai_best_distance_last" class="tsd-kind-icon">HTML_<wbr>TEXT_<wbr>AI_<wbr>BEST_<wbr>DISTANCE_<wbr>LAST</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_text_ai_best_distance_overall" class="tsd-kind-icon">HTML_<wbr>TEXT_<wbr>AI_<wbr>BEST_<wbr>DISTANCE_<wbr>OVERALL</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_text_ai_iteration_count" class="tsd-kind-icon">HTML_<wbr>TEXT_<wbr>AI_<wbr>ITERATION_<wbr>COUNT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_text_human_current_best" class="tsd-kind-icon">HTML_<wbr>TEXT_<wbr>HUMAN_<wbr>CURRENT_<wbr>BEST</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_text_human_distance" class="tsd-kind-icon">HTML_<wbr>TEXT_<wbr>HUMAN_<wbr>DISTANCE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_text_human_try_count" class="tsd-kind-icon">HTML_<wbr>TEXT_<wbr>HUMAN_<wbr>TRY_<wbr>COUNT</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_text_level_name" class="tsd-kind-icon">HTML_<wbr>TEXT_<wbr>LEVEL_<wbr>NAME</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_verbose_console" class="tsd-kind-icon">HTML_<wbr>VERBOSE_<wbr>CONSOLE</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#precision" class="tsd-kind-icon">PRECISION</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#aibestdistance" class="tsd-kind-icon">ai<wbr>Best<wbr>Distance</a>
+					</li>
+					<li class=" tsd-kind-variable">
 						<a href="globals.html#game" class="tsd-kind-icon">game</a>
 					</li>
 					<li class=" tsd-kind-variable">
-						<a href="globals.html#iterationcount" class="tsd-kind-icon">iteration<wbr>Count</a>
+						<a href="globals.html#humanbestdistance" class="tsd-kind-icon">human<wbr>Best<wbr>Distance</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#iterationcounter" class="tsd-kind-icon">iteration<wbr>Counter</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#population" class="tsd-kind-icon">population</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#scenes" class="tsd-kind-icon">scenes</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#allstoped" class="tsd-kind-icon">all<wbr>Stoped</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="globals.html#appendlinetoverboseconsole" class="tsd-kind-icon">append<wbr>Line<wbr>ToVerbose<wbr>Console</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#appendtoverboseconsole" class="tsd-kind-icon">append<wbr>ToVerbose<wbr>Console</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="globals.html#computeavgdistance" class="tsd-kind-icon">compute<wbr>Avg<wbr>Distance</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#converttopercentage" class="tsd-kind-icon">convert<wbr>ToPercentage</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#fillhtmlwithconfiguration" class="tsd-kind-icon">fillHTMLWith<wbr>Configuration</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#getbestdistance" class="tsd-kind-icon">get<wbr>Best<wbr>Distance</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#initializegeneticalgorithm" class="tsd-kind-icon">initialize<wbr>Genetic<wbr>Algorithm</a>
+						<a href="globals.html#initializealgorithm" class="tsd-kind-icon">initialize<wbr>Algorithm</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#initializeconfiguration" class="tsd-kind-icon">initialize<wbr>Configuration</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#initializeeventlisteners" class="tsd-kind-icon">initialize<wbr>Event<wbr>Listeners</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#iterationfinished" class="tsd-kind-icon">iteration<wbr>Finished</a>
@@ -255,13 +376,34 @@
 						<a href="globals.html#randomselect" class="tsd-kind-icon">random<wbr>Select</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#reproduce" class="tsd-kind-icon">reproduce</a>
+						<a href="globals.html#resetfornewgame" class="tsd-kind-icon">reset<wbr>For<wbr>New<wbr>Game</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#setscenes" class="tsd-kind-icon">set<wbr>Scenes</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#startiteration" class="tsd-kind-icon">start<wbr>Iteration</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#stopiteration" class="tsd-kind-icon">stop<wbr>Iteration</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#updateaidistance" class="tsd-kind-icon">updateAIDistance</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#updateconfiguartionfromhtml" class="tsd-kind-icon">update<wbr>Configuartion<wbr>FromHTML</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#updatehumandistance" class="tsd-kind-icon">update<wbr>Human<wbr>Distance</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#updateiterationcount" class="tsd-kind-icon">update<wbr>Iteration<wbr>Count</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#vectortopointer" class="tsd-kind-icon">vector<wbr>ToPointer</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#writetoverboseconsole" class="tsd-kind-icon">write<wbr>ToVerbose<wbr>Console</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#config" class="tsd-kind-icon">config</a>
@@ -294,6 +436,9 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
 			</ul>
 		</div>
 	</div>

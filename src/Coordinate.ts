@@ -1,7 +1,8 @@
 /**
  * Simple interface describing the properties of a coorindate
  * used in the game.
- * @note Can directly be passed to the constructor of [[Phaser.Math.Vector2]].
+ * 
+ * @note Can directly be passed to the constructor of `Phaser.Math.Vector2`.
  */
 export interface CoordinateConfiguartion {
     /**
@@ -17,7 +18,7 @@ export interface CoordinateConfiguartion {
 /**
  * Simple coordinate type used in the game.
  * 
- * @note Can be converted into an instance of [[Phaser.Math.Vector2]] or [[Phaser.Geom.Point]].
+ * @note Can be converted into an instance of `Phaser.Math.Vector2` or `Phaser.Geom.Point`.
  */
 export class Coordinate implements CoordinateConfiguartion {
 
@@ -35,18 +36,26 @@ export class Coordinate implements CoordinateConfiguartion {
     }
 
     /**
-     * Creates a new coordinate based on the a configuration-
-     * @param coordinate The configuration absed on which the coordinate gets generated.
-     * @returns Returns the generated coorindate.
+     * Creates a new coordinate based on a configuration.
+     * 
+     * @param coordinate The configuration based on which the coordinate gets created.
+     * 
+     * @returns Returns the created coorindate.
      */
     public static of(coordinate: CoordinateConfiguartion): Coordinate {
         return new Coordinate(coordinate.x, coordinate.y);
     }
 
+    /**
+     * Convert to `Phaser.Geom.Point`.
+     */
     public toPoint(): Phaser.Geom.Point{
         return new Phaser.Geom.Point(this.x, this.y);
     }
 
+    /**
+     * Convert to `Phaser.Math.Vector2`.
+     */
     public toVector2(): Phaser.Math.Vector2 {
         return new Phaser.Math.Vector2(this);
     }

@@ -7,7 +7,8 @@
     "typedocOptions": {
       "inputFiles": ["./src"],
       "mode": "file",
-      "out": "docs"
+      "out": "docs",
+      "name": "Marble Evolution"
     },
     "include": [
       "./src/**/*"

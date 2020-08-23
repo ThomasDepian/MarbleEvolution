@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Marble | marble-evolution</title>
-	<meta name="description" content="Documentation for marble-evolution">
+	<title>Marble | Marble Evolution</title>
+	<meta name="description" content="Documentation for Marble Evolution">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">marble-evolution</a>
+					<a href="../index.html" class="title">Marble Evolution</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -71,9 +71,9 @@
 					<div class="lead">
 						<p>Class representing a marble in the game.</p>
 					</div>
-					<p>A marble bounces off an obstacle or the world border with a restitution of 0.9.
+					<p>A marble bounces off an <a href="obstacle.html">obstacle</a> or the world border with a restitution of <em>0.9</em>.
 						This means <em>approximately</em> 90% of the kinetic energy will be preserved.
-						The &#39;bouncing algorithm&#39; is handled by the MatterJS-Physics-Library and follows more or less following rule:
+						The &#39;bouncing algorithm&#39; is handled by the Matter.js-Physics-Library and follows more or less following rule:
 						&#39;Entry angle equals exit angle&#39;
 					The speed of the marble decreases over time.</p>
 					<dl class="tsd-comment-tags">
@@ -199,7 +199,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="marble.html#scene" class="tsd-kind-icon">scene</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="marble.html#scrollfactorx" class="tsd-kind-icon">scroll<wbr>FactorX</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="marble.html#scrollfactory" class="tsd-kind-icon">scroll<wbr>FactorY</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="marble.html#startposition" class="tsd-kind-icon">start<wbr>Position</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="marble.html#startposition" class="tsd-kind-icon">start<wbr>Position</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="marble.html#state" class="tsd-kind-icon">state</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="marble.html#tabindex" class="tsd-kind-icon">tab<wbr>Index</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="marble.html#texture" class="tsd-kind-icon">texture</a></li>
@@ -372,7 +372,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Sprite.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/Marble.ts#L18">src/Marble.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/ca8f91c/src/Marble.ts#L18">src/Marble.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -415,7 +415,7 @@
 									<h5>diameter: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>Diameter of the marble.</p>
+											<p>Diameter of the marble. <strong>Note</strong>: Must be chosen such that the marble will not flow outside the screen.</p>
 										</div>
 									</div>
 								</li>
@@ -1206,13 +1206,13 @@
 						them from physics bodies if not accounted for in your code.</p>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="startposition" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> start<wbr>Position</h3>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> start<wbr>Position</h3>
 					<div class="tsd-signature tsd-kind-icon">start<wbr>Position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Point</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/Marble.ts#L18">src/Marble.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/ca8f91c/src/Marble.ts#L18">src/Marble.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1896,7 +1896,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/Marble.ts#L98">src/Marble.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/ca8f91c/src/Marble.ts#L98">src/Marble.ts:98</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2700,17 +2700,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/Marble.ts#L110">src/Marble.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/ca8f91c/src/Marble.ts#L110">src/Marble.ts:110</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Checks whether the marble is moving or not.</p>
 								</div>
-								<p>A marble is moving if it has a velocity.</p>
+								<p>A marble is moving if it has a significant velocity.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>Return <em>true</em> if the marble is moving, <em>false</em>
+							<p>Return <code>true</code> if the marble is moving, <code>false</code>
 							otherwise.</p>
 						</li>
 					</ul>
@@ -2771,7 +2771,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/Marble.ts#L121">src/Marble.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/ca8f91c/src/Marble.ts#L121">src/Marble.ts:121</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2786,8 +2786,8 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-							<p>Return <em>true</em> if the marble touches the object,
-							<em>false</em> otherwise.</p>
+							<p>Return <code>true</code> if the marble touches the object,
+							<code>false</code> otherwise.</p>
 						</li>
 					</ul>
 				</section>
@@ -3203,14 +3203,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/Marble.ts#L87">src/Marble.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/ca8f91c/src/Marble.ts#L86">src/Marble.ts:86</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Resets a marble.</p>
 								</div>
-								<p>A marble gets reset by setting its velocity to zero and
+								<p>A marble gets reseted by setting its velocity to zero and
 								positioning it at the start point.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -5934,13 +5934,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/Marble.ts#L64">src/Marble.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/ca8f91c/src/Marble.ts#L63">src/Marble.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Starts a marble by initializing the velocity of the underlying
-									MatterJS-body.</p>
+									Matter.js-body.</p>
 								</div>
 								<p>The velocity is computed using the cosine and the sinus
 									of the given angle to define the x and the y direction/component/value respectively.
@@ -5948,10 +5948,7 @@
 								It will then multiplied with the given power value to ensure the correct length.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
-									<dd><p>Configuration Any limititations which may apply are specified in the configuration.</p>
-									</dd>
-									<dt>todo</dt>
-									<dd><p>Add limititations.</p>
+									<dd><p><a href="../interfaces/configuration.html">Configuration</a> Any limititations which may apply are specified in the configuration.</p>
 									</dd>
 								</dl>
 							</div>
@@ -5988,14 +5985,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/e28141a/src/Marble.ts#L77">src/Marble.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/ca8f91c/src/Marble.ts#L76">src/Marble.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Stops the marble.</p>
 								</div>
-								<p>A marble gets reset by setting its velocity to zero.</p>
+								<p>A marble gets stopped by setting its velocity to zero.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -6346,21 +6343,6 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class">
-						<a href="configurationhandler.html" class="tsd-kind-icon">Configuration<wbr>Handler</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="coordinate.html" class="tsd-kind-icon">Coordinate</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="goal.html" class="tsd-kind-icon">Goal</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="initializer.html" class="tsd-kind-icon">Initializer</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="main.html" class="tsd-kind-icon">Main</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
@@ -6492,7 +6474,7 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="marble.html#scrollfactory" class="tsd-kind-icon">scroll<wbr>FactorY</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 								<a href="marble.html#startposition" class="tsd-kind-icon">start<wbr>Position</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -6946,81 +6928,6 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="marbleevolution.html" class="tsd-kind-icon">Marble<wbr>Evolution</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="marbleindividual.html" class="tsd-kind-icon">Marble<wbr>Individual</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="obstacle.html" class="tsd-kind-icon">Obstacle</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/boundspecification.html" class="tsd-kind-icon">Bound<wbr>Specification</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/configuration.html" class="tsd-kind-icon">Configuration</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/coordinateconfiguartion.html" class="tsd-kind-icon">Coordinate<wbr>Configuartion</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/gamesettingsconfiguration.html" class="tsd-kind-icon">Game<wbr>Settings<wbr>Configuration</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/geneticalgorithmconfiguration.html" class="tsd-kind-icon">Genetic<wbr>Algorithm<wbr>Configuration</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/levelconfiguration.html" class="tsd-kind-icon">Level<wbr>Configuration</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/marbledna.html" class="tsd-kind-icon">MarbleDNA</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/obstacleconfiguration.html" class="tsd-kind-icon">Obstacle<wbr>Configuration</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#game" class="tsd-kind-icon">game</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#iterationcount" class="tsd-kind-icon">iteration<wbr>Count</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#population" class="tsd-kind-icon">population</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#allstoped" class="tsd-kind-icon">all<wbr>Stoped</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#computeavgdistance" class="tsd-kind-icon">compute<wbr>Avg<wbr>Distance</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#getbestdistance" class="tsd-kind-icon">get<wbr>Best<wbr>Distance</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#initializegeneticalgorithm" class="tsd-kind-icon">initialize<wbr>Genetic<wbr>Algorithm</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#iterationfinished" class="tsd-kind-icon">iteration<wbr>Finished</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#killall" class="tsd-kind-icon">kill<wbr>All</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#randomselect" class="tsd-kind-icon">random<wbr>Select</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#reproduce" class="tsd-kind-icon">reproduce</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#startiteration" class="tsd-kind-icon">start<wbr>Iteration</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#stopiteration" class="tsd-kind-icon">stop<wbr>Iteration</a>
-					</li>
-					<li class=" tsd-kind-object-literal">
-						<a href="../globals.html#config" class="tsd-kind-icon">config</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -7049,6 +6956,9 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
 			</ul>
 		</div>
 	</div>
