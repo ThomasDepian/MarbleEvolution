@@ -6,14 +6,6 @@
 import { ConfigurationHandler } from './Configuration';
 import { MarbleIndividual } from './MarbleIndividual';
 
-
-
-/**
- * Counts the number of iterations. The first iteration gets the number 1.
- * @readonly
- */
-export let iterationCount: number;
-
 /**
  * List containing the individuals of the current iteration.
  */
@@ -29,9 +21,8 @@ let population: MarbleIndividual[];
  * 
  * @param initialPopulation The intial population.
  */
-export function initializeGeneticAlgorithm(initialPopulation: MarbleIndividual[] = []): void {
+export function initializeAlgorithm(initialPopulation: MarbleIndividual[] = []): void {
     population = initialPopulation;
-    iterationCount = 1;
 }
 
 /**
@@ -50,10 +41,8 @@ export function startIteration(): void {
 export function stopIteration(): void {
     population.forEach(individual => {
         individual.stop();
-        console.log(individual.toString());
     });
     iterationFinished();
-    iterationCount++;
 }
 
 /**
@@ -113,6 +102,8 @@ export function getBestDistance(): number {
  * 
  * @see [[ConfigurationHandler]]: Please refer to the configuration class for limitations and probabilities that may
  * apply.
+ * 
+ * @category Genetic Algorithm
  */
 function iterationFinished(): void {
     const fitnesValues = population.map(i => i.fitness());
@@ -157,6 +148,8 @@ function iterationFinished(): void {
  *                     individual in the population, the second from the second and so forth.
  * 
  * @returns The individual which is chosen for reproduction.
+ * 
+ * @category Genetic Algorithm
  */
 function randomSelect(fitnesValues: number[]): MarbleIndividual {
     const population_size = population.length;
