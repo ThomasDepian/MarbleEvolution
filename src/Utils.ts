@@ -23,7 +23,8 @@ const HTML_INPUT_POWER_RANGE_UPPER       = <HTMLInputElement>document.getElement
 const HTML_INPUT_ANGLE_RANGE_LOWER       = <HTMLInputElement>document.getElementById('angle-mutation-range-lower');
 const HTML_INPUT_ANGLE_RANGE_UPPER       = <HTMLInputElement>document.getElementById('angle-mutation-range-upper');
 const HTML_TEXT_LEVEL_NAME               = document.getElementById('levelName');
-const HTML_VERBOSE_CONSOLE               = document.getElementById('verbose-console-wrapper');
+const HTML_VERBOSE_CONSOLE               = document.getElementById('verbose-console');
+const HTML_VERBOSE_CONSOLE_WRAPPER       = document.getElementById('verbose-console-wrapper');
 const HTML_BUTTON_START                  = document.getElementById('start-button');
 const HTML_TEXT_HUMAN_TRY_COUNT          = document.getElementById('try-number');
 const HTML_TEXT_AI_ITERATION_COUNT       = document.getElementById('iteration-number');
@@ -32,6 +33,8 @@ const HTML_TEXT_HUMAN_CURRENT_BEST       = document.getElementById('human-curren
 const HTML_TEXT_AI_AVERAGE_DISTANCE      = document.getElementById('distance-avg-last-iteration');
 const HTML_TEXT_AI_BEST_DISTANCE_LAST    = document.getElementById('distance-best-last-iteration');
 const HTML_TEXT_AI_BEST_DISTANCE_OVERALL = document.getElementById('distance-best-overall');
+const HTML_TAG_HUMAN_MODE                = document.getElementById('human-mode-tag');
+const HTML_TAG_VERBOSE_CONSOLE_DISABLED  = document.getElementById('verbose-console-disabled-tag');
 
 
 // HTML selectors -----------------------------------------------------------
@@ -43,7 +46,7 @@ const HTML_SELECTOR_ID_STATS_AI            = 'stats-ai-mode';
 
 // CSS Styles
 const CSS_STYLE_HIDDEN  = 'none';
-const CSS_STYLE_VISIBLE = 'block'; 
+const CSS_STYLE_VISIBLE = ''; 
 
 // Other variables -----------------------------------------------------------
 /**
@@ -169,8 +172,12 @@ export function fillHTMLWithConfiguration() {
         (<HTMLElement>e).style.display = ConfigurationHandler.isHumanMode() ? CSS_STYLE_HIDDEN : CSS_STYLE_VISIBLE;
     });
 
+    // Show/Hide human mode tag based on settings
+    HTML_TAG_HUMAN_MODE.style.display = ConfigurationHandler.isHumanMode() ? CSS_STYLE_VISIBLE : CSS_STYLE_HIDDEN;
+
     // Show/Hide console based on settings
     document.getElementById(HTML_SELECTOR_ID_CONSOLE_WRAPPER).style.display = ConfigurationHandler.isVerboseMode() ? CSS_STYLE_VISIBLE : CSS_STYLE_HIDDEN;
+    HTML_TAG_VERBOSE_CONSOLE_DISABLED.style.display = ConfigurationHandler.isVerboseMode() ? CSS_STYLE_HIDDEN : CSS_STYLE_VISIBLE;
 
     // Show/Hide stats based on mode
     document.getElementById(HTML_SELECTOR_ID_STATS_HUMAN).style.display = ConfigurationHandler.isHumanMode() ? CSS_STYLE_VISIBLE : CSS_STYLE_HIDDEN;
@@ -219,7 +226,8 @@ export function initializeEventListeners(): void {
         });
     });
     HTML_CHECKBOX_VERBOSE_MODE.addEventListener('click', _ => {
-        HTML_VERBOSE_CONSOLE.style.display = HTML_VERBOSE_CONSOLE.style.display === CSS_STYLE_VISIBLE ? CSS_STYLE_HIDDEN : CSS_STYLE_VISIBLE;
+        HTML_VERBOSE_CONSOLE_WRAPPER.style.display = HTML_VERBOSE_CONSOLE_WRAPPER.style.display === CSS_STYLE_VISIBLE ? CSS_STYLE_HIDDEN : CSS_STYLE_VISIBLE;
+        HTML_TAG_VERBOSE_CONSOLE_DISABLED.style.display = HTML_TAG_VERBOSE_CONSOLE_DISABLED.style.display === CSS_STYLE_VISIBLE ? CSS_STYLE_HIDDEN : CSS_STYLE_VISIBLE;
     });    
 }
 
