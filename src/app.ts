@@ -1,6 +1,9 @@
 import { Main } from './Main';
 import { MarbleEvolution } from './MarbleEvolution';
 import * as Phaser from 'phaser';
+import 'bulma/css/bulma.min.css';
+import 'bulma-switch/dist/css/bulma-switch.min.css';
+import './../assets/styles.css';
 
 /**
  * Actual phaser game object.
@@ -14,7 +17,6 @@ const config: Phaser.Types.Core.GameConfig = {
     title: "Marble Evolution",
     type: Phaser.AUTO,
     scale: {
-        autoCenter: Phaser.Scale.CENTER_BOTH,
         width: 500,
         height: 500,
     },
@@ -37,6 +39,6 @@ const config: Phaser.Types.Core.GameConfig = {
 /**
  * Initializes the game once window is loaded.
  */
-window.onload = () => {
+window.onload = () => {    
     game = new MarbleEvolution(config);
 };
