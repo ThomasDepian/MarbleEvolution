@@ -57,5 +57,5 @@ demoConfig['physics']['matter']['debug'] = false;
  */
 window.onload = () => {    
     game = new MarbleEvolution(config, false);
-    demo = new MarbleEvolution(demoConfig, true);
+    // demo = new MarbleEvolution(demoConfig, true);
 };
