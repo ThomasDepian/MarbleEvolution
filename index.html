@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
   </head>
   <body>
-    <section id="demo"></section>
-    <section class="hero is-fullheight landing-page">
+    
+    <section class="hero is-fullheight landing-page" id="home">
       <div class="hero-body">
         <div class="container has-text-centered">
           <h1 class="title landing-page-title">
@@ -18,17 +18,68 @@
           <h2 class="subtitle landing-page-subtitle">
             Demo Page
           </h2>
+          <!-- TODO -->
+          <!-- <div id="test-a">
+            <div id="test-b">
+                <video id="test-c"  autoplay muted loop id="demo-video" width="560" height="315">
+                  <source src="./assets/demo.mp4" type="video/mp4">
+                </video>
+           </div> -->
+        </div>
         </div>
       </div>
       <div class="hero-foot">
         <nav class="tabs is-centered">
           <div class="container ">
             <ul>
-              <li><a class="has-text-white">Home</a></li>
-              <li><a class="has-text-white">Demo</a></li>
-              <li><a class="has-text-white">Configuration</a></li>
-              <li><a class="has-text-white">Verbose Console</a></li>
-              <li><a class="has-text-white">About</a></li>
+              <li>
+                <a class="" href="#home">
+                  <span class="icon">
+                    <i class="fas fa-home"></i>
+                  </span>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a class="" href="#demo">
+                  <span class="icon">
+                    <i class="fas fa-desktop"></i>
+                  </span>
+                  Demo
+                </a>
+              </li>
+              <li>
+                <a class="" href="#configuration">
+                  <span class="icon">
+                    <i class="fas fa-cog"></i>
+                  </span>
+                  Configuration
+                </a>
+              </li>
+              <li>
+                <a class="" href="#console">
+                  <span class="icon">
+                    <i class="fas fa-terminal"></i>
+                  </span>
+                  Verbose Console
+                </a>
+              </li>
+              <li>
+                <a class="" href="/docs" target="_blank">
+                  <span class="icon">
+                    <i class="fas fa-book"></i>
+                  </span>
+                  Documentation
+                </a>
+              </li>
+              <li>
+                <a class="" href="#about">
+                  <span class="icon">
+                    <i class="fas fa-info-circle"></i>
+                  </span>
+                  About
+                </a>
+              </li>
             </ul>
           </div>
         </nav>
@@ -130,10 +181,11 @@
 
 
 
-
-    <section class="hero is-fullheight is-default is-bold">
+    <!-- TODO -->
+    <section class="hero is-fullheight is-default is-bold" id="demo">
       <div class="hero-body">
         <div class="container has-text-centered">
+          <h2 class="title is-1  has-text-left">Demo</h2>
           <div class="columns is-vcentered is-desktop">
             <div class="column is-5-desktop is-full">
               <div id="game"></div>
@@ -218,25 +270,30 @@
         <div class="container">
           <div class="tabs is-centered">
             <ul>
-              <li><a class="no-click">Scroll to see the settings</a></li>
+              <li><a class="no-click">Scroll to see the configuration</a></li>
             </ul>
           </div>
         </div>
         </div>
     </section>
-    <section class="hero is-fullheight">
+
+
+
+
+    <!-- TODO -->
+    <section class="hero is-fullheight" id="configuration">
       <div class="hero-body">
         <div class="container">
           <div class="columns is-vcentered">
             <div class="column is-full">
-              <h2 class="title is-2">Settings/Configuration</h2>
+              <h2 class="title is-1">Configuration</h2>
               <div class="field">
-                <input id="human-mode" type="checkbox" name="human-mode" class="switch">
-                <label for="human-mode">Enable human mode</label>
+                <input id="human-mode" type="checkbox" name="human-mode" class="switch is-rtl">
+                <label for="human-mode" class="label">Enable human mode</label>
               </div>
               <div class="field">
-                <input id="verbose-mode" type="checkbox" name="verbose-mode" class="switch">
-                <label for="verbose-mode">Enable verbose mode</label>
+                <input id="verbose-mode" type="checkbox" name="verbose-mode" class="switch is-rtl">
+                <label for="verbose-mode" class="label">Enable verbose mode</label>
               </div>
               <div class="field configuration ai">
                 <label class="label">Individual count</label>
@@ -248,6 +305,7 @@
                 <label class="label">General mutation probability</label>
                 <div class="control">
                   <input class="input" type="number" id="general-mutation-probability" name="general-mutation-probability" min="0" max="100" step="0.01">
+                  <!-- <input id="general-mutation-probability" name="general-mutation-probability" class="slider has-output is-fullwidth" min="0" max="100" value="50" step="1" type="range"> -->
                 </div>
                 <p class="help">A number between 0 and 100.</p>
               </div>
@@ -314,12 +372,15 @@
         </div>
       </div>
     </section>
-    <section class="hero is-fullheight">
+    
+
+    <!-- TODO -->
+    <section class="hero is-fullheight" id="console">
       <div class="hero-body">
         <div class="container">
           <div class="columns is-vcentered">
             <div class="column is-full">
-              <h2 class="title is-2">Verbose console <span class="tag is-danger is-light" id="verbose-console-disabled-tag">Disabled</span></h2>
+              <h2 class="title is-1">Verbose console <span class="tag is-danger is-light" id="verbose-console-disabled-tag">Disabled</span></h2>
               <div class="field" id="verbose-console-wrapper">
                 <div class="control">
                   <textarea class="textarea is-small" id="verbose-console" rows="25" readonly></textarea>
@@ -330,6 +391,49 @@
         </div>
       </div>
     </section>
+
+    <!-- TODO -->
+    <section class="hero is-fullheight" id="about">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-vcentered">
+            <div class="column is-full">
+              <h2 class="title is-1">About</h2>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TODO -->
+    <footer class="footer">
+      <div class="container has-text-centered">
+        <div class="columns">
+          <div class="column">
+            <img src="https://img.shields.io/badge/designed%20with-bulma-00d1b2?style=for-the-badge&logo=bulma" alt="Designed with Bulma">
+            <img src="https://img.shields.io/badge/hosted%20on-github-24292e?style=for-the-badge&logo=github" alt="Hosted on Github">
+            <img src="https://img.shields.io/badge/build%20with-typescript-3178c6?style=for-the-badge&logo=typescript" alt="Build with TypeScript">
+            <img src="https://img.shields.io/badge/build%20with-phaser3-99ccff?style=for-the-badge" alt="Build with Phaser 3">
+            <img src="https://img.shields.io/badge/documented%20with-typedoc-blueviolet?style=for-the-badge" alt="Documented with Typedoc">
+            <img src="https://img.shields.io/badge/made%20with%20%E2%9D%A4-during%20quarantine-ff4770?style=for-the-badge" alt="Made with love">
+            
+            
+            
+            
+            
+
+
+            
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <span class="icon"><i class="far fa-copyright"></i></span> 2020 Thomas Depian - <a href="https://choosealicense.com/licenses/mit/" target="_blank"> MIT License</a>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script src="dist/app.js"></script>
 </body>
 
