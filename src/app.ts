@@ -41,21 +41,10 @@ const config: Phaser.Types.Core.GameConfig = {
     backgroundColor: "#eee"
 }
 
-const demoConfig = {...config};
-demoConfig['title'] = 'Marble Evolution - Demo';
-demoConfig['scale'] = {
-    width: document.body.clientWidth,
-    height: window.innerHeight
-};
-demoConfig['parent'] = 'demo';
-demoConfig['transparent'] = true;
-demoConfig['physics']['matter']['debug'] = false;
-
 
 /**
  * Initializes the game once window is loaded.
  */
 window.onload = () => {    
-    game = new MarbleEvolution(config, false);
-    // demo = new MarbleEvolution(demoConfig, true);
+    game = new MarbleEvolution(config);
 };

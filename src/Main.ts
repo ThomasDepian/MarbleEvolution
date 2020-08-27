@@ -49,11 +49,6 @@ export class Main extends Phaser.Scene {
     private initializeConfig: boolean;
 
     /**
-     * Specifies whether the demo mode is enabled or not.
-     */
-    private isDemoMode: boolean;
-
-    /**
      * Holds the current levelnumber.
      */
     private levelNumber: number;
@@ -129,40 +124,34 @@ export class Main extends Phaser.Scene {
      * 
      * @category Phaser
      */
-    public create(): void { 
-        this.isDemoMode = (<MarbleEvolution>this.game).demoMode;
+    public create(): void {
 
         // specifiy the world borders.
         // **Note** A 'thickness' of 70 is needed to ensure the 
         // marble does not fly through a border wall.
         this.matter.world.setBounds(0,0, +this.game.config.width, +this.game.config.height, 70, true, true, true, true);
         
-        
-        if (this.isDemoMode) {
-            this.initializeDemoMode();
-        } else {
-            Utils.setScenes(this.scene);
+        Utils.setScenes(this.scene);
 
-            if (this.initializeConfig) {
-                Utils.initializeConfiguration(this.cache.text.get('configuration'));
-            }
-
-            if (ConfigurationHandler.isVerboseMode()) {
-                Utils.writeToVerboseConsole('Verbose mode enabled...');
-            } else {
-                Utils.writeToVerboseConsole('Verbose mode disabled...');
-                Utils.appendLineToVerboseConsole('Please restart the game in verbose mode to see the output...');
-            }
-
-            Utils.fillHTMLWithConfiguration();
-            this.initializeHandlers();
-            this.initializeText();
-            Utils.resetForNewGame();
-            this.humanModeState = HumanModeState.Inactive;
-            this.aiModeState    = AIModeState.Inactive;
-            
-            this.createLevel(this.levelNumber);
+        if (this.initializeConfig) {
+            Utils.initializeConfiguration(this.cache.text.get('configuration'));
         }
+
+        if (ConfigurationHandler.isVerboseMode()) {
+            Utils.writeToVerboseConsole('Verbose mode enabled...');
+        } else {
+            Utils.writeToVerboseConsole('Verbose mode disabled...');
+            Utils.appendLineToVerboseConsole('Please restart the game in verbose mode to see the output...');
+        }
+
+        Utils.fillHTMLWithConfiguration();
+        this.initializeHandlers();
+        this.initializeText();
+        Utils.resetForNewGame();
+        this.humanModeState = HumanModeState.Inactive;
+        this.aiModeState    = AIModeState.Inactive;
+        
+        this.createLevel(this.levelNumber);
         
         
     }
@@ -174,19 +163,7 @@ export class Main extends Phaser.Scene {
      * @category Phaser
      */
     public update(): void {        
-        if (this.isDemoMode) {
-            if (this.aiModeState == AIModeState.NewIterationReady) {
-                GeneticAlgorithm.startIteration();
-                this.aiModeState = AIModeState.Launched;
-            } else if(this.aiModeState == AIModeState.Launched) {
-                if (GeneticAlgorithm.allStoped()) {
-                    GeneticAlgorithm.stopIteration();
-                    this.aiModeState = AIModeState.NewIterationReady;
-                }
-            }
-        }
-        
-        else if (ConfigurationHandler.isHumanMode()) {
+        if (ConfigurationHandler.isHumanMode()) {
             this.graphics.clear();
 
             if (this.humanModeState == HumanModeState.InitializationPhase) {
@@ -320,36 +297,5 @@ export class Main extends Phaser.Scene {
                 }
             }
         }, this);
-    }
-
-
-    private initializeDemoMode(): void {
-        // skins
-        const marbleSkin     = "marble";
-        const goalSkin       = "goal";
-        const obstacleSkin   = "obstacle";
-        const individualSkin = "individual";
-
-        const gameWidth      = +this.game.config.width;
-        const gameHeight     = +this.game.config.height;
-
-        // obstacles
-        new Obstacle(this.matter.world, this, new Coordinate((gameWidth / 8 * 5), gameHeight / 2).toPoint(), obstacleSkin, gameWidth / 2, 40);
-        new Obstacle(this.matter.world, this, new Coordinate(gameWidth / 6, gameHeight / 4).toPoint(), obstacleSkin, gameWidth / 4, 40);
-
-        // goal
-        const goal = new Goal(this, new Coordinate(gameWidth/2, 40).toPoint(), goalSkin, 20);
-
-        // marbles
-        const individualCount = 25;
-        const initialPopulation: MarbleIndividual[] = []
-        for (let i = 0; i < individualCount; i++) {
-            initialPopulation.push(new MarbleIndividual(this.matter.world, this,new Coordinate(gameWidth/2, gameHeight - 20).toPoint(), individualSkin, 6, goal));
-        }
-        GeneticAlgorithm.initializeAlgorithm(initialPopulation);
-        this.aiModeState = AIModeState.NewIterationReady;
-    }
-  
-
-    
+    }    
 }
