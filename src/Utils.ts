@@ -43,6 +43,7 @@ const HTML_SELECTOR_CLASS_CONFIGURATION    = '.configuration'
 const HTML_SELECTOR_ID_CONSOLE_WRAPPER     = 'verbose-console-wrapper';
 const HTML_SELECTOR_ID_STATS_HUMAN         = 'stats-human-mode';
 const HTML_SELECTOR_ID_STATS_AI            = 'stats-ai-mode';
+const HTML_SELECTOR_TAG_NUMBER_INPUT       = 'input[type=number]';
 
 // CSS Styles
 const CSS_STYLE_HIDDEN  = 'none';
@@ -213,10 +214,24 @@ export function updateConfiguartionFromHTML(): void {
  */
 export function initializeEventListeners(): void {    
     // Start button
-    HTML_BUTTON_START.addEventListener('click', _ => {
+    document.getElementById('configuration-form').addEventListener('submit', _ => {
         updateConfiguartionFromHTML();
         ConfigurationHandler.applyChanges();
         scenes.restart({initializeConfig: false});
+    });
+
+    // Inputs
+    document.querySelectorAll(HTML_SELECTOR_TAG_NUMBER_INPUT).forEach((e) => {
+        const element = <HTMLInputElement>e;
+        const label = element.parentNode.parentNode.lastElementChild
+        
+        element.addEventListener('blur', _ => {
+            if (element.checkValidity()) {
+                label.classList.remove('has-text-danger');
+            } else {
+                label.classList.add('has-text-danger');
+            }
+        });
     });
 
     HTML_CHECKBOX_HUMAN_MODE.addEventListener('click', _ => {

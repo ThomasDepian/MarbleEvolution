@@ -305,90 +305,93 @@
           <div class="columns is-vcentered">
             <div class="column is-full">
               <h2 class="title is-1 primary">Configuration</h2>
-              <div class="field">
-                <input id="human-mode" type="checkbox" name="human-mode" class="switch is-rtl">
-                <label for="human-mode" class="label">Enable human mode</label>
-              </div>
-              <div class="field">
-                <input id="verbose-mode" type="checkbox" name="verbose-mode" class="switch is-rtl">
-                <label for="verbose-mode" class="label">Enable verbose mode</label>
-              </div>
-              <div class="field configuration ai">
-                <label class="label">Individual count</label>
-                <div class="control">
-                  <input class="input" type="number" id="individual-count" name="individual-count" min="0" step="1">
+              <form onsubmit="return false;" id="configuration-form">
+                <div class="field">
+                  <input id="human-mode" type="checkbox" name="human-mode" class="switch is-rtl">
+                  <label for="human-mode" class="label">Enable human mode</label>
                 </div>
-              </div>
-              <div class="field configuration ai">
-                <label class="label">General mutation probability</label>
-                <div class="control">
-                  <input class="input" type="number" id="general-mutation-probability" name="general-mutation-probability" min="0" max="100" step="0.01">
+                <div class="field">
+                  <input id="verbose-mode" type="checkbox" name="verbose-mode" class="switch is-rtl">
+                  <label for="verbose-mode" class="label">Enable verbose mode</label>
                 </div>
-                <p class="help">A number between 0 and 100.</p>
-              </div>
-              <div class="field configuration ai">
-                <label class="label">Power mutation probability</label>
-                <div class="control">
-                  <input class="input" type="number" id="power-mutation-probability" name="power-mutation-probability" min="0" max="100" step="0.01">
+                <div class="field configuration ai">
+                  <label class="label">Individual count</label>
+                  <div class="control">
+                    <input class="input" type="number" id="individual-count" name="individual-count" min="0" step="1" max="1000">
+                  </div>
+                  <p class="help">A number between 0 and 1000.</p>
                 </div>
-                <p class="help">A number between 0 and 100.</p>
-              </div>
-              <div class="field configuration ai">
-                <label class="label">Angle mutation probability</label>
-                <div class="control">
-                  <input class="input" type="number" id="angle-mutation-probability" name="angle-mutation-probability" min="0" max="100" step="0.01">
+                <div class="field configuration ai">
+                  <label class="label">General mutation probability</label>
+                  <div class="control">
+                    <input class="input" type="number" id="general-mutation-probability" name="general-mutation-probability" min="0" max="100" step="0.0001">
+                  </div>
+                  <p class="help">A number between 0 and 100 (up to 4 decimal places).</p>
                 </div>
-                <p class="help">A number between 0 and 100.</p>
-              </div>
-              <div class="field configuration ai">
-                <label class="label">Father genes probability (power)</label>
-                <div class="control">
-                  <input class="input" type="number" id="father-genes-power" name="father-genes-power" min="0" max="100" step="0.01">
+                <div class="field configuration ai">
+                  <label class="label">Power mutation probability</label>
+                  <div class="control">
+                    <input class="input" type="number" id="power-mutation-probability" name="power-mutation-probability" min="0" max="100" step="0.0001">
+                  </div>
+                  <p class="help">A number between 0 and 100 (up to 4 decimal places).</p>
                 </div>
-                <p class="help">A number between 0 and 100.</p>
-              </div>
-              <div class="field configuration ai">
-                <label class="label">Father genes probability (angle)</label>
-                <div class="control">
-                  <input class="input" type="number" id="father-genes-angle" name="father-genes-angle" min="0" max="100" step="0.01">
+                <div class="field configuration ai">
+                  <label class="label">Angle mutation probability</label>
+                  <div class="control">
+                    <input class="input" type="number" id="angle-mutation-probability" name="angle-mutation-probability" min="0" max="100" step="0.0001">
+                  </div>
+                  <p class="help">A number between 0 and 100 (up to 4 decimal places).</p>
                 </div>
-                <p class="help">A number between 0 and 100.</p>
-              </div>
-              <div class="field configuration ai">
-                <label class="label">Power mutation range (lower bound)</label>
-                <div class="control">
-                  <input class="input" type="number" id="power-mutation-range-lower" name="power-mutation-range-lower" min="-100" max="100" step="0.1">
+                <div class="field configuration ai">
+                  <label class="label">Father genes probability (power)</label>
+                  <div class="control">
+                    <input class="input" type="number" id="father-genes-power" name="father-genes-power" min="0" max="100" step="0.0001">
+                  </div>
+                  <p class="help">A number between 0 and 100 (up to 4 decimal places).</p>
                 </div>
-                <p class="help">A number between -100 and 100.</p>
-              </div>
-              <div class="field configuration ai">
-                <label class="label">Power mutation range (upper bound)</label>
-                <div class="control">
-                  <input class="input" type="number" id="power-mutation-range-upper" name="power-mutation-range-upper" min="-100" max="100" step="0.1">
+                <div class="field configuration ai">
+                  <label class="label">Father genes probability (angle)</label>
+                  <div class="control">
+                    <input class="input" type="number" id="father-genes-angle" name="father-genes-angle" min="0" max="100" step="0.0001">
+                  </div>
+                  <p class="help">A number between 0 and 100 (up to 4 decimal places).</p>
                 </div>
-                <p class="help">A number between -100 and 100.</p>
-              </div>
-
-              <div class="field configuration ai">
-                <label class="label">Angle mutation range (lower bound)</label>
-                <div class="control">
-                  <input class="input" type="number" id="angle-mutation-range-lower" name="angle-mutation-range-lower" min="-3.14" max="3.14" step="0.001">
+                <div class="field configuration ai">
+                  <label class="label">Power mutation range (lower bound)</label>
+                  <div class="control">
+                    <input class="input" type="number" id="power-mutation-range-lower" name="power-mutation-range-lower" min="-100" max="100" step="0.0001">
+                  </div>
+                  <p class="help">A number between -100 and 100 (up to 4 decimal places).</p>
                 </div>
-                <p class="help">A number between -3.14 and 3.14.</p>
-              </div>
-              <div class="field configuration ai">
-                <label class="label">Angle mutation range (upper bound)</label>
-                <div class="control">
-                  <input class="input" type="number" id="angle-mutation-range-upper" name="angle-mutation-range-upper" min="-3.14" max="3.14" step="0.001">
+                <div class="field configuration ai">
+                  <label class="label">Power mutation range (upper bound)</label>
+                  <div class="control">
+                    <input class="input" type="number" id="power-mutation-range-upper" name="power-mutation-range-upper" min="-100" max="100" step="0.0001">
+                  </div>
+                  <p class="help">A number between -100 and 100 (up to 4 decimal places).</p>
                 </div>
-                <p class="help">A number between -3.14 and 3.14.</p>
-              </div>
-              <button class="button is-fullwidth secondary-bg" id="start-button">
-                
-                <span class="icon">
-                  <i class="fas fa-sync-alt"></i>
-                </span>
-                <span>Reload to apply configuration</span></button>
+  
+                <div class="field configuration ai">
+                  <label class="label">Angle mutation range (lower bound)</label>
+                  <div class="control">
+                    <input class="input" type="number" id="angle-mutation-range-lower" name="angle-mutation-range-lower" min="-3.14" max="3.14" step="0.0001">
+                  </div>
+                  <p class="help">A number between -3.14 and 3.14 (up to 4 decimal places).</p>
+                </div>
+                <div class="field configuration ai">
+                  <label class="label" for="angle-mutation-range-upper">Angle mutation range (upper bound)</label>
+                  <div class="control">
+                    <input class="input" type="number" id="angle-mutation-range-upper" name="angle-mutation-range-upper" min="-3.14" max="3.14" step="0.0001">
+                  </div>
+                  <p class="help">A number between -3.14 and 3.14 (up to 4 decimal places).</p>
+                </div>
+                <button type="submit" class="button is-fullwidth secondary-bg" id="start-button">
+                  
+                  <span class="icon">
+                    <i class="fas fa-sync-alt"></i>
+                  </span>
+                  <span>Reload to apply configuration</span></button>
+              </form>
             </div>
           </div>
         </div>

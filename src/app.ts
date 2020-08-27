@@ -41,7 +41,6 @@ const config: Phaser.Types.Core.GameConfig = {
     backgroundColor: "#eee"
 }
 
-
 /**
  * Initializes the game once window is loaded.
  */
