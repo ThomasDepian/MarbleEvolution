@@ -14,8 +14,6 @@ export let game: MarbleEvolution = null;
 export let demo: MarbleEvolution = null;
 
 
-const gameSize = Math.min(document.body.clientWidth, 500);
-
 /**
  * Configuration for the game.
  */
@@ -23,8 +21,8 @@ const config: Phaser.Types.Core.GameConfig = {
     title: "Marble Evolution",
     type: Phaser.AUTO,
     scale: {
-        width: gameSize,
-        height: gameSize,
+        width: 500,
+        height: 500
     },
     scene: [Main],
     physics: {
