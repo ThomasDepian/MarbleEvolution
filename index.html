@@ -5,26 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Marble Evolution</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@500&display=swap" rel="stylesheet">
   </head>
   <body>
     
+
+
+    <!-- TODO -->
     <section class="hero is-fullheight landing-page" id="home">
       <div class="hero-body">
         <div class="container has-text-centered">
-          <h1 class="title landing-page-title">
-            Marble Evolution
-          </h1>
-          <h2 class="subtitle landing-page-subtitle">
-            Demo Page
-          </h2>
-          <!-- TODO -->
-          <!-- <div id="test-a">
-            <div id="test-b">
-                <video id="test-c"  autoplay muted loop id="demo-video" width="560" height="315">
-                  <source src="./assets/demo.mp4" type="video/mp4">
-                </video>
-           </div> -->
+          <div class="columns is-vcentered">
+            <div class="column">
+              <h1 class="title landing-page-title primary">
+                Marble Evolution
+              </h1>
+              <h2 class="subtitle landing-page-subtitle secondary">
+                Demo Page
+              </h2>
+            </div>
+            <div class="column">
+              <div id="test-a">
+                <div id="test-b">
+                    <video id="test-c"  autoplay muted loop id="demo-video" width="560" height="315">
+                      <source src="./assets/demo.mp4" type="video/mp4">
+                    </video>
+               </div>
+            </div>
+          </div>
+         
+          
         </div>
         </div>
       </div>
@@ -33,7 +44,7 @@
           <div class="container ">
             <ul>
               <li>
-                <a class="" href="#home">
+                <a class="page-link" href="#home">
                   <span class="icon">
                     <i class="fas fa-home"></i>
                   </span>
@@ -41,7 +52,7 @@
                 </a>
               </li>
               <li>
-                <a class="" href="#demo">
+                <a class="page-link" href="#demo">
                   <span class="icon">
                     <i class="fas fa-desktop"></i>
                   </span>
@@ -49,7 +60,7 @@
                 </a>
               </li>
               <li>
-                <a class="" href="#configuration">
+                <a class="page-link" href="#configuration">
                   <span class="icon">
                     <i class="fas fa-cog"></i>
                   </span>
@@ -57,7 +68,7 @@
                 </a>
               </li>
               <li>
-                <a class="" href="#console">
+                <a class="page-link" href="#console">
                   <span class="icon">
                     <i class="fas fa-terminal"></i>
                   </span>
@@ -65,7 +76,7 @@
                 </a>
               </li>
               <li>
-                <a class="" href="/docs" target="_blank">
+                <a class="page-link" href="/docs" target="_blank">
                   <span class="icon">
                     <i class="fas fa-book"></i>
                   </span>
@@ -73,7 +84,7 @@
                 </a>
               </li>
               <li>
-                <a class="" href="#about">
+                <a class="page-link" href="#about">
                   <span class="icon">
                     <i class="fas fa-info-circle"></i>
                   </span>
@@ -185,19 +196,19 @@
     <section class="hero is-fullheight is-default is-bold" id="demo">
       <div class="hero-body">
         <div class="container has-text-centered">
-          <h2 class="title is-1  has-text-left">Demo</h2>
+          <h2 class="title is-1 has-text-left primary">Demo</h2>
           <div class="columns is-vcentered is-desktop">
             <div class="column is-5-desktop is-full">
               <div id="game"></div>
             </div>
             <div class="column is-5-desktop is-offset-1-desktop is-full">
-              <h1 class="title is-2">
+              <h1 class="title is-2 primary">
                   Marble Evolution
-                  <span class="tag is-info is-light" id="human-mode-tag">Human Mode</span>
+                  <span class="tag marble-tag" id="human-mode-tag">Human Mode</span>
               </h1>
-              <h2 class="subtitle is-4">
-                Level: <span class="has-text-weight-semibold" id="levelName"></span>
-              </h2>
+              <p class="subtitle is-4">
+                Level: <span class="has-text-weight-semibold secondary" id="levelName"></span>
+              </p>
               <div class="box" id="stats-human-mode">
                 <div class="tile is-ancestor is-vertical is-size-4">
                   <div class="tile">
@@ -270,7 +281,14 @@
         <div class="container">
           <div class="tabs is-centered">
             <ul>
-              <li><a class="no-click">Scroll to see the configuration</a></li>
+              <li>
+                <a class="no-click">
+                  <span class="icon secondary">
+                    <i class="fas fa-mouse"></i>
+                  </span>
+                  <span>Scroll to see the configuration</span>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -280,13 +298,13 @@
 
 
 
-    <!-- TODO -->
+    
     <section class="hero is-fullheight" id="configuration">
       <div class="hero-body">
         <div class="container">
           <div class="columns is-vcentered">
             <div class="column is-full">
-              <h2 class="title is-1">Configuration</h2>
+              <h2 class="title is-1 primary">Configuration</h2>
               <div class="field">
                 <input id="human-mode" type="checkbox" name="human-mode" class="switch is-rtl">
                 <label for="human-mode" class="label">Enable human mode</label>
@@ -305,7 +323,6 @@
                 <label class="label">General mutation probability</label>
                 <div class="control">
                   <input class="input" type="number" id="general-mutation-probability" name="general-mutation-probability" min="0" max="100" step="0.01">
-                  <!-- <input id="general-mutation-probability" name="general-mutation-probability" class="slider has-output is-fullwidth" min="0" max="100" value="50" step="1" type="range"> -->
                 </div>
                 <p class="help">A number between 0 and 100.</p>
               </div>
@@ -366,7 +383,12 @@
                 </div>
                 <p class="help">A number between -3.14 and 3.14.</p>
               </div>
-              <button class="button is-fullwidth is-primary" id="start-button">Reload to apply configuration</button>
+              <button class="button is-fullwidth secondary-bg" id="start-button">
+                
+                <span class="icon">
+                  <i class="fas fa-sync-alt"></i>
+                </span>
+                <span>Reload to apply configuration</span></button>
             </div>
           </div>
         </div>
@@ -374,13 +396,17 @@
     </section>
     
 
-    <!-- TODO -->
+
+
+
+
+
     <section class="hero is-fullheight" id="console">
       <div class="hero-body">
         <div class="container">
           <div class="columns is-vcentered">
             <div class="column is-full">
-              <h2 class="title is-1">Verbose console <span class="tag is-danger is-light" id="verbose-console-disabled-tag">Disabled</span></h2>
+              <h2 class="title is-1 primary">Verbose console <span class="tag marble-tag" id="verbose-console-disabled-tag">Disabled</span></h2>
               <div class="field" id="verbose-console-wrapper">
                 <div class="control">
                   <textarea class="textarea is-small" id="verbose-console" rows="25" readonly></textarea>
@@ -409,14 +435,20 @@
     <!-- TODO -->
     <footer class="footer">
       <div class="container has-text-centered">
+        
         <div class="columns">
           <div class="column">
-            <img src="https://img.shields.io/badge/designed%20with-bulma-00d1b2?style=for-the-badge&logo=bulma" alt="Designed with Bulma">
-            <img src="https://img.shields.io/badge/hosted%20on-github-24292e?style=for-the-badge&logo=github" alt="Hosted on Github">
-            <img src="https://img.shields.io/badge/build%20with-typescript-3178c6?style=for-the-badge&logo=typescript" alt="Build with TypeScript">
+            <img src="https://img.shields.io/badge/designed%20with-bulma-00d1b2?style=for-the-badge&logo=bulma" alt="Designed with Bulma"></br>
+            <!-- <img src="https://img.shields.io/badge/hosted%20on-github-24292e?style=for-the-badge&logo=github" alt="Hosted on Github"> -->
+          </div>
+          <div class="column">
+            <img src="https://img.shields.io/badge/build%20with-typescript-3178c6?style=for-the-badge&logo=typescript" alt="Build with TypeScript"></br>
+            
+          </div>
+          <div class="column">
+            <!-- <img src="https://img.shields.io/badge/documented%20with-typedoc-blueviolet?style=for-the-badge" alt="Documented with Typedoc"></br> -->
             <img src="https://img.shields.io/badge/build%20with-phaser3-99ccff?style=for-the-badge" alt="Build with Phaser 3">
-            <img src="https://img.shields.io/badge/documented%20with-typedoc-blueviolet?style=for-the-badge" alt="Documented with Typedoc">
-            <img src="https://img.shields.io/badge/made%20with%20%E2%9D%A4-during%20quarantine-ff4770?style=for-the-badge" alt="Made with love">
+            
             
             
             
@@ -426,10 +458,19 @@
 
             
           </div>
+          
+            
         </div>
         <div class="columns">
           <div class="column">
-            <span class="icon"><i class="far fa-copyright"></i></span> 2020 Thomas Depian - <a href="https://choosealicense.com/licenses/mit/" target="_blank"> MIT License</a>
+            <!-- <img src="https://img.shields.io/badge/made%20with%20%E2%9D%A4-during%20quarantine-ff4770?style=for-the-badge" alt="Made with love"> -->
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <p><span>Made with</span> <span class="icon heart-icon"><i class="fas fa-heart"></i></span> <span>during the lockdown.</span></p>
+            <p><span class="icon"><i class="far fa-copyright"></i></span><span>2020 Thomas Depian - <a href="https://choosealicense.com/licenses/mit/" target="_blank"> MIT License</a></span></p>
+            
           </div>
         </div>
       </div>

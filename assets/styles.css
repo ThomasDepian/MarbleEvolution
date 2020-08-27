@@ -1,5 +1,5 @@
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
 }
 
@@ -14,13 +14,46 @@ body {
 
 
 /* STYLE FOR DEMO CONTENT */
+.primary {
+    color: #006e90 !important;
+}
+
+.secondary {
+    color: #f18f01 !important;
+}
+
+.primary-bg {
+    background-color: #006e90 !important;
+    color: #fff;
+}
+
+.secondary-bg {
+    background-color: #f18f01 !important;
+    color: #fff !important;
+}
+
+.secondary-bg:hover {
+    background-color: #e08501 !important;
+    color: #fff !important;
+}
+
+.page-link {
+    color: #006e90 !important;
+    text-decoration: none;
+}
+
+.page-link:hover {
+    color: #f18f01 !important;
+}
+
+
 .landing-page{
-    /* background-image: url("./../assets/landing-page-background.jpg");
-    background: linear-gradient(rgba(31, 44, 108, 0.65), rgba(31, 44, 108, 0.65)), rgba(0, 0, 0, 0.55) url("./../assets/landing-page-background.jpg") no-repeat;
-    background-attachment: fixed;
-    background-size: cover; */
-    /* position: relative;
-    top: calc(-100vh); */
+    /* background-image: url("./../assets/landing-page-background-3.jpg"); */
+    /* background: linear-gradient(rgba(31, 44, 108, 0.65), rgba(31, 44, 108, 0.65)), rgba(0, 0, 0, 0.55) url("./../assets/landing-page-background.jpg") no-repeat; */
+    /* background-position: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.5; */
 }
 
 .landing-page-title {
@@ -31,6 +64,27 @@ body {
     font-size: 3rem;
 
 }
+
+
+/* Overwrite switch background color */
+.switch[type=checkbox]:checked+label::before, .switch[type=checkbox]:checked+label:before {
+    background: #f18f01;
+}
+
+.marble-tag {
+    background-color: #fff3e1 !important;
+    color: #f18f01 !important;
+}
+
+#verbose-console {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+}
+
+.heart-icon {
+    color: #e25555;
+}
+
 
 #test-a {
     width: 100%;
