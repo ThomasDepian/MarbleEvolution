@@ -13,6 +13,14 @@ import './../assets/styles.css';
 export let game: MarbleEvolution = null;
 export let demo: MarbleEvolution = null;
 
+const browserWidth = window.innerWidth;
+const gameSize     = 500;
+let zoomFactor     = 1;
+
+if (browserWidth < gameSize) {
+    zoomFactor = (browserWidth * 1.0) / gameSize;
+}
+
 
 /**
  * Configuration for the game.
@@ -21,8 +29,9 @@ const config: Phaser.Types.Core.GameConfig = {
     title: "Marble Evolution",
     type: Phaser.AUTO,
     scale: {
-        width: 500,
-        height: 500
+        width: gameSize,
+        height: gameSize,
+        zoom: zoomFactor
     },
     scene: [Main],
     physics: {
