@@ -8,7 +8,6 @@ import { ConfigurationHandler, Configuration } from './Configuration';
 import * as Phaser from 'phaser';
 import * as Utils from './Utils'
 import * as GeneticAlgorithm from './GeneticAlgorithm'
-import { MarbleEvolution } from './MarbleEvolution';
 
 
 /**
@@ -137,6 +136,11 @@ export class Main extends Phaser.Scene {
             Utils.initializeConfiguration(this.cache.text.get('configuration'));
         }
 
+        
+        if (ConfigurationHandler.isVerboseMode()) {
+            Utils.appendLineToVerboseConsole(`[Main]: New game initialized: Initialize config: ${this.initializeConfig}; levelNumber: ${this.levelNumber}`);
+        }
+
         if (ConfigurationHandler.isVerboseMode()) {
             Utils.writeToVerboseConsole('Verbose mode enabled...');
         } else {
@@ -153,7 +157,9 @@ export class Main extends Phaser.Scene {
         
         this.createLevel(this.levelNumber);
         
-        
+        if (ConfigurationHandler.isVerboseMode()) {
+            Utils.appendLineToVerboseConsole(`[Main]: Create complete; Human mode: ${ConfigurationHandler.isHumanMode()}`);
+        }
     }
 
     /**
@@ -249,6 +255,9 @@ export class Main extends Phaser.Scene {
             GeneticAlgorithm.initializeAlgorithm(initialPopulation);
         }
 
+        if (ConfigurationHandler.isVerboseMode()) {
+            Utils.appendLineToVerboseConsole(`[Main]: Level ${levelNumber} created`);
+        }
     }
 
     /**
@@ -297,5 +306,9 @@ export class Main extends Phaser.Scene {
                 }
             }
         }, this);
+
+        if (ConfigurationHandler.isVerboseMode()) {
+            Utils.appendLineToVerboseConsole(`[Main]: Handlers initialized`);
+        }
     }    
 }

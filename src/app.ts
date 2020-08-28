@@ -41,7 +41,7 @@ const config: Phaser.Types.Core.GameConfig = {
                 y: 0,
                 x: 0
             },
-            debug: true // shows the hit boxes, object boundaries
+            debug: false // shows the hit boxes, object boundaries
         }
     },
     parent: "game",

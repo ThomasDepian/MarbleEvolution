@@ -2,6 +2,7 @@ import { ConfigurationHandler } from './Configuration';
 import { Goal } from './Goal';
 import { Marble } from './Marble';
 import * as Phaser from 'phaser';
+import * as Utils from './Utils';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -108,6 +109,9 @@ export class MarbleIndividual extends Marble {
         // Disable collions within the same group (i.e. under individuals)
         this.setCollisionGroup(-1);
         this.id = uuidv4();
+        if (ConfigurationHandler.isVerboseMode()) {
+            Utils.appendLineToVerboseConsole(`[${this.id}]: Individual created: ${JSON.stringify(this.dna)}`);
+        }
     }
 
     /**
@@ -175,6 +179,10 @@ export class MarbleIndividual extends Marble {
             childDNA,
         );
 
+        if (ConfigurationHandler.isVerboseMode()) {
+            Utils.appendLineToVerboseConsole(`[${this.id}]: Reproduced with ${mother.id} and created ${child.id}`);
+        }
+
         return child;
     }
 
@@ -199,28 +207,42 @@ export class MarbleIndividual extends Marble {
         }
 
 
+        if (ConfigurationHandler.isVerboseMode()) {
+            Utils.appendLineToVerboseConsole(`[${this.id}]: Mutates...`);
+        }
+
         if (Math.random() < ConfigurationHandler.getGeneticAlgorithm().mutationProbability.power) {
             let power = this.dna.power;
 
             const powerRange = ConfigurationHandler.getGeneticAlgorithm().mutationRange.power;
-            power += randomNumber(powerRange.lowerBound, powerRange.upperBound);            
+            const change     = randomNumber(powerRange.lowerBound, powerRange.upperBound);
+            power += change
 
             power = Math.max(0, power);
             power = Math.min(25, power);
 
             this.dna.power = power;
+
+            if (ConfigurationHandler.isVerboseMode()) {
+                Utils.appendToVerboseConsole(` ...power changes by ${change} from ${power - change} to ${power}`);
+            }
         } 
         
         if (Math.random() < ConfigurationHandler.getGeneticAlgorithm().mutationProbability.angle) {
             let angle = this.dna.angle;
 
             const angleRange = ConfigurationHandler.getGeneticAlgorithm().mutationRange.angle;
-            angle += randomNumber(angleRange.lowerBound, angleRange.upperBound);
+            const change     = randomNumber(angleRange.lowerBound, angleRange.upperBound);
+            angle += change;
 
             angle = Math.max(0, angle);
             angle = Math.min(Math.PI, angle);
 
             this.dna.angle = angle;
+
+            if (ConfigurationHandler.isVerboseMode()) {
+                Utils.appendToVerboseConsole(` ...angle changes by ${change} from ${angle - change} to ${angle}`);
+            }
         } 
     }
 
@@ -230,7 +252,7 @@ export class MarbleIndividual extends Marble {
      * @returns Returns the string representation.
      */
     public toString(): string {
-        return this.id + ': DNA: {power:' + this.dna.power + ', angle: ' + this.dna.angle + '} Distance to goal: ' + this.distanceTo(this.goal);
+        return `[${this.id}]: DNA: ${JSON.stringify(this.dna)}; Distance to goal: ${this.distanceToGoal()}`
     }
 }
 

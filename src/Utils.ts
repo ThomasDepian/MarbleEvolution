@@ -183,6 +183,10 @@ export function fillHTMLWithConfiguration() {
     // Show/Hide stats based on mode
     document.getElementById(HTML_SELECTOR_ID_STATS_HUMAN).style.display = ConfigurationHandler.isHumanMode() ? CSS_STYLE_VISIBLE : CSS_STYLE_HIDDEN;
     document.getElementById(HTML_SELECTOR_ID_STATS_AI).style.display    = ConfigurationHandler.isHumanMode() ? CSS_STYLE_HIDDEN : CSS_STYLE_VISIBLE;
+
+    if (ConfigurationHandler.isVerboseMode()) {
+        appendLineToVerboseConsole(`[Utils]: HTML Inputs filled`);
+    }
 }
 
 /**
@@ -243,7 +247,7 @@ export function initializeEventListeners(): void {
     HTML_CHECKBOX_VERBOSE_MODE.addEventListener('click', _ => {
         HTML_VERBOSE_CONSOLE_WRAPPER.style.display = HTML_VERBOSE_CONSOLE_WRAPPER.style.display === CSS_STYLE_VISIBLE ? CSS_STYLE_HIDDEN : CSS_STYLE_VISIBLE;
         HTML_TAG_VERBOSE_CONSOLE_DISABLED.style.display = HTML_TAG_VERBOSE_CONSOLE_DISABLED.style.display === CSS_STYLE_VISIBLE ? CSS_STYLE_HIDDEN : CSS_STYLE_VISIBLE;
-    });    
+    });  
 }
 
 /**

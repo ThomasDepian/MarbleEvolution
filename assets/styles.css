@@ -47,13 +47,24 @@ body {
 }
 
 
-.landing-page{
-    /* background-image: url("./../assets/landing-page-background-3.jpg"); */
-    /* background: linear-gradient(rgba(31, 44, 108, 0.65), rgba(31, 44, 108, 0.65)), rgba(0, 0, 0, 0.55) url("./../assets/landing-page-background.jpg") no-repeat; */
-    /* background-position: left;
+.landing-page:after{
+    content: "";
+    background-image: 
+	  linear-gradient(to right bottom, 
+     rgba(28, 78, 97, 0.8),
+     rgba(57, 212, 17, 0.2)),
+     url('./../assets/landing-page-background-4.jpg');
+    background-position: top;
     background-repeat: no-repeat;
-    background-size: contain;
-    opacity: 0.5; */
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    opacity: 0.35;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
 }
 
 .landing-page-title {
@@ -78,12 +89,19 @@ body {
 
 #verbose-console {
     font-family: 'Roboto Mono', monospace;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .heart-icon {
     color: #e25555;
 }
+
+@media only screen and (max-width: 600px) {
+    #game-column {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 
 
 #test-a {

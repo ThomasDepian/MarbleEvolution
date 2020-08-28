@@ -1,4 +1,6 @@
 import { Configuration, LevelConfiguration, GeneticAlgorithmConfiguration } from './Configuration';
+import * as Utils from './Utils';
+
 /**
  * Class containing the configuration for the MarbleEvolution game.
  * @todo Add more configuration options.
@@ -25,6 +27,9 @@ export class ConfigurationHandler {
     public static updateConfig(config: Configuration): void {
         ConfigurationHandler.config = config;
         ConfigurationHandler.updatedConfig = config;
+        if (ConfigurationHandler.isVerboseMode()) {
+            Utils.appendLineToVerboseConsole(`[ConfigurationHandler]: Update entire configuration`);
+        }
     }
 
     /**
@@ -34,6 +39,9 @@ export class ConfigurationHandler {
     public static applyChanges(): void {
         ConfigurationHandler.config        = ConfigurationHandler.updatedConfig;
         ConfigurationHandler.updatedConfig = ConfigurationHandler.config;
+        if (ConfigurationHandler.isVerboseMode()) {
+            Utils.appendLineToVerboseConsole(`[ConfigurationHandler]: Apply changes`);
+        }
     }
 
     /**
@@ -117,6 +125,9 @@ export class ConfigurationHandler {
      // TODO: MAKE GENERIC AND CHECK ON TYPE
     public static setProperty<T>(key: string, value: T): void  {
         ConfigurationHandler.updatedConfig = ConfigurationHandler.setPropertyRec<T>(ConfigurationHandler.updatedConfig, key, value);
+        if (ConfigurationHandler.isVerboseMode()) {
+            Utils.appendLineToVerboseConsole(`[ConfigurationHandler]: Set property ${key} to ${value}`);
+        }
     }
 
     /**

@@ -5,6 +5,7 @@
 
 import { ConfigurationHandler } from './Configuration';
 import { MarbleIndividual } from './MarbleIndividual';
+import * as Utils from './Utils';
 
 /**
  * List containing the individuals of the current iteration.
@@ -23,6 +24,9 @@ let population: MarbleIndividual[];
  */
 export function initializeAlgorithm(initialPopulation: MarbleIndividual[] = []): void {
     population = initialPopulation;
+    if (ConfigurationHandler.isVerboseMode()) {
+        Utils.appendLineToVerboseConsole(`[GeneticAlgorithm]: Algorithm initialized; Population length: ${population.length}`);
+    }
 }
 
 /**
@@ -31,6 +35,9 @@ export function initializeAlgorithm(initialPopulation: MarbleIndividual[] = []):
  */
 export function startIteration(): void {
     population.forEach(individual => individual.startIndividual());
+    if (ConfigurationHandler.isVerboseMode()) {
+        Utils.appendLineToVerboseConsole(`[GeneticAlgorithm]: New iteration started`);
+    }
 }
 
 /**
@@ -42,7 +49,16 @@ export function stopIteration(): void {
     population.forEach(individual => {
         individual.stop();
     });
+
+    if (ConfigurationHandler.isVerboseMode()) {
+        Utils.appendLineToVerboseConsole(`[GeneticAlgorithm]: Current iteration stopped`);
+        population.forEach(individual => {
+            Utils.appendLineToVerboseConsole(individual.toString());
+        });
+    }
+
     iterationFinished();
+    
 }
 
 /**
@@ -67,6 +83,9 @@ export function allStoped(): boolean {
 export function killAll(): void {
     population.forEach(individual => individual.destroy());
     population = [];
+    if (ConfigurationHandler.isVerboseMode()) {
+        Utils.appendLineToVerboseConsole(`[GeneticAlgorithm]: Entire population killed`);
+    }
 }
 
 /**
