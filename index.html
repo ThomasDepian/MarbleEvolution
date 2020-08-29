@@ -316,56 +316,56 @@
                   <div class="control">
                     <input class="input" type="number" id="individual-count" name="individual-count" min="0" step="1" max="1000">
                   </div>
-                  <p class="help">A number between 0 and 1000.</p>
+                  <p class="help accent">A number between 0 and 1000.</p>
                 </div>
                 <div class="field configuration ai">
                   <label class="label">General mutation probability</label>
                   <div class="control">
                     <input class="input" type="number" id="general-mutation-probability" name="general-mutation-probability" min="0" max="100" step="0.0001">
                   </div>
-                  <p class="help">A number between 0 and 100 (up to 4 decimal places).</p>
+                  <p class="help accent">A number between 0 and 100 (up to 4 decimal places).</p>
                 </div>
                 <div class="field configuration ai">
                   <label class="label">Power mutation probability</label>
                   <div class="control">
                     <input class="input" type="number" id="power-mutation-probability" name="power-mutation-probability" min="0" max="100" step="0.0001">
                   </div>
-                  <p class="help">A number between 0 and 100 (up to 4 decimal places).</p>
+                  <p class="help accent">A number between 0 and 100 (up to 4 decimal places).</p>
                 </div>
                 <div class="field configuration ai">
                   <label class="label">Angle mutation probability</label>
                   <div class="control">
                     <input class="input" type="number" id="angle-mutation-probability" name="angle-mutation-probability" min="0" max="100" step="0.0001">
                   </div>
-                  <p class="help">A number between 0 and 100 (up to 4 decimal places).</p>
+                  <p class="help accent">A number between 0 and 100 (up to 4 decimal places).</p>
                 </div>
                 <div class="field configuration ai">
                   <label class="label">Father genes probability (power)</label>
                   <div class="control">
                     <input class="input" type="number" id="father-genes-power" name="father-genes-power" min="0" max="100" step="0.0001">
                   </div>
-                  <p class="help">A number between 0 and 100 (up to 4 decimal places).</p>
+                  <p class="help accent">A number between 0 and 100 (up to 4 decimal places).</p>
                 </div>
                 <div class="field configuration ai">
                   <label class="label">Father genes probability (angle)</label>
                   <div class="control">
                     <input class="input" type="number" id="father-genes-angle" name="father-genes-angle" min="0" max="100" step="0.0001">
                   </div>
-                  <p class="help">A number between 0 and 100 (up to 4 decimal places).</p>
+                  <p class="help accent">A number between 0 and 100 (up to 4 decimal places).</p>
                 </div>
                 <div class="field configuration ai">
                   <label class="label">Power mutation range (lower bound)</label>
                   <div class="control">
                     <input class="input" type="number" id="power-mutation-range-lower" name="power-mutation-range-lower" min="-100" max="100" step="0.0001">
                   </div>
-                  <p class="help">A number between -100 and 100 (up to 4 decimal places).</p>
+                  <p class="help accent">A number between -100 and 100 (up to 4 decimal places).</p>
                 </div>
                 <div class="field configuration ai">
                   <label class="label">Power mutation range (upper bound)</label>
                   <div class="control">
                     <input class="input" type="number" id="power-mutation-range-upper" name="power-mutation-range-upper" min="-100" max="100" step="0.0001">
                   </div>
-                  <p class="help">A number between -100 and 100 (up to 4 decimal places).</p>
+                  <p class="help accent">A number between -100 and 100 (up to 4 decimal places).</p>
                 </div>
   
                 <div class="field configuration ai">
@@ -373,14 +373,14 @@
                   <div class="control">
                     <input class="input" type="number" id="angle-mutation-range-lower" name="angle-mutation-range-lower" min="-3.14" max="3.14" step="0.0001">
                   </div>
-                  <p class="help">A number between -3.14 and 3.14 (up to 4 decimal places).</p>
+                  <p class="help accent">A number between -3.14 and 3.14 (up to 4 decimal places).</p>
                 </div>
                 <div class="field configuration ai">
                   <label class="label" for="angle-mutation-range-upper">Angle mutation range (upper bound)</label>
                   <div class="control">
                     <input class="input" type="number" id="angle-mutation-range-upper" name="angle-mutation-range-upper" min="-3.14" max="3.14" step="0.0001">
                   </div>
-                  <p class="help">A number between -3.14 and 3.14 (up to 4 decimal places).</p>
+                  <p class="help accent">A number between -3.14 and 3.14 (up to 4 decimal places).</p>
                 </div>
                 <button type="submit" class="button is-fullwidth secondary-bg" id="start-button">
                   
@@ -417,21 +417,77 @@
       </div>
     </section>
 
-    <!-- TODO -->
     <section class="hero is-fullheight" id="about">
       <div class="hero-body">
         <div class="container">
           <div class="columns is-vcentered">
             <div class="column is-full">
-              <h2 class="title is-1">About</h2>
-              
+              <h2 class="title is-1 primary is-spaced">About</h2>
+              <h3 class="subtitle is-4 secondary">How to play</h3>
+              <h4 class="subtitle is-6 accent">Human Mode</h4>
+              <p class="content">
+                Once the game has launched left-click somewhere in the game-frame to adjust the direction and the power with which the marble should launch.
+                The colored line shows you the approximate direction and the text in the lower right corner tells you with which power the marble launches.
+                The higher the power, the faster the marble moves. By releasing the mouse, the marble launches.<br>
+                The text below or next to the game-frame shows you some basic information about the distance to the goal and the best distance reached so far
+              </p>
+              <h4 class="subtitle is-6 accent">"AI-Mode"</h4>
+              <p class="content">
+                Once the game has launched a left-click inside the game-frame starts the simulation.
+              </p>
+              <h4 class="subtitle is-6 accent">Changing some properties of the simulation</h4>
+              <p class="content">
+                By adjusting the values in the <a href="#configuration" class="accent has-text-weight-semibold">configuration section</a> you can influence how the marbles evolve over time.<br>
+                Once you entered all values click the button to reload the game and apply the configuration.
+              </p>
+              <h3 class="subtitle is-4 secondary">What is this all about?</h3>
+              <p class="content">
+                Last semester I took an introduction course on artificial intelligence.
+                 With all that, mostly theoretical, knowledge in my mind I decided to try out some new stuff and combinded it with
+                 my passion for web development.
+                 The result of this little project is this (pre-)version of the game <span class="has-text-weight-semibold">Marble Evolution</span>.
+              </p>
+              <h3 class="subtitle is-4 secondary">Why is this public?</h3>
+              <p class="content">
+                Honestly I don't know and maybe I will tear down the page in some months. 
+                But I wanted to share some open source code with the world and found it funny that I have something to fiddle with during the lectures in the upcomming semesters.
+              </p>
+              <h3 class="subtitle is-4 secondary">MIT Licence… What does this mean?</h3>
+              <p class="content">
+                The <span class="has-text-weight-semibold">MIT</span> Licence gave me the possibility to share my code without
+                any guarantee of reliability, correctness and completeness while leaving the possibility that anyone can take parts
+                of the code or the project as a whole and integrate it in a new project.<br>
+                Furthermore anyone can <span class="has-text-weight-semibold">alter or extend</span> the code if they found a bug or want to add a new level.<br>
+                <a href="https://choosealicense.com/licenses/mit/" target="_blank" class="accent has-text-weight-semibold">Take a look at the MIT licence.</a>.
+              </p>
+              <h3 class="subtitle is-4 secondary">
+                I want to know more about this project and artifical intelligence in general!</h3>
+              <p class="content">
+                If you want to know more about the project checkout the
+                <a href="https://github.com/ThomasDepian/MarbleEvolution" target="_blank" class="accent has-text-weight-semibold">GitHub Page</a>
+                and the
+                <a href="./docs/" target="_blank" class="accent has-text-weight-semibold">documentation</a>.<br>
+                If you want to know more about artificial intelligence genetic algorithms I can recommand the book
+                <span class="has-text-weight-semibold">Artificial Intelligence: A Modern Approach
+                Norvig</span> by
+                <span class="has-text-weight-semibold">Stuart Russell and Peter Norvig</span>.
+              </p>
+              <h3 class="subtitle is-4 secondary">Some legal stuff</h3>
+              <p class="content">
+                This demo webpage does not require or store any <span class="has-text-weight-semibold">cookies</span>.<br>
+                Furthermore no <span class="has-text-weight-semibold">personal data</span> will be collected, stored and/or proccessed.<br>
+                The project including this demo-page is stored on/hosted by
+                <a href="https://github.com/" target="_blank" class="accent has-text-weight-semibold">GitHub Page</a>
+                and <a href="hhttps://pages.github.com/" target="_blank" class="accent has-text-weight-semibold">GitHub Pages</a>.
+                The Github Global Privacy Practices are available <a href="https://docs.github.com/en/github/site-policy/global-privacy-practicesn" target="_blank" class="accent has-text-weight-semibold">here</a>.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TODO -->
+
     <footer class="footer">
       <div class="container has-text-centered">
         

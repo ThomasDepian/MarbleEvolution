@@ -22,6 +22,10 @@ body {
     color: #f18f01 !important;
 }
 
+.accent {
+    color: #41bbd9 !important;
+}
+
 .primary-bg {
     background-color: #006e90 !important;
     color: #fff;
