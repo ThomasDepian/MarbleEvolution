@@ -54,7 +54,7 @@ jobs:
         run: git pull
         
       - name: merge
-        run: git merge production-test-ci
+        run: git merge origin/production-test-ci
       
       - name: add and push gh pages
         env:
