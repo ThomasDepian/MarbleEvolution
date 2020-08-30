@@ -1,10 +1,10 @@
 /**
- * Enum describing the varius states the game can have in humanmode.
+ * Enum describing the various states the game can have in human mode.
  */
 export enum HumanModeState {
     // Initial state
     Inactive,
-    // Currently initializing (colored line will be displayed)
+    // Currently initializing (coloured line will be displayed)
     InitializationPhase,
     // Marble has started
     Launched,
@@ -13,7 +13,7 @@ export enum HumanModeState {
 }
 
 /**
- * Enum describing the varius states the game can have in ai mode.
+ * Enum describing the various states the game can have in ai mode.
  */
 export enum AIModeState {
     // Initial state

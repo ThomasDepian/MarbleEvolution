@@ -1,3 +1,4 @@
+// cSpell:ignore CHECKBOX
 /**
  * @packageDocumentation
  * File providing several utilities needed in several parts of the game, but mostly in [[Main]].
@@ -75,10 +76,12 @@ let humanBestDistance: number;
 let aiBestDistance: number;
 
 /**
- * The scences to which the utils belongs.
+ * The scenes to which the utils belongs.
  * 
  * @note From the official documentation of Phaser.Scenes.ScenePlugin:
- *       > A reference to the Scene Manager Plugin. This property will only be available if defined in the Scene Injection Map.
+ *       <blockquote style="border-left: 4px solid #CCC; padding-left: 8px; ">
+ *          A reference to the Scene Manager Plugin. This property will only be available if defined in the Scene Injection Map.
+ *       </blockquote>
  */
 let scenes: Phaser.Scenes.ScenePlugin
 
@@ -185,7 +188,7 @@ export function fillHTMLWithConfiguration() {
     document.getElementById(HTML_SELECTOR_ID_STATS_AI).style.display    = ConfigurationHandler.isHumanMode() ? CSS_STYLE_HIDDEN : CSS_STYLE_VISIBLE;
 
     if (ConfigurationHandler.isVerboseMode()) {
-        appendLineToVerboseConsole(`[Utils]: HTML Inputs filled`);
+        appendLineToVerboseConsole(`[Utils]: HTML inputs filled`);
     }
 }
 
@@ -194,7 +197,7 @@ export function fillHTMLWithConfiguration() {
  * 
  * @category General utils
  */
-export function updateConfiguartionFromHTML(): void {
+export function updateConfigurationFromHTML(): void {
     ConfigurationHandler.setProperty('gameSettings.humanMode',                          HTML_CHECKBOX_HUMAN_MODE.checked);
     ConfigurationHandler.setProperty('gameSettings.verboseMode',                        HTML_CHECKBOX_VERBOSE_MODE.checked);
     ConfigurationHandler.setProperty('geneticAlgorithm.individualCount',                HTML_INPUT_INDIVIDUAL_COUNT.valueAsNumber);
@@ -219,7 +222,7 @@ export function updateConfiguartionFromHTML(): void {
 export function initializeEventListeners(): void {    
     // Start button
     document.getElementById('configuration-form').addEventListener('submit', _ => {
-        updateConfiguartionFromHTML();
+        updateConfigurationFromHTML();
         ConfigurationHandler.applyChanges();
         scenes.restart({initializeConfig: false});
     });
@@ -251,10 +254,10 @@ export function initializeEventListeners(): void {
 }
 
 /**
- * Sets up a vector pointing from a given startpoint to the current pointerposition (mostly the mouse).
+ * Sets up a vector pointing from a given start point to the current pointer position (mostly the mouse).
  * 
  * @param pointer    The pointer which is currently active.
- * @param startPoint Startpoint of the vector.
+ * @param startPoint Start point of the vector.
  * 
  * @returns Returns the created vector.
  * 

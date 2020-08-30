@@ -71,13 +71,13 @@
 					<div class="lead">
 						<p>Class representing marble controlled by the genetic algorithm.</p>
 					</div>
-					<p>The &#39;DNA&#39; of an individual consists of the values of the
-						<a href="../interfaces/geneticalgorithmconfiguration.html#fathergenesprobability.__type.power">power</a> and the <a href="marbleindividual.html#angle">angle</a> property and is described using the interface
+					<p>The &#39;DNA&#39; of an individual consists of values for a
+						<a href="../interfaces/geneticalgorithmconfiguration.html#fathergenesprobability.__type.power">power</a> and an <a href="marbleindividual.html#angle">angle</a> property and is described using the interface
 					<a href="../interfaces/marbledna.html">MarbleDNA</a>.</p>
 					<p>This class relies heavily on the implementations of the Marble class.
 					See the <a href="marble.html">Marble</a> class for further information.</p>
 					<p>The genetic algorithm is described using several methods tagged with &#39;Genetic Algorithm&#39;.
-					Please refer to [[initializeGeneticAlgorithm]] as a starting point.</p>
+					Please refer to <a href="../globals.html#initializealgorithm">initializeAlgorithm</a> as a starting point.</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
 						<dd><p><a href="../interfaces/configuration.html">Configuration</a>: Please refer to the configuration class for any limitations/settings which may apply.</p>
@@ -235,7 +235,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="marbleindividual.html#creategeometrymask" class="tsd-kind-icon">create<wbr>Geometry<wbr>Mask</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="marbleindividual.html#destroy" class="tsd-kind-icon">destroy</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#disableinteractive" class="tsd-kind-icon">disable<wbr>Interactive</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#distanceto" class="tsd-kind-icon">distance<wbr>To</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="marbleindividual.html#distanceto" class="tsd-kind-icon">distance<wbr>To</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="marbleindividual.html#distancetogoal" class="tsd-kind-icon">distance<wbr>ToGoal</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#emit" class="tsd-kind-icon">emit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#eventnames" class="tsd-kind-icon">event<wbr>Names</a></li>
@@ -261,7 +261,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#ismoving" class="tsd-kind-icon">is<wbr>Moving</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#issensor" class="tsd-kind-icon">is<wbr>Sensor</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#isstatic" class="tsd-kind-icon">is<wbr>Static</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#istouching" class="tsd-kind-icon">is<wbr>Touching</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="marbleindividual.html#istouching" class="tsd-kind-icon">is<wbr>Touching</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#listenercount" class="tsd-kind-icon">listener<wbr>Count</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marbleindividual.html#listeners" class="tsd-kind-icon">listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="marbleindividual.html#mutate" class="tsd-kind-icon">mutate</a></li>
@@ -380,7 +380,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="marble.html">Marble</a>.<a href="marble.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/MarbleIndividual.ts#L69">src/MarbleIndividual.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/MarbleIndividual.ts#L70">src/MarbleIndividual.ts:70</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -415,7 +415,7 @@
 									<h5>textureName: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>The name of the texture. <strong>Note</strong>: Must be loaded <em>before</em> the call.</p>
+											<p>The name of the texture. <strong>Note</strong>: Corresponding texture must be loaded <em>before</em> the call.</p>
 										</div>
 									</div>
 								</li>
@@ -423,7 +423,7 @@
 									<h5>diameter: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>Diameter of the individual. <strong>Note</strong>: Must be chosen such that the individual will not flow outside the screen.</p>
+											<p>Diameter of the individual. <strong>Note</strong>: Must be chosen such that the individual will not flow outside the game-screen.</p>
 										</div>
 									</div>
 								</li>
@@ -431,7 +431,7 @@
 									<h5>goal: <a href="goal.html" class="tsd-signature-type">Goal</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>The goal to which the individual is reaching.</p>
+											<p>The goal to which the individual should try to find a way to.</p>
 										</div>
 									</div>
 								</li>
@@ -741,7 +741,7 @@
 					<div class="tsd-signature tsd-kind-icon">diameter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/MarbleIndividual.ts#L69">src/MarbleIndividual.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/MarbleIndividual.ts#L70">src/MarbleIndividual.ts:70</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -839,12 +839,12 @@
 					<div class="tsd-signature tsd-kind-icon">dna<span class="tsd-signature-symbol">:</span> <a href="../interfaces/marbledna.html" class="tsd-signature-type">MarbleDNA</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/MarbleIndividual.ts#L43">src/MarbleIndividual.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/MarbleIndividual.ts#L44">src/MarbleIndividual.ts:44</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The dna of the marble individual.</p>
+							<p>The DNA of the marble individual.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>readonly</dt>
@@ -915,13 +915,13 @@
 					<div class="tsd-signature tsd-kind-icon">goal<span class="tsd-signature-symbol">:</span> <a href="goal.html" class="tsd-signature-type">Goal</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/MarbleIndividual.ts#L51">src/MarbleIndividual.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/MarbleIndividual.ts#L52">src/MarbleIndividual.ts:52</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The goal to which the individual should
-							try to find a way.</p>
+							try to find a way to.</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>readonly</dt>
@@ -955,15 +955,15 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/MarbleIndividual.ts#L35">src/MarbleIndividual.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/MarbleIndividual.ts#L36">src/MarbleIndividual.ts:36</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Unique identifier to identifiy the individuals.</p>
+							<p>Unique identifier to identify the individuals.</p>
 						</div>
 						<p>This is a uuidv4 128-bit number. See
-							(this article) [<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)%5D">https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)]</a>
+							<a href="https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)">this article</a>
 						for more information.</p>
 						<dl class="tsd-comment-tags">
 							<dt>readonly</dt>
@@ -1320,7 +1320,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#startposition">startPosition</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/Marble.ts#L18">src/Marble.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Marble.ts#L18">src/Marble.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1390,7 +1390,7 @@
 					<div class="tsd-signature tsd-kind-icon">texture<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/MarbleIndividual.ts#L60">src/MarbleIndividual.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/MarbleIndividual.ts#L61">src/MarbleIndividual.ts:61</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -2016,18 +2016,18 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 					<a name="distanceto" class="tsd-anchor"></a>
 					<h3>distance<wbr>To</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">distance<wbr>To<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Transform</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">distance<wbr>To&lt;T&gt;<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#distanceto">distanceTo</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/Marble.ts#L98">src/Marble.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Marble.ts#L98">src/Marble.ts:98</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2035,10 +2035,16 @@
 									<p>Computes the distance of a marble to a given object.</p>
 								</div>
 							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Transform</span></h4>
+								</li>
+							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>obj: <span class="tsd-signature-type">Transform</span></h5>
+									<h5>obj: <span class="tsd-signature-type">T</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The object to which the distance should be computed.</p>
 									</div>
@@ -2059,7 +2065,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/MarbleIndividual.ts#L134">src/MarbleIndividual.ts:134</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/MarbleIndividual.ts#L135">src/MarbleIndividual.ts:135</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2148,7 +2154,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/MarbleIndividual.ts#L146">src/MarbleIndividual.ts:146</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/MarbleIndividual.ts#L147">src/MarbleIndividual.ts:147</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2885,7 +2891,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#ismoving">isMoving</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/Marble.ts#L110">src/Marble.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Marble.ts#L110">src/Marble.ts:110</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2946,18 +2952,18 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 					<a name="istouching" class="tsd-anchor"></a>
 					<h3>is<wbr>Touching</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Touching<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GetBounds</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Touching&lt;T&gt;<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#istouching">isTouching</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/Marble.ts#L121">src/Marble.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Marble.ts#L121">src/Marble.ts:121</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2965,10 +2971,16 @@
 									<p>Checks whether the marble is touching the specified object or not.</p>
 								</div>
 							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GetBounds</span></h4>
+								</li>
+							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>obj: <span class="tsd-signature-type">GetBounds</span></h5>
+									<h5>obj: <span class="tsd-signature-type">T</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -3051,7 +3063,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/MarbleIndividual.ts#L201">src/MarbleIndividual.ts:201</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/MarbleIndividual.ts#L202">src/MarbleIndividual.ts:202</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3064,7 +3076,7 @@
 								with some probability and can alter in a given range.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
-									<dd><p><a href="../interfaces/configuration.html">Configuration</a>: Please refer to the configuration class for the concrete probabilities and ranges</p>
+									<dd><p><a href="../interfaces/configuration.html">Configuration</a>: Please refer to the configuration class for the concrete probabilities and ranges.</p>
 									</dd>
 								</dl>
 							</div>
@@ -3420,7 +3432,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/MarbleIndividual.ts#L163">src/MarbleIndividual.ts:163</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/MarbleIndividual.ts#L164">src/MarbleIndividual.ts:164</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3460,14 +3472,14 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#reset">reset</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/Marble.ts#L86">src/Marble.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Marble.ts#L86">src/Marble.ts:86</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Resets a marble.</p>
 								</div>
-								<p>A marble gets reseted by setting its velocity to zero and
+								<p>A marble gets reset by setting its velocity to zero and
 								positioning it at the start point.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -6192,7 +6204,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#start">start</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/Marble.ts#L63">src/Marble.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Marble.ts#L63">src/Marble.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -6206,7 +6218,7 @@
 								It will then multiplied with the given power value to ensure the correct length.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
-									<dd><p><a href="../interfaces/configuration.html">Configuration</a> Any limititations which may apply are specified in the configuration.</p>
+									<dd><p><a href="../interfaces/configuration.html">Configuration</a> Any limitations which may apply are specified in the configuration.</p>
 									</dd>
 								</dl>
 							</div>
@@ -6243,13 +6255,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/MarbleIndividual.ts#L123">src/MarbleIndividual.ts:123</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/MarbleIndividual.ts#L124">src/MarbleIndividual.ts:124</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Starts the individual by calling the the start method
-									of the parent class.</p>
+									of the parent class using the values of the DNA as parameters.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
@@ -6272,7 +6284,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="marble.html">Marble</a>.<a href="marble.html#stop">stop</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/Marble.ts#L76">src/Marble.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Marble.ts#L76">src/Marble.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -6451,7 +6463,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/MarbleIndividual.ts#L254">src/MarbleIndividual.ts:254</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/MarbleIndividual.ts#L255">src/MarbleIndividual.ts:255</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -6886,7 +6898,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="marbleindividual.html#disableinteractive" class="tsd-kind-icon">disable<wbr>Interactive</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="marbleindividual.html#distanceto" class="tsd-kind-icon">distance<wbr>To</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -6964,7 +6976,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="marbleindividual.html#isstatic" class="tsd-kind-icon">is<wbr>Static</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 								<a href="marbleindividual.html#istouching" class="tsd-kind-icon">is<wbr>Touching</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">

@@ -1,3 +1,4 @@
+// cSpell:ignoreRegExp /import '.*'/;
 import { Main } from './Main';
 import { MarbleEvolution } from './MarbleEvolution';
 import * as Phaser from 'phaser';
@@ -13,12 +14,12 @@ import './../assets/styles.css';
 export let game: MarbleEvolution = null;
 export let demo: MarbleEvolution = null;
 
-const browserWidth = window.innerWidth;
+const columnWidth = document.getElementById('game-column').offsetWidth;
 const gameSize     = 500;
 let zoomFactor     = 1;
 
-if (browserWidth < gameSize) {
-    zoomFactor = (browserWidth * 1.0) / gameSize;
+if (columnWidth < gameSize) {
+    zoomFactor = (columnWidth * 1.0) / gameSize;
 }
 
 

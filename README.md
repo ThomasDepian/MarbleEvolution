@@ -1,3 +1,4 @@
+<!-- cSpell:ignore startup webpage setup minified typedoc Bulma -->
 # Marble Evolution
 ![GitHub](https://img.shields.io/github/license/ThomasDepian/MarbleEvolution)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/ThomasDepian/MarbleEvolution)
@@ -9,17 +10,18 @@ Coming soon.
 
 ## How to play
 ### Human mode
-Once the game has launched left-click somewhere in the game-frame to adjust the direction and the power with which the marble should launch. The colored line shows you the approximate direction and the text in the lower right corner tells you with which power the marble launches. The higher the power, the faster the marble moves.
-The text below the game-frame shows you some basic information about the current state of the marble. By releasing the mouse, the marble launches. Once launched, the marble can be resetted at any time by left-clicking again inside the game-frame.
+Once the game has launched left-click somewhere in the game-frame to adjust the direction and the power with which the marble should launch.  
+The coloured line shows you the approximate direction and the text in the lower right corner tells you with which power the marble launches.
+The higher the power, the faster the marble moves. By releasing the mouse, the marble launches.  
+The text below or next to the game-frame shows you some basic information about the distance to the goal and the best distance reached so far.
 ### AI mode
 Once the game has launched a left-click inside the game-frame starts the simulation.
 
 ## Configuration
-Various settings can be configurated without touching the code. There exists a folder `config` with two `.yaml` files: `config.yaml` and `default.yaml`, both containing some configuration values for the game. At startup, the `config.yaml` will be loaded and serves as the initial configuration, whereas `default.yaml` is just a backup copy in case you mess up the configuration.  
-The game contains also several ways of changing some values (as for example the mutation rate) 'on the fly'. Just change the values on the webpage. The changes take affect once you press `Start`. Please note that the configuration **will not be saved**, unless you manually copy the configuration values into the file `config.yaml`.
+Various settings can be configured without touching the code. There exists a folder `config` with two `.yaml` files: `config.yaml` and `default.yaml`, both containing some configuration values for the game. At startup, the `config.yaml` will be loaded and serves as the initial configuration, whereas `default.yaml` is just a backup copy in case you mess up the configuration.  
+The game contains also several ways of changing some values (as for example the mutation rate) 'on the fly'. Just change the values on the webpage. The changes take affect once you press `Reload to apply configuration`. Please note that the configuration **will not be saved**, unless you manually copy the configuration values into the file `config.yaml`.
 
 **The possibility to change other settings and save the current configuration will be added in future versions.**
-**The verbose console is still under development and produces currently no output.**
 
 ## Project setup
 ### Prerequisites
@@ -32,10 +34,11 @@ To start the game just launch the server, visit the url your webserver is tellin
 #### Prerequisites
 If you want to develop you need Node.js installed in your developing environment.
 #### Installing the dependencies
-The project per se does not have any dependecies. Yet there are some development dependencies which needs to be installed. They can be installed with the command
+The project per se does not have any dependencies. Yet there are some development dependencies which needs to be installed. They can be installed with the command
 ```
 npm i -D
 ```
+
 #### Provided development commands
 To speed things up there are several commands which can be launched:
 

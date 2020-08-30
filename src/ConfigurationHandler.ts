@@ -2,7 +2,7 @@ import { Configuration, LevelConfiguration, GeneticAlgorithmConfiguration } from
 import * as Utils from './Utils';
 
 /**
- * Class containing the configuration for the MarbleEvolution game.
+ * Class containing the configuration for the [[MarbleEvolution]] game.
  * @todo Add more configuration options.
  */
 export class ConfigurationHandler {
@@ -19,8 +19,9 @@ export class ConfigurationHandler {
     private static updatedConfig: Configuration;
 
     /**
-     * Updated the entire configuration.
-     * **Note** Erases any changes made to the current configuration.
+     * Updated the entire configuration.<br>
+     * 
+     * @note Erases any changes made to the current configuration.
      * 
      * @param config The new configuration.
      */
@@ -48,11 +49,13 @@ export class ConfigurationHandler {
      * Gets the current value of a property of the configuration.
      * 
      * @param key The key of the property which should be returned. Must be given as _path_
-     *            starting the root of the configuration. Each level must be seperated by a dot `.`.  
+     *            starting the root of the configuration. Each level must be separated by a dot `.`.  
      *            _Example_: `gameSettings.verboseMode` would return the current value of the property `verboseMode`
      *            inside the property `gameSettings`.
      * 
-     * @returns Returns the value property.
+     * @param T   The type of the property.
+     * 
+     * @returns Returns the value of the property in the specified type.
      */
     public static getProperty<T>(key: string): T {
         if (key === undefined) {
@@ -81,7 +84,7 @@ export class ConfigurationHandler {
      * 
      * @param levelNumber The number of the level. Must be valid.
      * 
-     * @returns The configuration for the specified level.
+     * @returns The configuration for the genetic algorithm.
      */
     public static getGeneticAlgorithm(): GeneticAlgorithmConfiguration {
         return this.config.geneticAlgorithm;
@@ -108,18 +111,21 @@ export class ConfigurationHandler {
     }
 
     /**
-     * Updates/Sets the value of a property in the configuration.
-     * **Note** The update takes effect _after_ the call of the [[applyChanges]] method.
-     * **Note** The user must ensure that the new value is of the right type in order
+     * Updates/Sets the value of a property in the configuration.<br>
+     * @note The update takes affect _after_ the call of the [[applyChanges]] method.
+     * @note The user must ensure that the new value is of the right type in order
      * to perform the update.
      * 
      * @see [[Configuration]] See the configuration interface for the actual types of the values.
      * 
      * @param key The key of the property which should be updated/set. Must be given as _path_
-     *            starting the root of the configuration. Each level must be seperated by a dot `.`.  
+     *            starting the root of the configuration. Each level must be separated by a dot `.`.  
      *            _Example_: `gameSettings.verboseMode` would set the value of the property `verboseMode`
      *            inside the property `gameSettings` to a given value.
      * @param value The new value of the property. **Must be of the correct type**.
+     * 
+     * @param T The type of the new value.<br>
+     *          **Note**: Must match the type of the property.
      */
 
      // TODO: MAKE GENERIC AND CHECK ON TYPE
@@ -132,16 +138,19 @@ export class ConfigurationHandler {
 
     /**
      * Helper function realizing the [[setProperty]] method.
-     * This method recursivly travers the current configuration and updates every occurence in the
-     * path with its new value. If last layer of the given key is reached, the config will be updated
+     * This method recursively travers the current configuration and updates every occurrence in the
+     * path with its new value. If the last layer of the given key is reached, the config will be updated
      * with the new value and the updated object will be returned.
      * For any other layer the object at the current layer will be updated with the result of this method
-     * when called for the underlaying layer.
+     * when called for the underlying layer.
      * 
      * @param config The config at the current layer.
      * @param key The key of the property which should be updated/set. Must be given as _path_
      *            starting the root of the configuration.  
      * @param value The new value of the property.
+     * 
+     * @param T The type of the new value.<br>
+     *          **Note**: Must match the type of the property.
      * 
      * @returns Returns the updated config.
      */

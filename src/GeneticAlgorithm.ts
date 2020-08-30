@@ -20,7 +20,7 @@ let population: MarbleIndividual[];
  * 
  * @category Genetic Algorithm
  * 
- * @param initialPopulation The intial population.
+ * @param initialPopulation The initial population.
  */
 export function initializeAlgorithm(initialPopulation: MarbleIndividual[] = []): void {
     population = initialPopulation;
@@ -68,8 +68,8 @@ export function stopIteration(): void {
  * 
  * @returns Returns `true` if all individuals have stopped, else `false`.
  */
-export function allStoped(): boolean {
-    const stopped = population.map(inidividual => !inidividual.isMoving());
+export function allStopped(): boolean {
+    const stopped = population.map(individual => !individual.isMoving());
     return stopped.every(Boolean)
 }
 
@@ -105,7 +105,7 @@ export function computeAvgDistance(): number {
  * 
  * @category Genetic Algorithm
  * 
- * @returns Returnsthe best (i.e. lowest) to the goal.
+ * @returns Returns the best (i.e. lowest) to the goal.
  */
 export function getBestDistance(): number {
     // destruct array into single values    
@@ -119,19 +119,19 @@ export function getBestDistance(): number {
  * Calls the fitness function for each individual and generates
  * based on the fitness values a new generation.
  * 
- * @see [[ConfigurationHandler]]: Please refer to the configuration class for limitations and probabilities that may
+ * @see [[Configuration]]: Please refer to the configuration for limitations and probabilities that may
  * apply.
  * 
  * @category Genetic Algorithm
  */
 function iterationFinished(): void {
-    const fitnesValues = population.map(i => i.fitness());
+    const fitnessValues = population.map(i => i.fitness());
     const populationCount = population.length;
 
     const newPopulation: MarbleIndividual[] = [];
     for (let i = 0; i < populationCount; i++) {
-        const father = randomSelect(fitnesValues);
-        const mother = randomSelect(fitnesValues);
+        const father = randomSelect(fitnessValues);
+        const mother = randomSelect(fitnessValues);
 
         const child = father.reproduceWith(mother);
 
@@ -162,7 +162,7 @@ function iterationFinished(): void {
  * that it will be chosen. Nevertheless, also a 'non-fit-individual' has a, of course small,
  * chance that it will be selected for reproduction.
  * 
- * @param fitnesValues List containing the fitness values of all individuals of the population.
+ * @param fitnessValues List containing the fitness values of all individuals of the population.
  *                     The first value of the fitness list is the fitness value of the first
  *                     individual in the population, the second from the second and so forth.
  * 
@@ -170,24 +170,24 @@ function iterationFinished(): void {
  * 
  * @category Genetic Algorithm
  */
-function randomSelect(fitnesValues: number[]): MarbleIndividual {
+function randomSelect(fitnessValues: number[]): MarbleIndividual {
     const population_size = population.length;
 
-    const sumFitnesValues = fitnesValues.reduce((previous, current, i, a) => {
+    const sumFitnessValues = fitnessValues.reduce((previous, current, i, a) => {
         return previous + current
     });
     
-    const cutOffs = fitnesValues.map(_ => 0.0);
+    const cutOffs = fitnessValues.map(_ => 0.0);
     let previous_probability = 0.0;
 
-    // compute the cutoff values
-    // the cutoff values are ascending real values in the range between [0, 1)
-    // the difference (i.e. range) between two cutoff values
-    // cutoff[j+1] - cutoff[j] for j in [0, population_size-2] or
-    // 1 - cutoff[j] for j = population_size-1 is proportional
+    // compute the cut-off values
+    // the cut_off values are ascending real values in the range between [0, 1)
+    // the difference (i.e. range) between two cut-off values
+    // cut_off[j+1] - cut_off[j] for j in [0, population_size-2] or
+    // 1 - cut_off[j] for j = population_size-1 is proportional
     // to the fitness value of the individual j.
     for (let i = 0; i < population_size; i++) {
-        cutOffs[i] = previous_probability + (fitnesValues[i] / sumFitnesValues);
+        cutOffs[i] = previous_probability + (fitnessValues[i] / sumFitnessValues);
         previous_probability = cutOffs[i];
     }
     

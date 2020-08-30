@@ -1,14 +1,15 @@
+// cSpell:ignoreRegExp /import '.*'/;
 import { BoundSpecification } from './BoundSpecification';
-import { CoordinateConfiguartion } from './Coordinate';
+import { CoordinateConfiguration } from './Coordinate';
 
 
-// Reexport Configurationhandler as it is tightly coupled to this
+// Re-export ConfigurationHandler as it is tightly coupled to this
 // interfaces
 export { ConfigurationHandler } from './ConfigurationHandler';
 
 /**
  * Actual configuration interface defining
- * all configuartion options for the game.
+ * all configuration options for the game.
  */
 export interface Configuration {
     gameSettings:     GameSettingsConfiguration,   
@@ -23,7 +24,7 @@ export interface Configuration {
 export interface GameSettingsConfiguration {
     /**
      * Specifies whether the human mode is active (`true`) or
-     * the genetic algorithm operates the marbles (`false`)
+     * the genetic algorithm operates the marbles (`false`).
      */
     humanMode: boolean,
     /**
@@ -38,7 +39,7 @@ export interface GameSettingsConfiguration {
  */
 export interface LevelConfiguration {
     /**
-     * Displayname of the level.
+     * Display name of the level.
      */
     name: string,
     /**
@@ -55,7 +56,7 @@ export interface LevelConfiguration {
         /**
          * Specifies the start point of a marble.
          */
-        position: CoordinateConfiguartion
+        position: CoordinateConfiguration
     },
     /**
      * Specification of the goal.
@@ -70,8 +71,11 @@ export interface LevelConfiguration {
         /**
          * Specifies the position of the goal.
          */
-        position: CoordinateConfiguartion
+        position: CoordinateConfiguration
     },
+    /**
+     * Specification of the obstacles.
+     */
     obstacles: ObstacleConfiguration[]
 }
 
@@ -82,7 +86,7 @@ export interface ObstacleConfiguration {
     /**
      * Position of the obstacle.
      */
-    position: CoordinateConfiguartion,
+    position: CoordinateConfiguration,
     /**
      * Size of the obstacle in pixels.
      */
@@ -105,14 +109,14 @@ export interface GeneticAlgorithmConfiguration {
     individualCount: number,
     /** 
      * Specifies the probability that during reproduction the
-     * propery from the father will be choosen.
+     * property from the father will be chosen.
      */
     fatherGenesProbability : {
         power: number,
         angle: number
     },
     /**
-     * Specifies all mutation probabilites used in the algorithm.
+     * Specifies all mutation probabilities used in the algorithm.
      */
     mutationProbability: {
         /**
@@ -123,28 +127,28 @@ export interface GeneticAlgorithmConfiguration {
          * Specifies the probability that the power property of the 
          * DNA mutates.
          * 
-         * **Note:** This means, if the childs mutates, there is for example
+         * @note This means, if the children mutates, there is for example
          * a 50% chance that the power property will mutate.
          * That means, in total the power property has a mutation chance
-         * of general * power = (for example) 0.18 * 0.5 = 0.09 = 9%
+         * of general * power = (for example) 0.18 * 0.5 = 0.09 = 9%.
          */
         power: number,
         /** 
          * Specifies the probability that the angle property of the 
          * DNA mutates.
          * 
-         * **Note:** This means, if the childs mutates, there is for example
+         * @note This means, if the children mutates, there is for example
          * a 50% chance that the angle property will mutate.
          * That means, in total the angle property has a mutation chance
-         * of general * angle = (for example) 0.18 * 0.5 = 0.09 = 9%
+         * of general * angle = (for example) 0.18 * 0.5 = 0.09 = 9%.
          */
         angle: number
     },
     /**
      * Specifies all mutation ranges.
      * A range of lowerBound = -3, upperBound = 3
-     * means that the new propery is in the range
-     * `[old propery - 3, old propery + 3]`
+     * means that the new property is in the range
+     * `[old property - 3, old property + 3]`
      */
     mutationRange: {
         /**

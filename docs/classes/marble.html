@@ -74,7 +74,7 @@
 					<p>A marble bounces off an <a href="obstacle.html">obstacle</a> or the world border with a restitution of <em>0.9</em>.
 						This means <em>approximately</em> 90% of the kinetic energy will be preserved.
 						The &#39;bouncing algorithm&#39; is handled by the Matter.js-Physics-Library and follows more or less following rule:
-						&#39;Entry angle equals exit angle&#39;
+						&#39;Entry angle equals exit angle&#39;.
 					The speed of the marble decreases over time.</p>
 					<dl class="tsd-comment-tags">
 						<dt>see</dt>
@@ -233,7 +233,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="marble.html#creategeometrymask" class="tsd-kind-icon">create<wbr>Geometry<wbr>Mask</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="marble.html#destroy" class="tsd-kind-icon">destroy</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marble.html#disableinteractive" class="tsd-kind-icon">disable<wbr>Interactive</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="marble.html#distanceto" class="tsd-kind-icon">distance<wbr>To</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="marble.html#distanceto" class="tsd-kind-icon">distance<wbr>To</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marble.html#emit" class="tsd-kind-icon">emit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marble.html#eventnames" class="tsd-kind-icon">event<wbr>Names</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite tsd-is-inherited"><a href="marble.html#getbottomcenter" class="tsd-kind-icon">get<wbr>Bottom<wbr>Center</a></li>
@@ -257,7 +257,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="marble.html#ismoving" class="tsd-kind-icon">is<wbr>Moving</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marble.html#issensor" class="tsd-kind-icon">is<wbr>Sensor</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marble.html#isstatic" class="tsd-kind-icon">is<wbr>Static</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="marble.html#istouching" class="tsd-kind-icon">is<wbr>Touching</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="marble.html#istouching" class="tsd-kind-icon">is<wbr>Touching</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marble.html#listenercount" class="tsd-kind-icon">listener<wbr>Count</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marble.html#listeners" class="tsd-kind-icon">listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="marble.html#off" class="tsd-kind-icon">off</a></li>
@@ -372,7 +372,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Sprite.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/Marble.ts#L18">src/Marble.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Marble.ts#L18">src/Marble.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -407,7 +407,7 @@
 									<h5>textureName: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>The name of the texture. <strong>Note</strong>: Must be loaded <em>before</em> the call.</p>
+											<p>The name of the texture. <strong>Note</strong>: Corresponding texture must be loaded <em>before</em> the call.</p>
 										</div>
 									</div>
 								</li>
@@ -415,7 +415,7 @@
 									<h5>diameter: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>Diameter of the marble. <strong>Note</strong>: Must be chosen such that the marble will not flow outside the screen.</p>
+											<p>Diameter of the marble. <strong>Note</strong>: Must be chosen such that the marble will not flow outside the game-screen.</p>
 										</div>
 									</div>
 								</li>
@@ -1212,7 +1212,7 @@
 					<div class="tsd-signature tsd-kind-icon">start<wbr>Position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Point</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/Marble.ts#L18">src/Marble.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Marble.ts#L18">src/Marble.ts:18</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1886,17 +1886,17 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 					<a name="distanceto" class="tsd-anchor"></a>
 					<h3>distance<wbr>To</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">distance<wbr>To<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Transform</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">distance<wbr>To&lt;T&gt;<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/Marble.ts#L98">src/Marble.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Marble.ts#L98">src/Marble.ts:98</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1904,10 +1904,16 @@
 									<p>Computes the distance of a marble to a given object.</p>
 								</div>
 							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Transform</span></h4>
+								</li>
+							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>obj: <span class="tsd-signature-type">Transform</span></h5>
+									<h5>obj: <span class="tsd-signature-type">T</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The object to which the distance should be computed.</p>
 									</div>
@@ -2700,7 +2706,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/Marble.ts#L110">src/Marble.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Marble.ts#L110">src/Marble.ts:110</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2761,17 +2767,17 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 					<a name="istouching" class="tsd-anchor"></a>
 					<h3>is<wbr>Touching</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Touching<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GetBounds</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Touching&lt;T&gt;<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/Marble.ts#L121">src/Marble.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Marble.ts#L121">src/Marble.ts:121</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2779,10 +2785,16 @@
 									<p>Checks whether the marble is touching the specified object or not.</p>
 								</div>
 							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">GetBounds</span></h4>
+								</li>
+							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>obj: <span class="tsd-signature-type">GetBounds</span></h5>
+									<h5>obj: <span class="tsd-signature-type">T</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -3203,14 +3215,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/Marble.ts#L86">src/Marble.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Marble.ts#L86">src/Marble.ts:86</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Resets a marble.</p>
 								</div>
-								<p>A marble gets reseted by setting its velocity to zero and
+								<p>A marble gets reset by setting its velocity to zero and
 								positioning it at the start point.</p>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -5934,7 +5946,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/Marble.ts#L63">src/Marble.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Marble.ts#L63">src/Marble.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5948,7 +5960,7 @@
 								It will then multiplied with the given power value to ensure the correct length.</p>
 								<dl class="tsd-comment-tags">
 									<dt>see</dt>
-									<dd><p><a href="../interfaces/configuration.html">Configuration</a> Any limititations which may apply are specified in the configuration.</p>
+									<dd><p><a href="../interfaces/configuration.html">Configuration</a> Any limitations which may apply are specified in the configuration.</p>
 									</dd>
 								</dl>
 							</div>
@@ -5985,7 +5997,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/209b8f5/src/Marble.ts#L76">src/Marble.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Marble.ts#L76">src/Marble.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -6561,7 +6573,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="marble.html#disableinteractive" class="tsd-kind-icon">disable<wbr>Interactive</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 								<a href="marble.html#distanceto" class="tsd-kind-icon">distance<wbr>To</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -6633,7 +6645,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="marble.html#isstatic" class="tsd-kind-icon">is<wbr>Static</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 								<a href="marble.html#istouching" class="tsd-kind-icon">is<wbr>Touching</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">

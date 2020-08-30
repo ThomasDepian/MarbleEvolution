@@ -1,3 +1,4 @@
+// cSpell:ignore uuidv
 import { ConfigurationHandler } from './Configuration';
 import { Goal } from './Goal';
 import { Marble } from './Marble';
@@ -9,25 +10,25 @@ import { v4 as uuidv4 } from 'uuid';
 /**
  * Class representing marble controlled by the genetic algorithm.
  * 
- * The 'DNA' of an individual consists of the values of the
- * [[power]] and the [[angle]] property and is described using the interface
+ * The 'DNA' of an individual consists of values for a
+ * [[power]] and an [[angle]] property and is described using the interface
  * [[MarbleDNA]].
  * 
  * This class relies heavily on the implementations of the Marble class.
  * See the [[Marble]] class for further information.
  * 
  * The genetic algorithm is described using several methods tagged with 'Genetic Algorithm'.
- * Please refer to [[initializeGeneticAlgorithm]] as a starting point.
+ * Please refer to [[initializeAlgorithm]] as a starting point.
  * 
  * @see [[Configuration]]: Please refer to the configuration class for any limitations/settings which may apply.
  */
 export class MarbleIndividual extends Marble {
 
     /**
-     * Unique identifier to identifiy the individuals.
+     * Unique identifier to identify the individuals.
      * 
      * This is a uuidv4 128-bit number. See
-     * (this article) [https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)]
+     * [this article](https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random))
      * for more information.
      * 
      * @readonly
@@ -36,7 +37,7 @@ export class MarbleIndividual extends Marble {
 
 
     /**
-     * The dna of the marble individual.
+     * The DNA of the marble individual.
      * 
      * @readonly
      */
@@ -44,7 +45,7 @@ export class MarbleIndividual extends Marble {
 
     /**
      * The goal to which the individual should
-     * try to find a way.
+     * try to find a way to.
      * 
      * @readonly
      */
@@ -75,9 +76,9 @@ export class MarbleIndividual extends Marble {
      * @param world       The world to which the individual belongs.
      * @param scene       The scene to which the individual belongs.
      * @param startPoint  Start point of the individual.
-     * @param textureName The name of the texture. **Note**: Must be loaded _before_ the call.
-     * @param diameter    Diameter of the individual. **Note**: Must be chosen such that the individual will not flow outside the screen.
-     * @param goal        The goal to which the individual is reaching.
+     * @param textureName The name of the texture. **Note**: Corresponding texture must be loaded _before_ the call.
+     * @param diameter    Diameter of the individual. **Note**: Must be chosen such that the individual will not flow outside the game-screen.
+     * @param goal        The goal to which the individual should try to find a way to.
      * @param dna         The DNA of the individual. If not present, a random DNA will be generated.
      */
     constructor (
@@ -106,7 +107,7 @@ export class MarbleIndividual extends Marble {
             this.dna  = dna;
         }
 
-        // Disable collions within the same group (i.e. under individuals)
+        // Disable collisions within the same group (i.e. under individuals)
         this.setCollisionGroup(-1);
         this.id = uuidv4();
         if (ConfigurationHandler.isVerboseMode()) {
@@ -116,7 +117,7 @@ export class MarbleIndividual extends Marble {
 
     /**
      * Starts the individual by calling the the start method
-     * of the parent class.
+     * of the parent class using the values of the DNA as parameters.
      * 
      * @see [[Marble.start]] for further details.
      */
@@ -196,7 +197,7 @@ export class MarbleIndividual extends Marble {
      * Each property/characteristics of the 'DNA' will be mutated
      * with some probability and can alter in a given range.
      * 
-     * @see [[Configuration]]: Please refer to the configuration class for the concrete probabilities and ranges
+     * @see [[Configuration]]: Please refer to the configuration class for the concrete probabilities and ranges.
      */
     public mutate(): void {
         /**
