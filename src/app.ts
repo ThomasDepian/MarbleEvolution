@@ -14,7 +14,7 @@ import './../assets/styles.css';
 export let game: MarbleEvolution = null;
 export let demo: MarbleEvolution = null;
 
-const columnWidth = document.getElementById('game-column').offsetWidth;
+const columnWidth  = document.getElementById('game-column').offsetWidth;
 const gameSize     = 500;
 let zoomFactor     = 1;
 
