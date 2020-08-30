@@ -24,7 +24,7 @@ if (columnWidth < gameSize) {
 
 
 /**
- * Configuration for the game.
+ * Configuration for the gaaaaame.
  */
 const config: Phaser.Types.Core.GameConfig = {
     title: "Marble Evolution",
