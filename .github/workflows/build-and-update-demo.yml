@@ -48,7 +48,7 @@ jobs:
         run: git fetch
       
       - name: checkout gh-pages
-        run: git checkout gh-pages
+        run: git checkout origin/gh-pages
         
       - name: get changes
         run: git fetch
