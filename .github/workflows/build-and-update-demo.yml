@@ -50,8 +50,11 @@ jobs:
       - name: checkout gh-pages
         run: git checkout gh-pages
         
+      - name: get changes
+        run: git fetch
+        
       - name: pull branch
-        run: git pull origin gh-pages
+        run: git pull origin gh-pages --ff-only
         
       - name: merge
         run: git merge origin/production-test-ci
