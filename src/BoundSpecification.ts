@@ -6,7 +6,7 @@
  */
 export interface BoundSpecification {
     /**
-     * Lower bound, may also be negativ.
+     * Lower bound, may also be negative.
      * 
      * **Must be <= [[upperBound]]**.
      */

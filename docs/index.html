@@ -64,6 +64,7 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
+				<!-- cSpell:ignore startup webpage setup minified typedoc Bulma -->
 				<a href="#marble-evolution" id="marble-evolution" style="color: inherit; text-decoration: none;">
 					<h1>Marble Evolution</h1>
 				</a>
@@ -80,8 +81,8 @@
 				<a href="#human-mode" id="human-mode" style="color: inherit; text-decoration: none;">
 					<h3>Human mode</h3>
 				</a>
-				<p>Once the game has launched left-click somewhere in the game-frame to adjust the direction and the power with which the marble should launch. The colored line shows you the approximate direction and the text in the lower right corner tells you with which power the marble launches. The higher the power, the faster the marble moves.
-				The text below the game-frame shows you some basic information about the current state of the marble. By releasing the mouse, the marble launches. Once launched, the marble can be resetted at any time by left-clicking again inside the game-frame.</p>
+				<p>Once the game has launched left-click somewhere in the game-frame to adjust the direction and the power with which the marble should launch.<br>The coloured line shows you the approximate direction and the text in the lower right corner tells you with which power the marble launches.
+				The higher the power, the faster the marble moves. By releasing the mouse, the marble launches.<br>The text below or next to the game-frame shows you some basic information about the distance to the goal and the best distance reached so far.</p>
 				<a href="#ai-mode" id="ai-mode" style="color: inherit; text-decoration: none;">
 					<h3>AI mode</h3>
 				</a>
@@ -89,9 +90,8 @@
 				<a href="#configuration" id="configuration" style="color: inherit; text-decoration: none;">
 					<h2>Configuration</h2>
 				</a>
-				<p>Various settings can be configurated without touching the code. There exists a folder <code>config</code> with two <code>.yaml</code> files: <code>config.yaml</code> and <code>default.yaml</code>, both containing some configuration values for the game. At startup, the <code>config.yaml</code> will be loaded and serves as the initial configuration, whereas <code>default.yaml</code> is just a backup copy in case you mess up the configuration.<br>The game contains also several ways of changing some values (as for example the mutation rate) &#39;on the fly&#39;. Just change the values on the webpage. The changes take affect once you press <code>Start</code>. Please note that the configuration <strong>will not be saved</strong>, unless you manually copy the configuration values into the file <code>config.yaml</code>.</p>
-				<p><strong>The possibility to change other settings and save the current configuration will be added in future versions.</strong>
-				<strong>The verbose console is still under development and produces currently no output.</strong></p>
+				<p>Various settings can be configured without touching the code. There exists a folder <code>config</code> with two <code>.yaml</code> files: <code>config.yaml</code> and <code>default.yaml</code>, both containing some configuration values for the game. At startup, the <code>config.yaml</code> will be loaded and serves as the initial configuration, whereas <code>default.yaml</code> is just a backup copy in case you mess up the configuration.<br>The game contains also several ways of changing some values (as for example the mutation rate) &#39;on the fly&#39;. Just change the values on the webpage. The changes take affect once you press <code>Reload to apply configuration</code>. Please note that the configuration <strong>will not be saved</strong>, unless you manually copy the configuration values into the file <code>config.yaml</code>.</p>
+				<p><strong>The possibility to change other settings and save the current configuration will be added in future versions.</strong></p>
 				<a href="#project-setup" id="project-setup" style="color: inherit; text-decoration: none;">
 					<h2>Project setup</h2>
 				</a>
@@ -114,7 +114,7 @@
 				<a href="#installing-the-dependencies" id="installing-the-dependencies" style="color: inherit; text-decoration: none;">
 					<h4>Installing the dependencies</h4>
 				</a>
-				<p>The project per se does not have any dependecies. Yet there are some development dependencies which needs to be installed. They can be installed with the command</p>
+				<p>The project per se does not have any dependencies. Yet there are some development dependencies which needs to be installed. They can be installed with the command</p>
 				<pre><code><span class="hljs-built_in">npm</span> i -D</code></pre>
 				<a href="#provided-development-commands" id="provided-development-commands" style="color: inherit; text-decoration: none;">
 					<h4>Provided development commands</h4>
@@ -212,7 +212,7 @@
 						<a href="interfaces/configuration.html" class="tsd-kind-icon">Configuration</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/coordinateconfiguartion.html" class="tsd-kind-icon">Coordinate<wbr>Configuartion</a>
+						<a href="interfaces/coordinateconfiguration.html" class="tsd-kind-icon">Coordinate<wbr>Configuration</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/gamesettingsconfiguration.html" class="tsd-kind-icon">Game<wbr>Settings<wbr>Configuration</a>
@@ -290,6 +290,9 @@
 						<a href="globals.html#html_selector_id_stats_human" class="tsd-kind-icon">HTML_<wbr>SELECTOR_<wbr>ID_<wbr>STATS_<wbr>HUMAN</a>
 					</li>
 					<li class=" tsd-kind-variable">
+						<a href="globals.html#html_selector_tag_number_input" class="tsd-kind-icon">HTML_<wbr>SELECTOR_<wbr>TAG_<wbr>NUMBER_<wbr>INPUT</a>
+					</li>
+					<li class=" tsd-kind-variable">
 						<a href="globals.html#html_tag_human_mode" class="tsd-kind-icon">HTML_<wbr>TAG_<wbr>HUMAN_<wbr>MODE</a>
 					</li>
 					<li class=" tsd-kind-variable">
@@ -332,7 +335,16 @@
 						<a href="globals.html#aibestdistance" class="tsd-kind-icon">ai<wbr>Best<wbr>Distance</a>
 					</li>
 					<li class=" tsd-kind-variable">
+						<a href="globals.html#columnwidth" class="tsd-kind-icon">column<wbr>Width</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#demo" class="tsd-kind-icon">demo</a>
+					</li>
+					<li class=" tsd-kind-variable">
 						<a href="globals.html#game" class="tsd-kind-icon">game</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#gamesize" class="tsd-kind-icon">game<wbr>Size</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#humanbestdistance" class="tsd-kind-icon">human<wbr>Best<wbr>Distance</a>
@@ -346,8 +358,11 @@
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#scenes" class="tsd-kind-icon">scenes</a>
 					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#zoomfactor" class="tsd-kind-icon">zoom<wbr>Factor</a>
+					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#allstoped" class="tsd-kind-icon">all<wbr>Stoped</a>
+						<a href="globals.html#allstopped" class="tsd-kind-icon">all<wbr>Stopped</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#appendlinetoverboseconsole" class="tsd-kind-icon">append<wbr>Line<wbr>ToVerbose<wbr>Console</a>
@@ -401,7 +416,7 @@
 						<a href="globals.html#updateaidistance" class="tsd-kind-icon">updateAIDistance</a>
 					</li>
 					<li class=" tsd-kind-function">
-						<a href="globals.html#updateconfiguartionfromhtml" class="tsd-kind-icon">update<wbr>Configuartion<wbr>FromHTML</a>
+						<a href="globals.html#updateconfigurationfromhtml" class="tsd-kind-icon">update<wbr>Configuration<wbr>FromHTML</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#updatehumandistance" class="tsd-kind-icon">update<wbr>Human<wbr>Distance</a>

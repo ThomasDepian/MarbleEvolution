@@ -110,13 +110,13 @@
 					<div class="tsd-signature tsd-kind-icon">father<wbr>Genes<wbr>Probability<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>angle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>power<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/259fd08/src/Configuration.ts#L110">src/Configuration.ts:110</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Configuration.ts#L114">src/Configuration.ts:114</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Specifies the probability that during reproduction the
-							propery from the father will be choosen.</p>
+							property from the father will be chosen.</p>
 						</div>
 					</div>
 					<div class="tsd-type-declaration">
@@ -137,7 +137,7 @@
 					<div class="tsd-signature tsd-kind-icon">individual<wbr>Count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/259fd08/src/Configuration.ts#L105">src/Configuration.ts:105</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Configuration.ts#L109">src/Configuration.ts:109</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -152,12 +152,12 @@
 					<div class="tsd-signature tsd-kind-icon">mutation<wbr>Probability<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>angle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>general<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span>power<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/259fd08/src/Configuration.ts#L117">src/Configuration.ts:117</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Configuration.ts#L121">src/Configuration.ts:121</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Specifies all mutation probabilites used in the algorithm.</p>
+							<p>Specifies all mutation probabilities used in the algorithm.</p>
 						</div>
 					</div>
 					<div class="tsd-type-declaration">
@@ -170,10 +170,14 @@
 										<p>Specifies the probability that the angle property of the
 										DNA mutates.</p>
 									</div>
-									<p><strong>Note:</strong> This means, if the childs mutates, there is for example
-										a 50% chance that the angle property will mutate.
-										That means, in total the angle property has a mutation chance
-									of general * angle = (for example) 0.18 * 0.5 = 0.09 = 9%</p>
+									<dl class="tsd-comment-tags">
+										<dt>note</dt>
+										<dd><p>This means, if the children mutates, there is for example
+												a 50% chance that the angle property will mutate.
+												That means, in total the angle property has a mutation chance
+											of general * angle = (for example) 0.18 * 0.5 = 0.09 = 9%.</p>
+										</dd>
+									</dl>
 								</div>
 							</li>
 							<li class="tsd-parameter">
@@ -191,10 +195,14 @@
 										<p>Specifies the probability that the power property of the
 										DNA mutates.</p>
 									</div>
-									<p><strong>Note:</strong> This means, if the childs mutates, there is for example
-										a 50% chance that the power property will mutate.
-										That means, in total the power property has a mutation chance
-									of general * power = (for example) 0.18 * 0.5 = 0.09 = 9%</p>
+									<dl class="tsd-comment-tags">
+										<dt>note</dt>
+										<dd><p>This means, if the children mutates, there is for example
+												a 50% chance that the power property will mutate.
+												That means, in total the power property has a mutation chance
+											of general * power = (for example) 0.18 * 0.5 = 0.09 = 9%.</p>
+										</dd>
+									</dl>
 								</div>
 							</li>
 						</ul>
@@ -206,15 +214,15 @@
 					<div class="tsd-signature tsd-kind-icon">mutation<wbr>Range<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>angle<span class="tsd-signature-symbol">: </span><a href="boundspecification.html" class="tsd-signature-type">BoundSpecification</a><span class="tsd-signature-symbol">; </span>power<span class="tsd-signature-symbol">: </span><a href="boundspecification.html" class="tsd-signature-type">BoundSpecification</a><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/259fd08/src/Configuration.ts#L149">src/Configuration.ts:149</a></li>
+							<li>Defined in <a href="https://github.com/ThomasDepian/marble-evolution/blob/1669476/src/Configuration.ts#L153">src/Configuration.ts:153</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Specifies all mutation ranges.
 								A range of lowerBound = -3, upperBound = 3
-								means that the new propery is in the range
-							<code>[old propery - 3, old propery + 3]</code></p>
+								means that the new property is in the range
+							<code>[old property - 3, old property + 3]</code></p>
 						</div>
 					</div>
 					<div class="tsd-type-declaration">

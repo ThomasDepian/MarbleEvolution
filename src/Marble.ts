@@ -6,7 +6,7 @@ import * as Phaser from 'phaser';
  * A marble bounces off an [[Obstacle | obstacle]] or the world border with a restitution of _0.9_.
  * This means _approximately_ 90% of the kinetic energy will be preserved.
  * The 'bouncing algorithm' is handled by the Matter.js-Physics-Library and follows more or less following rule:
- * 'Entry angle equals exit angle'
+ * 'Entry angle equals exit angle'.
  * The speed of the marble decreases over time.
  * 
  * @see [[Configuration]]: Please refer to the configuration class for any limitations/settings which may apply.
@@ -22,8 +22,8 @@ export class Marble extends Phaser.Physics.Matter.Sprite {
      * @param world       The world to which the marble belongs.
      * @param scene       The scene to which the marble belongs.
      * @param startPoint  Start point of the marble.
-     * @param textureName The name of the texture. **Note**: Must be loaded _before_ the call.
-     * @param diameter    Diameter of the marble. **Note**: Must be chosen such that the marble will not flow outside the screen.
+     * @param textureName The name of the texture. **Note**: Corresponding texture must be loaded _before_ the call.
+     * @param diameter    Diameter of the marble. **Note**: Must be chosen such that the marble will not flow outside the game-screen.
      */
     constructor (
         world:       Phaser.Physics.Matter.World,
@@ -51,7 +51,7 @@ export class Marble extends Phaser.Physics.Matter.Sprite {
      * The result is a normalized vector which points in 'the right direction'.
      * It will then multiplied with the given power value to ensure the correct length.
      * 
-     * @see [[Configuration]] Any limititations which may apply are specified in the configuration.
+     * @see [[Configuration]] Any limitations which may apply are specified in the configuration.
      * 
      * @param power A number describing the 'power' of the marble.
      *              The higher the power, the faster is the initial speed of the marble.
@@ -80,7 +80,7 @@ export class Marble extends Phaser.Physics.Matter.Sprite {
     /**
      * Resets a marble.
      * 
-     * A marble gets reseted by setting its velocity to zero and
+     * A marble gets reset by setting its velocity to zero and
      * positioning it at the start point.
      */
     public reset(): void {
@@ -95,7 +95,7 @@ export class Marble extends Phaser.Physics.Matter.Sprite {
      * 
      * @returns The distance to the object.
      */
-    public distanceTo(obj: Phaser.GameObjects.Components.Transform): number {
+    public distanceTo<T extends Phaser.GameObjects.Components.Transform>(obj: T): number {
         return new Phaser.Math.Vector2(this.x - obj.x, this.y - obj.y).length();
     }
 
@@ -118,7 +118,7 @@ export class Marble extends Phaser.Physics.Matter.Sprite {
      * @returns Return `true` if the marble touches the object,
      *          `false` otherwise.
      */
-    public isTouching(obj: Phaser.GameObjects.Components.GetBounds): boolean{
+    public isTouching<T extends Phaser.GameObjects.Components.GetBounds>(obj: T): boolean{
         const thisBounds = this.getBounds();
         const objBounds = obj.getBounds();
         

@@ -1,3 +1,4 @@
+// cSpell:ignore CHECKBOX
 /**
  * @packageDocumentation
  * File providing several utilities needed in several parts of the game, but mostly in [[Main]].
@@ -25,7 +26,6 @@ const HTML_INPUT_ANGLE_RANGE_UPPER       = <HTMLInputElement>document.getElement
 const HTML_TEXT_LEVEL_NAME               = document.getElementById('levelName');
 const HTML_VERBOSE_CONSOLE               = document.getElementById('verbose-console');
 const HTML_VERBOSE_CONSOLE_WRAPPER       = document.getElementById('verbose-console-wrapper');
-const HTML_BUTTON_START                  = document.getElementById('start-button');
 const HTML_TEXT_HUMAN_TRY_COUNT          = document.getElementById('try-number');
 const HTML_TEXT_AI_ITERATION_COUNT       = document.getElementById('iteration-number');
 const HTML_TEXT_HUMAN_DISTANCE           = document.getElementById('human-distance');
@@ -43,6 +43,7 @@ const HTML_SELECTOR_CLASS_CONFIGURATION    = '.configuration'
 const HTML_SELECTOR_ID_CONSOLE_WRAPPER     = 'verbose-console-wrapper';
 const HTML_SELECTOR_ID_STATS_HUMAN         = 'stats-human-mode';
 const HTML_SELECTOR_ID_STATS_AI            = 'stats-ai-mode';
+const HTML_SELECTOR_TAG_NUMBER_INPUT       = 'input[type=number]';
 
 // CSS Styles
 const CSS_STYLE_HIDDEN  = 'none';
@@ -74,10 +75,12 @@ let humanBestDistance: number;
 let aiBestDistance: number;
 
 /**
- * The scences to which the utils belongs.
+ * The scenes to which the utils belongs.
  * 
  * @note From the official documentation of Phaser.Scenes.ScenePlugin:
- *       > A reference to the Scene Manager Plugin. This property will only be available if defined in the Scene Injection Map.
+ *       <blockquote style="border-left: 4px solid #CCC; padding-left: 8px; ">
+ *          A reference to the Scene Manager Plugin. This property will only be available if defined in the Scene Injection Map.
+ *       </blockquote>
  */
 let scenes: Phaser.Scenes.ScenePlugin
 
@@ -182,6 +185,10 @@ export function fillHTMLWithConfiguration() {
     // Show/Hide stats based on mode
     document.getElementById(HTML_SELECTOR_ID_STATS_HUMAN).style.display = ConfigurationHandler.isHumanMode() ? CSS_STYLE_VISIBLE : CSS_STYLE_HIDDEN;
     document.getElementById(HTML_SELECTOR_ID_STATS_AI).style.display    = ConfigurationHandler.isHumanMode() ? CSS_STYLE_HIDDEN : CSS_STYLE_VISIBLE;
+
+    if (ConfigurationHandler.isVerboseMode()) {
+        appendLineToVerboseConsole(`[Utils]: HTML inputs filled`);
+    }
 }
 
 /**
@@ -189,7 +196,7 @@ export function fillHTMLWithConfiguration() {
  * 
  * @category General utils
  */
-export function updateConfiguartionFromHTML(): void {
+export function updateConfigurationFromHTML(): void {
     ConfigurationHandler.setProperty('gameSettings.humanMode',                          HTML_CHECKBOX_HUMAN_MODE.checked);
     ConfigurationHandler.setProperty('gameSettings.verboseMode',                        HTML_CHECKBOX_VERBOSE_MODE.checked);
     ConfigurationHandler.setProperty('geneticAlgorithm.individualCount',                HTML_INPUT_INDIVIDUAL_COUNT.valueAsNumber);
@@ -213,10 +220,25 @@ export function updateConfiguartionFromHTML(): void {
  */
 export function initializeEventListeners(): void {    
     // Start button
-    HTML_BUTTON_START.addEventListener('click', _ => {
-        updateConfiguartionFromHTML();
+    document.getElementById('configuration-form').addEventListener('submit', _ => {
+        resetForNewGame();
+        updateConfigurationFromHTML();
         ConfigurationHandler.applyChanges();
         scenes.restart({initializeConfig: false});
+    });
+
+    // Inputs
+    document.querySelectorAll(HTML_SELECTOR_TAG_NUMBER_INPUT).forEach((e) => {
+        const element = <HTMLInputElement>e;
+        const label = element.parentNode.parentNode.lastElementChild
+        
+        element.addEventListener('blur', _ => {
+            if (element.checkValidity()) {
+                label.classList.remove('has-text-danger');
+            } else {
+                label.classList.add('has-text-danger');
+            }
+        });
     });
 
     HTML_CHECKBOX_HUMAN_MODE.addEventListener('click', _ => {
@@ -228,14 +250,14 @@ export function initializeEventListeners(): void {
     HTML_CHECKBOX_VERBOSE_MODE.addEventListener('click', _ => {
         HTML_VERBOSE_CONSOLE_WRAPPER.style.display = HTML_VERBOSE_CONSOLE_WRAPPER.style.display === CSS_STYLE_VISIBLE ? CSS_STYLE_HIDDEN : CSS_STYLE_VISIBLE;
         HTML_TAG_VERBOSE_CONSOLE_DISABLED.style.display = HTML_TAG_VERBOSE_CONSOLE_DISABLED.style.display === CSS_STYLE_VISIBLE ? CSS_STYLE_HIDDEN : CSS_STYLE_VISIBLE;
-    });    
+    });  
 }
 
 /**
- * Sets up a vector pointing from a given startpoint to the current pointerposition (mostly the mouse).
+ * Sets up a vector pointing from a given start point to the current pointer position (mostly the mouse).
  * 
  * @param pointer    The pointer which is currently active.
- * @param startPoint Startpoint of the vector.
+ * @param startPoint Start point of the vector.
  * 
  * @returns Returns the created vector.
  * 
@@ -270,6 +292,14 @@ export function resetForNewGame(): void {
     iterationCounter  = 0;
     humanBestDistance = Infinity;
     aiBestDistance    = Infinity;
+
+    HTML_TEXT_AI_ITERATION_COUNT.textContent       = '';
+    HTML_TEXT_HUMAN_TRY_COUNT.textContent          = '';
+    HTML_TEXT_AI_AVERAGE_DISTANCE.textContent      = '';
+    HTML_TEXT_AI_BEST_DISTANCE_LAST.textContent    = '';
+    HTML_TEXT_AI_BEST_DISTANCE_OVERALL.textContent = '';
+    HTML_TEXT_HUMAN_CURRENT_BEST.textContent       = '';
+    HTML_TEXT_HUMAN_DISTANCE.textContent           = '';
 }
 
 

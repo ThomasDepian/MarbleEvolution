@@ -1,10 +1,11 @@
+// cSpell:ignore Lato
 import { HumanModeState, AIModeState } from './States';
 import { Coordinate } from './Coordinate';
 import { MarbleIndividual, MarbleDNA } from './MarbleIndividual';
 import { Obstacle } from './Obstacle';
 import { Goal } from './Goal';
 import { Marble } from './Marble';
-import { ConfigurationHandler, Configuration } from './Configuration';
+import { ConfigurationHandler } from './Configuration';
 import * as Phaser from 'phaser';
 import * as Utils from './Utils'
 import * as GeneticAlgorithm from './GeneticAlgorithm'
@@ -18,7 +19,7 @@ export class Main extends Phaser.Scene {
     /**
      * Reference to the added graphics object for drawing the 
      * line between the starting point of the marble and the
-     * mouse poition during the _initialization_ phase of the marble.
+     * mouse position during the _initialization_ phase of the marble.
      */
     private graphics: Phaser.GameObjects.Graphics;
     /**
@@ -48,14 +49,14 @@ export class Main extends Phaser.Scene {
     private initializeConfig: boolean;
 
     /**
-     * Holds the current levelnumber.
+     * Holds the current level number.
      */
     private levelNumber: number;
 
     /**
      * Holds the current state of the game, if the human mode is enabled.
      * 
-     * @note Only relevenat if human mode is enabled.
+     * @note Only relevant if human mode is enabled.
      */
     private humanModeState: HumanModeState;
 
@@ -63,7 +64,7 @@ export class Main extends Phaser.Scene {
      * Holds the current state of the game, if the human mode is disabled.
      * That means if the genetic algorithm controls the game.
      * 
-     * @note Only relevenat if human mode is disabled.
+     * @note Only relevant if human mode is disabled.
      */
     private aiModeState: AIModeState;
 
@@ -76,9 +77,9 @@ export class Main extends Phaser.Scene {
 
 
     /**
-     * Loads the needed assets, currently only image files,
+     * Loads the needed assets, currently only image files and the configuration,
      * **before** the game loads to ensure the assets are ready once
-     * the game launces.
+     * the game launches.
      * 
      * @note The `preload()` method gets called **before** the `init()` method.
      * 
@@ -117,18 +118,28 @@ export class Main extends Phaser.Scene {
 
     /**
      * Method called once the scene gets created.
-     * Initizies the required properties in order to start a new game.
+     * Initializes the required properties in order to start a new game.
      * 
-     * @note The `create()` method gets called **after** `create()`.
+     * @note The `create()` method gets called **after** `init()`.
      * 
      * @category Phaser
      */
-    public create(): void {   
+    public create(): void {
+
+        // Specify the world borders.
+        // **Note** A 'thickness' of 70 is needed to ensure the 
+        // marble does not fly through a border wall.
+        this.matter.world.setBounds(0,0, +this.game.config.width, +this.game.config.height, 70, true, true, true, true);
         
         Utils.setScenes(this.scene);
 
         if (this.initializeConfig) {
             Utils.initializeConfiguration(this.cache.text.get('configuration'));
+        }
+
+        
+        if (ConfigurationHandler.isVerboseMode()) {
+            Utils.appendLineToVerboseConsole(`[Main]: New game initialized: Initialize config: ${this.initializeConfig}; levelNumber: ${this.levelNumber}`);
         }
 
         if (ConfigurationHandler.isVerboseMode()) {
@@ -138,11 +149,6 @@ export class Main extends Phaser.Scene {
             Utils.appendLineToVerboseConsole('Please restart the game in verbose mode to see the output...');
         }
 
-        // specifiy the world borders.
-        // **Note** A 'thickness' of 70 is needed to ensure the 
-        // marble does not fly through a border wall.
-        this.matter.world.setBounds(0,0, +this.game.config.width, +this.game.config.height, 70, true, true, true, true);
-
         Utils.fillHTMLWithConfiguration();
         this.initializeHandlers();
         this.initializeText();
@@ -151,6 +157,10 @@ export class Main extends Phaser.Scene {
         this.aiModeState    = AIModeState.Inactive;
         
         this.createLevel(this.levelNumber);
+        
+        if (ConfigurationHandler.isVerboseMode()) {
+            Utils.appendLineToVerboseConsole(`[Main]: Create complete; Human mode: ${ConfigurationHandler.isHumanMode()}`);
+        }
     }
 
     /**
@@ -168,7 +178,7 @@ export class Main extends Phaser.Scene {
 
                 this.text.text = "Power: " + (currentPower / 10).toFixed(2);
 
-                // Draw the colored line displaying the start dirction of the marble
+                // Draw the coloured line displaying the start direction of the marble
                 // Color will be interpolated between green (0 power) and red (max power)
                 const colorInter = Phaser.Display.Color.Interpolate.RGBWithRGB(0, 255, 0, 255, 0, 0, 250, currentPower);
                 const color = (colorInter.r << 16) + (colorInter.g << 8) + (colorInter.b);
@@ -198,7 +208,7 @@ export class Main extends Phaser.Scene {
                 Utils.updateIterationCount();
                 this.aiModeState = AIModeState.Launched;
             } else if(this.aiModeState == AIModeState.Launched) {
-                if (GeneticAlgorithm.allStoped()) {
+                if (GeneticAlgorithm.allStopped()) {
                     Utils.updateAIDistance(GeneticAlgorithm.computeAvgDistance(), GeneticAlgorithm.getBestDistance());
                     GeneticAlgorithm.stopIteration();
                     this.aiModeState = AIModeState.NewIterationReady;
@@ -246,10 +256,13 @@ export class Main extends Phaser.Scene {
             GeneticAlgorithm.initializeAlgorithm(initialPopulation);
         }
 
+        if (ConfigurationHandler.isVerboseMode()) {
+            Utils.appendLineToVerboseConsole(`[Main]: Level ${levelNumber} created`);
+        }
     }
 
     /**
-     * Intitializes the texts and graphics. Only needed if `humanMode = true`.
+     * Initializes the texts and graphics. Only needed if `humanMode = true`.
      * 
      * @category Scene utils
      */
@@ -260,7 +273,7 @@ export class Main extends Phaser.Scene {
     }
 
     /**
-     * Intitializes all handler functions
+     * Initializes all handler functions.
      * 
      * @category Scene utils
      */
@@ -294,8 +307,9 @@ export class Main extends Phaser.Scene {
                 }
             }
         }, this);
-    }
-  
 
-    
+        if (ConfigurationHandler.isVerboseMode()) {
+            Utils.appendLineToVerboseConsole(`[Main]: Handlers initialized`);
+        }
+    }    
 }
