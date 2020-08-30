@@ -26,7 +26,6 @@ const HTML_INPUT_ANGLE_RANGE_UPPER       = <HTMLInputElement>document.getElement
 const HTML_TEXT_LEVEL_NAME               = document.getElementById('levelName');
 const HTML_VERBOSE_CONSOLE               = document.getElementById('verbose-console');
 const HTML_VERBOSE_CONSOLE_WRAPPER       = document.getElementById('verbose-console-wrapper');
-const HTML_BUTTON_START                  = document.getElementById('start-button');
 const HTML_TEXT_HUMAN_TRY_COUNT          = document.getElementById('try-number');
 const HTML_TEXT_AI_ITERATION_COUNT       = document.getElementById('iteration-number');
 const HTML_TEXT_HUMAN_DISTANCE           = document.getElementById('human-distance');
@@ -222,6 +221,7 @@ export function updateConfigurationFromHTML(): void {
 export function initializeEventListeners(): void {    
     // Start button
     document.getElementById('configuration-form').addEventListener('submit', _ => {
+        resetForNewGame();
         updateConfigurationFromHTML();
         ConfigurationHandler.applyChanges();
         scenes.restart({initializeConfig: false});
@@ -292,6 +292,14 @@ export function resetForNewGame(): void {
     iterationCounter  = 0;
     humanBestDistance = Infinity;
     aiBestDistance    = Infinity;
+
+    HTML_TEXT_AI_ITERATION_COUNT.textContent       = '';
+    HTML_TEXT_HUMAN_TRY_COUNT.textContent          = '';
+    HTML_TEXT_AI_AVERAGE_DISTANCE.textContent      = '';
+    HTML_TEXT_AI_BEST_DISTANCE_LAST.textContent    = '';
+    HTML_TEXT_AI_BEST_DISTANCE_OVERALL.textContent = '';
+    HTML_TEXT_HUMAN_CURRENT_BEST.textContent       = '';
+    HTML_TEXT_HUMAN_DISTANCE.textContent           = '';
 }
 
 

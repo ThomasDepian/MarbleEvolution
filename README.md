@@ -65,7 +65,7 @@ npm run build
 to build the project and generate the minified javascript file `app.js` in the _dist_ folder.
 
 ## Documentation
-Don't want to dig through the lines of code to understand how everything is connected? I can feel you. The latest documentation can be found in the _docs_ folder.
+Don't want to dig through the lines of code to understand how everything is connected? I can feel you. The latest documentation can be found in the _docs_ folder. The documentation of the latest release can also be found [online](https://thomasdepian.github.io/MarbleEvolution/docs/).
 
 
 ## Contributing
