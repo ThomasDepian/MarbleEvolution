@@ -6,7 +6,7 @@
 A small project showing how marbles find their way to a goal using a genetic algorithm.
 
 ## Demo
-Coming soon.
+To checkout the demo version see [this link](https://thomasdepian.github.io/MarbleEvolution/).
 
 ## How to play
 ### Human mode
