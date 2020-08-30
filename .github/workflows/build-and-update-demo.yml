@@ -51,7 +51,7 @@ jobs:
         run: git checkout gh-pages
         
       - name: pull branch
-        run: git pull
+        run: git pull origin gh-pages
         
       - name: merge
         run: git merge origin/production-test-ci
