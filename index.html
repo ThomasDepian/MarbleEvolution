@@ -11,6 +11,77 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@500&display=swap" rel="stylesheet">
   </head>
   <body>
+    <!-- HEADER SECTION START -->
+    <section class="hero is-fullheight landing-page" id="home">
+      <!-- Upper right github corner -->
+      <a href="https://github.com/ThomasDepian/MarbleEvolution" target="_blank" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="columns is-vcentered">
+            <div class="column">
+              <h1 class="title landing-page-title primary">
+                Marble Evolution
+              </h1>
+              <h2 class="subtitle landing-page-subtitle secondary">
+                Demo Page
+              </h2>
+            </div>
+            <!-- Demo video enclosed in a pc mockup -->
+            <div class="column">
+              <div id="demo-video-outer-wrapper">
+                <div id="demo-video-wrapper">
+                    <video id="demo-video" autoplay muted loop id="demo-video" width="560" height="315">
+                      <source src="./assets/demo-video.mp4" type="video/mp4">
+                    </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FOOTER LINKS START -->
+      <div class="hero-foot">
+        <nav class="tabs is-centered">
+          <div class="container ">
+            <ul>
+              <li>
+                <a class="page-link" href="#home">
+                  <span class="icon"><i class="fas fa-home"></i></span><span>Home</span>
+                </a>
+              </li>
+              <li>
+                <a class="page-link" href="#demo">
+                  <span class="icon"><i class="fas fa-desktop"></i></span><span>Demo</span>
+                </a>
+              </li>
+              <li>
+                <a class="page-link" href="#configuration">
+                  <span class="icon"><i class="fas fa-cog"></i></span><span>Configuration</span>
+                </a>
+              </li>
+              <li>
+                <a class="page-link" href="#console">
+                  <span class="icon"><i class="fas fa-terminal"></i></span><span>Verbose Console</span>
+                </a>
+              </li>
+              <li>
+                <a class="page-link" href="./docs" target="_blank">
+                  <span class="icon"><i class="fas fa-book"></i></span><span>Documentation</span>
+                </a>
+              </li>
+              <li>
+                <a class="page-link" href="#about">
+                  <span class="icon"><i class="fas fa-info-circle"></i></span><span>About</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <!-- FOOTER LINKS END -->
+    </section>
+    <!-- HEADER SECTION END -->
+    <!-- DEMO SECTION START -->
     <section class="hero is-fullheight is-default is-bold" id="demo">
       <div class="hero-body">
         <div class="container has-text-centered">
@@ -113,6 +184,8 @@
         </div>
         </div>
     </section>
+  	<!-- DEMO SECTION END -->
+    <!-- CONFIGURATION SECTION START -->
     <section class="hero is-fullheight" id="configuration">
       <div class="hero-body">
         <div class="container">
@@ -209,6 +282,8 @@
         </div>
       </div>
     </section>
+    <!-- CONFIGURATION SECTION END -->
+    <!-- VERBOSE CONSOLE START -->
     <section class="hero is-fullheight" id="console">
       <div class="hero-body">
         <div class="container">
@@ -225,6 +300,102 @@
         </div>
       </div>
     </section>
+    <!-- VERBOSE CONSOLE END -->
+    <!-- ABOUT START -->
+    <section class="hero is-fullheight" id="about">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-vcentered">
+            <div class="column is-full">
+              <h2 class="title is-1 primary is-spaced">About</h2>
+              <h3 class="subtitle is-4 secondary">How to play</h3>
+              <h4 class="subtitle is-6 accent">Human mode</h4>
+              <p class="content">
+                Once the game has launched left-click somewhere in the game-frame to adjust the direction and the power with which the marble should launch.
+                The coloured line shows you the approximate direction and the text in the lower right corner tells you with which power the marble launches.
+                The higher the power, the faster the marble moves. By releasing the mouse, the marble launches.<br>
+                The text below or next to the game-frame shows you some basic information about the distance to the goal and the best distance reached so far.
+              </p>
+              <h4 class="subtitle is-6 accent">"AI-Mode"</h4>
+              <p class="content">
+                Once the game has launched a left-click inside the game-frame starts the simulation.
+              </p>
+              <h4 class="subtitle is-6 accent">Changing some properties of the simulation</h4>
+              <p class="content">
+                By adjusting the values in the <a href="#configuration" class="page-link has-text-weight-semibold">configuration section</a> you can influence how the marbles evolve over time.<br>
+                Once you entered all values click the button to reload the game and apply the configuration.
+              </p>
+              <h3 class="subtitle is-4 secondary">What is this all about?</h3>
+              <p class="content">
+                Last semester I took an introduction course on artificial intelligence.
+                 With all that, mostly theoretical, knowledge in my mind I decided to try out some new stuff and combined it with
+                 my passion for web development.
+                 The result of this little project is this (pre-)version of the game <span class="has-text-weight-semibold">Marble Evolution</span>.
+              </p>
+              <h3 class="subtitle is-4 secondary">Why is this public?</h3>
+              <p class="content">
+                Honestly I don't know and maybe I will tear down the page in some months. 
+                But I wanted to share some open source code with the world and found it funny that I have something to fiddle with during the lectures in the upcoming semesters.
+              </p>
+              <h3 class="subtitle is-4 secondary">MIT Licence… What does this mean?</h3>
+              <p class="content">
+                The <span class="has-text-weight-semibold">MIT</span> Licence gave me the possibility to share my code without
+                any guarantee of reliability, correctness and completeness while leaving the possibility that anyone can take parts
+                of the code or the project as a whole and integrate it in a new project.<br>
+                Furthermore anyone can <span class="has-text-weight-semibold">alter or extend</span> the code if they found a bug or want to add a new level.<br>
+                <a href="https://choosealicense.com/licenses/mit/" target="_blank" class="page-link has-text-weight-semibold">Take a look at the MIT licence</a>.
+              </p>
+              <h3 class="subtitle is-4 secondary">
+                I want to know more about this project and artificial intelligence in general!</h3>
+              <p class="content">
+                If you want to know more about the project checkout the
+                <a href="https://github.com/ThomasDepian/MarbleEvolution" target="_blank" class="page-link has-text-weight-semibold">GitHub Page</a>
+                and the
+                <a href="./docs/" target="_blank" class="page-link has-text-weight-semibold">documentation</a>.<br>
+                If you want to know more about artificial intelligence or genetic algorithms I can recommend the book
+                <span class="has-text-weight-semibold">Artificial Intelligence: A Modern Approach
+                Norvig</span> by
+                <span class="has-text-weight-semibold">Stuart Russell and Peter Norvig</span>.
+              </p>
+              <h3 class="subtitle is-4 secondary">Some legal stuff</h3>
+              <p class="content">
+                This demo webpage does not require or store any <span class="has-text-weight-semibold">cookies</span>.<br>
+                Furthermore no <span class="has-text-weight-semibold">personal data</span> will be collected, stored and/or processed.<br>
+                The project including this demo-page is stored on/hosted by
+                <a href="https://github.com/" target="_blank" class="page-link has-text-weight-semibold">GitHub Page</a>
+                and <a href="https://pages.github.com/" target="_blank" class="page-link has-text-weight-semibold">GitHub Pages</a>.
+                The Github Global Privacy Practices are available <a href="https://docs.github.com/en/github/site-policy/global-privacy-practices" target="_blank" class="page-link has-text-weight-semibold">here</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ABOUT END -->
+    <!-- FOOTER START -->
+    <footer class="footer">
+      <div class="container has-text-centered">
+        <!-- Badges -->
+        <div class="columns">
+          <div class="column">
+            <a href="https://www.typescriptlang.org/" target="_blank"><img src="https://img.shields.io/badge/build%20with-typescript-3178c6?style=for-the-badge&logo=typescript" alt="Build with TypeScript"></a>
+          </div>
+          <div class="column">
+            <a href="https://phaser.io/phaser3" target="_blank"><img src="https://img.shields.io/badge/build%20with-phaser3-99ccff?style=for-the-badge" alt="Build with Phaser 3"></a>
+          </div>
+          <div class="column">
+            <a href="https://bulma.io/" target="_blank"><img src="https://img.shields.io/badge/designed%20with-bulma-00d1b2?style=for-the-badge&logo=bulma" alt="Designed with Bulma"></a>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column">
+            <p><span>Made with</span> <span class="icon heart-icon"><i class="fas fa-heart"></i></span> <span>during the lockdown.</span></p>
+            <p><span class="icon"><i class="far fa-copyright"></i></span><span>2020 Thomas Depian - <a href="https://choosealicense.com/licenses/mit/" target="_blank"> MIT License</a></span></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- FOOTER END -->
     <script src="dist/app.js"></script>
   </body>
 </html>
