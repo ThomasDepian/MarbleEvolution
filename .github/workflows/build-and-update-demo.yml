@@ -19,31 +19,21 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: init git
-        run: git init
-        
-      - name: add remote
-        run:  git remote add origin https://github.com/$GITHUB_REPOSITORY
-        
-      - name: fetch repo
-        run: git fetch
-        
-      - name: change to branch
-        run: git checkout production-test-ci
-        
-      - name: make sure everything is up to date
-        run: git pull
-
-      - name: Install dev dependencies
-        run: npm i -D
-
-      - name: Build
-        run: npm run build
-      
-      - name: Document
-        run: npm run document
-
-      - name: add and push
+      - name: get repo and checkout master
+        run: |
+          git init
+          git remote add origin https://github.com/$GITHUB_REPOSITORY
+          git fetch
+          git checkout production-test-ci
+          git pull
+          
+      - name: set up dev environment and build files
+        run: |
+          npm i -D
+          npm run build
+          npm run document
+          
+      - name: push files to master
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
@@ -52,21 +42,17 @@ jobs:
           git add -f dist/* docs/*
           git commit -m "build on gitignore"
           git push https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY
-          
-          
-      - name: update git config
+        
+      - name: set up git for next changes:
         run: git config --global merge.ours.driver true
-      
-      - name: checkout gh-pages
-        run: git checkout gh-pages
         
-      - name: pull branch
-        run: git pull
-        
-      - name: merge
-        run: git merge production-test-ci
-      
-      - name: add and push gh pages
+      - name: update gh-pages branch (demo)
+        run: |
+          git checkout gh-pages
+          git pull
+          git merge production-test-ci
+          
+      - name: push gh-pages
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
