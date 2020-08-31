@@ -2,6 +2,7 @@
 # Marble Evolution
 ![GitHub](https://img.shields.io/github/license/ThomasDepian/MarbleEvolution)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/ThomasDepian/MarbleEvolution)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/ThomasDepian/MarbleEvolution/Generate%20build%20and%20documentation%20and%20update%20demo)
 
 A small project showing how marbles find their way to a goal using a genetic algorithm.
 
