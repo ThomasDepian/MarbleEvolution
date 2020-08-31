@@ -49,7 +49,6 @@ jobs:
         
       - name: set up git for next changes
         run: git config --global merge.ours.driver true
-
       - name: update gh-pages branch (demo)
         run: |
           git checkout gh-pages
