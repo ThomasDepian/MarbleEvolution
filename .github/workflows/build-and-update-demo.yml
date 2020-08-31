@@ -19,7 +19,20 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - name: init git
+        run: git init
+        
+      - name: add remote
+        run:  git remote add https://github.com/$GITHUB_REPOSITORY
+        
+      - name: fetch repo
+        run: git fetch
+        
+      - name: change to branch
+        run: git checkout production-test-ci
+        
+      - name: make sure everything is up to date
+        run: git pull
 
       - name: Install dev dependencies
         run: npm i -D
@@ -44,20 +57,14 @@ jobs:
       - name: update git config
         run: git config --global merge.ours.driver true
       
-      - name: get branches
-        run: git fetch
-      
       - name: checkout gh-pages
-        run: git checkout origin/gh-pages
-        
-      - name: get changes
-        run: git fetch
+        run: git checkout gh-pages
         
       - name: pull branch
-        run: git pull origin gh-pages --ff-only
+        run: git pull
         
       - name: merge
-        run: git merge origin/production-test-ci
+        run: git merge production-test-ci
       
       - name: add and push gh pages
         env:
