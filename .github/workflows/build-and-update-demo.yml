@@ -43,7 +43,7 @@ jobs:
           git commit -m "build on gitignore"
           git push https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY
         
-      - name: set up git for next changes:
+      - name: set up git for next changes
         run: git config --global merge.ours.driver true
         
       - name: update gh-pages branch (demo)
