@@ -23,7 +23,7 @@ jobs:
         run: git init
         
       - name: add remote
-        run:  git remote add https://github.com/$GITHUB_REPOSITORY
+        run:  git remote add origin https://github.com/$GITHUB_REPOSITORY
         
       - name: fetch repo
         run: git fetch
