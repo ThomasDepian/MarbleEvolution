@@ -7,7 +7,11 @@ name: Generate build and documentation and update demo
 on:
   push:
     branches:
-      - production-test-ci
+      - master
+  pull_request:
+    branches:
+      - master
+
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,18 +23,21 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      - name: Install dev dependencies
-        run: npm i -D
-
-      - name: Build
-        run: npm run build
-      
-      - name: Document
-        run: npm run document
-
-      - name: add and push
+      - name: get repo and checkout master
+        run: |
+          git init
+          git remote add origin https://github.com/$GITHUB_REPOSITORY
+          git fetch
+          git checkout master
+          git pull
+          
+      - name: set up dev environment and build files
+        run: |
+          npm i -D
+          npm run build
+          npm run document
+          
+      - name: push files to master
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
@@ -39,37 +46,20 @@ jobs:
           git add -f dist/* docs/*
           git commit -m "build on gitignore"
           git push https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY
-  update-demo:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
         
-      - name: update git config
+      - name: set up git for next changes
         run: git config --global merge.ours.driver true
-        
-      - name: get branches
-        run: git fetch
-      
-      - name: checkout gh-pages
-        run: git checkout gh-pages
-        
-      - name: pull branch
-        run: git pull
-        
-      - name: merge
-        run: git merge production-test-ci
-      
-      - name: add and push
+
+      - name: update gh-pages branch (demo)
+        run: |
+          git checkout gh-pages
+          git pull
+          git merge master
+          
+      - name: push gh-pages
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          git add -A
-          git commit -m "update demo"
           git push https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY
-      
-        
-      
-       
-  
