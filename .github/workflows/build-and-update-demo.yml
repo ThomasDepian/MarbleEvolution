@@ -28,8 +28,7 @@ jobs:
           git init
           git remote add origin https://github.com/$GITHUB_REPOSITORY
           git fetch
-          git checkout master
-          git pull
+          git pull origin master
           
       - name: set up dev environment and build files
         run: |
@@ -44,16 +43,17 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git add -f dist/* docs/*
-          git commit -m "build on gitignore"
+          git commit -m "continuous integration build"
           git push https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY
         
       - name: set up git for next changes
         run: git config --global merge.ours.driver true
+
       - name: update gh-pages branch (demo)
         run: |
           git checkout gh-pages
           git pull
-          git merge master
+          git merge master --strategy-option=theirs
           
       - name: push gh-pages
         env:
